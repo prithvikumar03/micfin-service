@@ -1,0 +1,16 @@
+language: java
+before_install:
+  - echo "MAVEN_OPTS='-Xmx2048M -Xss128M -XX:+CMSClassUnloadingEnabled -XX:+UseG1GC -XX:-UseGCOverheadLimit'" > ~/.mavenrc
+  - chmod +x mvnw
+
+sudo: required
+jdk:
+  - oraclejdk8
+
+#script: mvn package -DskipTests
+services:
+  - docker
+
+deploy:
+  provider: script
+  script: bash deploy.sh
