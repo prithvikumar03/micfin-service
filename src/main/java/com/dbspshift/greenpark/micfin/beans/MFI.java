@@ -23,6 +23,13 @@ public class MFI {
         this.fullName = fullName;
     }
 
+    public MFI(String id, String name, String fullName, Address address) {
+        this.id = id;
+        this.name = name;
+        this.fullName = fullName;
+        this.address = address;
+    }
+
     public String getId() {
         return id;
     }

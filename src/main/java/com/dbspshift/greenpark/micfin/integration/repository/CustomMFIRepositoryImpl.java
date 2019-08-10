@@ -14,7 +14,6 @@ public class CustomMFIRepositoryImpl implements CustomMFIRepository<MFI,String>{
     @Autowired
     MongoTemplate mongoTemplate;
 
-
     @Override
     public List<MFI> findByNameStartingWith(String regexp) {
        return null;

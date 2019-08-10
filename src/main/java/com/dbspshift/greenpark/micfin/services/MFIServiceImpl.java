@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.swing.text.html.Option;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
@@ -22,7 +23,7 @@ public class MFIServiceImpl implements MFIService {
     }
 
     @Override
-    public MFI findMFIById(String id) throws Exception {
+    public MFI getMFIById(String id) throws Exception {
         Optional<MFI> mfi=repository.findById(id);
         if(mfi.isPresent())
             return mfi.get();
@@ -30,4 +31,21 @@ public class MFIServiceImpl implements MFIService {
             throw new MFINotFoundException("Could not find details for MFI - [ID = "+id+"  ]");
 
     }
+
+    @Override
+    public List<MFI> getAllMFIs() throws Exception {
+        return null;
+    }
+
+    @Override
+    public MFI updateMFI(MFI mfi) throws Exception {
+        return null;
+    }
+
+    @Override
+    public String deleteMFI(String id) throws Exception {
+        return null;
+    }
+
+
 }

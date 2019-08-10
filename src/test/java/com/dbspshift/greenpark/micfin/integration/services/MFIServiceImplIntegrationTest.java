@@ -16,7 +16,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @RunWith(SpringRunner.class)
@@ -57,14 +56,14 @@ public class MFIServiceImplIntegrationTest {
     @Test
     public void whenValidMFIId_thenMFIShouldBeFound() throws Exception {
         String mfiID = "123";
-        MFI mfi = mfiService.findMFIById(mfiID);
+        MFI mfi = mfiService.getMFIById(mfiID);
         Assert.assertEquals(mfiID, mfi.getId());
     }
 
     @Test(expected = MFINotFoundException.class)
     public void whenInValidMFIId_thenShouldThrowException() throws Exception {
         String mfiID = "InvalidMFIID";
-        MFI mfi = mfiService.findMFIById(mfiID);
+        MFI mfi = mfiService.getMFIById(mfiID);
 
     }
 
