@@ -5,6 +5,8 @@ import com.dbspshift.greenpark.micfin.exceptions.MFINotFoundException;
 import com.dbspshift.greenpark.micfin.integration.repository.MFIRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import javax.swing.text.html.Option;
 import java.util.List;
@@ -14,7 +16,7 @@ import java.util.Optional;
 @Service
 public class MFIServiceImpl implements MFIService {
 
-    @Autowired
+    /*@Autowired
     MFIRepository repository;
 
     @Override
@@ -45,7 +47,7 @@ public class MFIServiceImpl implements MFIService {
     @Override
     public String deleteMFI(String id) throws Exception {
         return null;
-    }
+    }*/
 
 
 }

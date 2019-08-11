@@ -19,7 +19,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 @WebMvcTest(MicFinRestController.class)*/
 public class MicFinRestControllerTest {
 
-    MicFinRestController micFinRestController;
+    /*MicFinRestController micFinRestController;
 
     @Mock
     MFIService mfiService;
@@ -77,9 +77,9 @@ public class MicFinRestControllerTest {
        when(mfiService.deleteMFI("1")).thenReturn("success");
         String s = micFinRestController.deleteMFIById("1");
         assertThat(s.equals("success"));
-    }
+    }*/
 }
-
+// TILL HERE
 
 
     /*private MockMvc mockMvc;

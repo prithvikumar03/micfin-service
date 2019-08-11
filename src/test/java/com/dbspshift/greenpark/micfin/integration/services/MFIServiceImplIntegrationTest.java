@@ -20,7 +20,7 @@ import java.util.Optional;
 
 @RunWith(SpringRunner.class)
 public class MFIServiceImplIntegrationTest {
-
+/*
     @Configuration
     static class TestConfiguration {
         @Bean
@@ -65,6 +65,6 @@ public class MFIServiceImplIntegrationTest {
         String mfiID = "InvalidMFIID";
         MFI mfi = mfiService.getMFIById(mfiID);
 
-    }
+    }*/
 
 }
