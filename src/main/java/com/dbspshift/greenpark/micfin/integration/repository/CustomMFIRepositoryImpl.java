@@ -18,5 +18,14 @@ public class CustomMFIRepositoryImpl implements CustomMFIRepository<MFI,String>{
     public List<MFI> findByNameStartingWith(String regexp) {
        return null;
     }
+
+    //@Override
+    //public Flux<MFI> findByNameStartingWith(String regexp) {
+        /*Query query = new Query();
+        query.addCriteria(Criteria.where("name").regex("^"+regexp));
+        Flux<MFI> mfiList = repository.find(query,MFI.class);
+       return mfiList;*/
+        //return null;
+    //}
 }
 

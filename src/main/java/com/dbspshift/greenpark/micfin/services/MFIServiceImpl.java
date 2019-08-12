@@ -34,7 +34,7 @@ public class MFIServiceImpl implements MFIService {
 
     @Override
     public List<MFI> getAllMFIs() throws Exception {
-        return null;
+        return repository.findAll();
     }
 
     @Override
@@ -43,8 +43,14 @@ public class MFIServiceImpl implements MFIService {
     }
 
     @Override
-    public String deleteMFI(String id) throws Exception {
-        return null;
+    public String deleteMFI(String id){
+        try{
+            repository.deleteById(id);
+            return "success";
+        }
+        catch(IllegalArgumentException e) {
+            return "failed";
+        }
     }
 
 

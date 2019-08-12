@@ -11,7 +11,7 @@
     <groupId>com.dbs.paradigmshift.greenpark</groupId>
     <artifactId>micfin</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>micfin</name>
+    <companyName>micfin</companyName>
     <description>Demo project for Spring Boot</description>
     <packaging>jar</packaging>
 

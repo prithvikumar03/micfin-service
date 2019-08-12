@@ -1,9 +1,8 @@
 package com.dbspshift.greenpark.micfin.beans;
 
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
+import java.util.Date;
 
 /**
  * Created by gayathrig on 24/07/2019.
@@ -14,19 +13,38 @@ public class MFI {
 
     @Id
     private String id;
-    private String name;
-    private String fullName;
+    private String companyName;
+    private String directorName;
+    //private String companyName;
+    //private String directorName;
     private Address address;
+    private String netFundsOwned;
+    private String govtRegistrationNumber;
+    private Date registrationDate;
+    private boolean isOperating;
+    private boolean isBorrowedFromBanks;
+    private boolean isAnyCasePendingInCourt;
+    private String reasonForApplication;
 
-    public MFI(String name, String fullName) {
-        this.name = name;
-        this.fullName = fullName;
+    //company companyName
+    //Director Name
+    //Net funds owned
+    //Govt Identification Number
+    //Date of Registration
+    //Company started business operations
+    //Reasons for applying
+    //Has borrowed from banks?
+    //Pending civil or criminal cases in any court?
+
+    public MFI(String companyName, String directorName) {
+        this.companyName = companyName;
+        this.directorName = directorName;
     }
 
-    public MFI(String id, String name, String fullName, Address address) {
+    public MFI(String id, String companyName, String directorName, Address address) {
         this.id = id;
-        this.name = name;
-        this.fullName = fullName;
+        this.companyName = companyName;
+        this.directorName = directorName;
         this.address = address;
     }
 
@@ -38,20 +56,20 @@ public class MFI {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getCompanyName() {
+        return companyName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getDirectorName() {
+        return directorName;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setDirectorName(String directorName) {
+        this.directorName = directorName;
     }
 
     public Address getAddress() {
@@ -66,8 +84,8 @@ public class MFI {
     public String toString() {
         return "MFI{" +
                 "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", fullName='" + fullName + '\'' +
+                ", companyName='" + companyName + '\'' +
+                ", directorName='" + directorName + '\'' +
                 ", address=" + address +
                 '}';
     }

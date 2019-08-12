@@ -7,4 +7,7 @@ import java.util.List;
 public interface CustomMFIRepository<T,Id> {
 
      List<MFI> findByNameStartingWith(String regexp);
+
+     //Enable this when reactive is enabled.
+//     Flux<MFI> findByNameStartingWith(String regexp);
 }

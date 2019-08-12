@@ -14,6 +14,19 @@ public class Address {
     private String country;
     private String pinCode;
 
+    public Address() {
+
+    }
+
+    public Address(String id, String unitNo, String streetName, String city, String country, String pinCode) {
+        this.id = id;
+        this.unitNo = unitNo;
+        this.streetName = streetName;
+        this.city = city;
+        this.country = country;
+        this.pinCode = pinCode;
+    }
+
     public String getUnitNo() {
         return unitNo;
     }
