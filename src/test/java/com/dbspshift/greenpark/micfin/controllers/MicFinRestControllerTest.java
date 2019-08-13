@@ -2,7 +2,9 @@ package com.dbspshift.greenpark.micfin.controllers;
 
 import com.dbspshift.greenpark.micfin.beans.Address;
 import com.dbspshift.greenpark.micfin.beans.MFI;
+import com.dbspshift.greenpark.micfin.beans.MicroEntrepreneur;
 import com.dbspshift.greenpark.micfin.services.MFIService;
+import com.dbspshift.greenpark.micfin.services.MicroEntrepreneurService;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -19,15 +21,17 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 @WebMvcTest(MicFinRestController.class)*/
 public class MicFinRestControllerTest {
 
-    /*MicFinRestController micFinRestController;
+    MicFinRestController micFinRestController;
 
     @Mock
     MFIService mfiService;
+    @Mock
+    MicroEntrepreneurService microEntrepreneurService;
 
    @Before
     public void setUp() throws Exception {
        MockitoAnnotations.initMocks(this);
-       micFinRestController = new MicFinRestController(mfiService);
+       micFinRestController = new MicFinRestController(mfiService,microEntrepreneurService);
    }
 
     @Test
@@ -45,8 +49,8 @@ public class MicFinRestControllerTest {
     public void testRegisterMFI() throws Exception {
         MFI mfi = new MFI("1","Aditya","Aditya Mohan",new Address());
         when(mfiService.registerMFI(mfi)).thenReturn(mfi);
-        MFI mfi1 = micFinRestController.registerMFI(mfi);
-        assertThat(mfi1.getFullName().equals(mfi.getFullName()));
+        MFI mfi1 = micFinRestController.registerMicroEntrepreneur(mfi);
+        assertThat(mfi1.getDirectorName().equals(mfi.getDirectorName()));
     }
     
     @Test
@@ -58,8 +62,8 @@ public class MicFinRestControllerTest {
        when(mfiService.getAllMFIs()).thenReturn(mfiList);
        final List<MFI> allMFIs = micFinRestController.getAllMFIs();
        assertThat(allMFIs.size()==2);
-       assertThat(allMFIs.get(0).getFullName().equals("Spatika Chandra"));
-       assertThat(allMFIs.get(1).getFullName().equals("Vikram Belur"));
+       assertThat(allMFIs.get(0).getDirectorName().equals("Spatika Chandra"));
+       assertThat(allMFIs.get(1).getDirectorName().equals("Vikram Belur"));
     }
 
     @Test
@@ -69,17 +73,73 @@ public class MicFinRestControllerTest {
 
         when(mfiService.updateMFI(mfi)).thenReturn(updatedMFI);
         MFI mfi1 = micFinRestController.updateMFI(mfi);
-        assertThat(mfi1.getFullName().equals("Aditya Chandra"));
+        assertThat(mfi1.getDirectorName().equals("Aditya Chandra"));
     }
 
     @Test
-    void deleteMFIById() throws Exception{
+    public void deleteMFIById() throws Exception{
        when(mfiService.deleteMFI("1")).thenReturn("success");
         String s = micFinRestController.deleteMFIById("1");
         assertThat(s.equals("success"));
-    }*/
+    }
+
+    @Test
+    public void getAllMicroEntrepreneurs() throws Exception {
+       List<MicroEntrepreneur> listMicroEntpr = new ArrayList<>();
+       MicroEntrepreneur microEntrepreneur = new MicroEntrepreneur();
+       microEntrepreneur.setId("1");
+       listMicroEntpr.add(microEntrepreneur);
+       microEntrepreneur = new MicroEntrepreneur();
+       microEntrepreneur.setId("2");
+
+       when(microEntrepreneurService.getAllMicroEntrepreneursByMFIId("1"))
+       .thenReturn(listMicroEntpr);
+       List<MicroEntrepreneur> allMicroEntrepreneursByMFIId = micFinRestController.getAllMicroEntrepreneurs("1");
+       assertThat(allMicroEntrepreneursByMFIId.size()==2 && allMicroEntrepreneursByMFIId.get(0).getId().equals("1"));
+    }
+
+    @Test
+    public void registerMFI() throws Exception {
+        MicroEntrepreneur microEntrepreneur = new MicroEntrepreneur();
+        microEntrepreneur.setId("1");
+        microEntrepreneur.setAadhar("123456");
+        microEntrepreneur.setFirstName("Aditya");
+
+        when(microEntrepreneurService.registerMicroEntrepreneur(microEntrepreneur)).thenReturn(microEntrepreneur);
+        MicroEntrepreneur microEntrepreneur1 = micFinRestController.registerMicroEntrepreneur(microEntrepreneur);
+        assertThat(microEntrepreneur.getFirstName().equals("Aditya"));
+    }
+
+    @Test
+    public void getMicroEntrepreneur() throws Exception {
+        MicroEntrepreneur microEntrepreneur = new MicroEntrepreneur();
+        microEntrepreneur.setId("1");
+        microEntrepreneur.setAadhar("123456");
+        microEntrepreneur.setFirstName("Varun");
+
+        when(microEntrepreneurService.getMicroEntrepreneurById("1")).thenReturn(microEntrepreneur);
+        MicroEntrepreneur microEntrepreneur1 = micFinRestController.getMicroEntrepreneur("1");
+        assertThat(microEntrepreneur.getFirstName().equals("Varun"));
+    }
+
+    @Test
+    public void updateMicroEntrepreneur() throws Exception {
+        MicroEntrepreneur microEntrepreneur = new MicroEntrepreneur();
+        microEntrepreneur.setId("1");
+        microEntrepreneur.setAadhar("123456");
+        microEntrepreneur.setFirstName("Aditya");
+
+        MicroEntrepreneur microEntrepreneur1 = new MicroEntrepreneur();
+        microEntrepreneur1.setId("1");
+        microEntrepreneur1.setAadhar("123456");
+        microEntrepreneur1.setFirstName("Aalur");
+
+        when(microEntrepreneurService.updateMicroEntrepreneur(microEntrepreneur)).thenReturn(microEntrepreneur1);
+        MicroEntrepreneur microEntrepreneur2 = micFinRestController.updateMicroEntrepreneur(microEntrepreneur);
+        assertThat(microEntrepreneur2.getFirstName().equals("Aalur"));
+    }
 }
-// TILL HERE
+
 
 
     /*private MockMvc mockMvc;

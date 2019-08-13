@@ -1,9 +1,7 @@
 package com.dbspshift.greenpark.micfin.beans;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 
 @Document(value = "Address")
 public class Address {
@@ -28,11 +26,6 @@ public class Address {
         this.country = country;
         this.pinCode = pinCode;
     }
-
-    // ObjectId needs to be converted to string
-    public String getId() { return id; }
-
-    public void setId(String id) { this.id = id; }
 
     public String getUnitNo() {
         return unitNo;
