@@ -2,7 +2,7 @@ package com.dbspshift.greenpark.micfin.services;
 
 import com.dbspshift.greenpark.micfin.beans.MFI;
 import com.dbspshift.greenpark.micfin.exceptions.MFINotFoundException;
-import com.dbspshift.greenpark.micfin.integration.repository.MFIRepository;
+import com.dbspshift.greenpark.micfin.repository.MFIRepository;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

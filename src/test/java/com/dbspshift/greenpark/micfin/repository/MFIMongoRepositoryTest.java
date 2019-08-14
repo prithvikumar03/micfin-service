@@ -1,4 +1,4 @@
-package com.dbspshift.greenpark.micfin.integration.repository;
+package com.dbspshift.greenpark.micfin.repository;
 
 import com.dbspshift.greenpark.micfin.beans.MFI;
 import org.junit.jupiter.api.BeforeAll;
@@ -35,7 +35,7 @@ class MFIMongoRepositoryTest {
     void saveMFI() {
         MFI mfi = new MFI("Grameen Bank", "Grameen Bank - Bangladesh");
         repository.save(mfi);
-        assertEquals(1, repository.findByName("Grameen Bank").size());
+        assertEquals(1, repository.findByCompanyName("Grameen Bank").size());
     }
 
     @Test

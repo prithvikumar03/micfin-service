@@ -35,7 +35,7 @@ public class MicFinRestController {
     //Register and MFI.
     @RequestMapping(method = RequestMethod.POST, path = "/mfi")
     public @ResponseBody MFI registerMicroEntrepreneur(@RequestBody MFI mfi) throws Exception {
-        log.debug("Request received in registerMicroEntrepreneur" + mfi);
+        log.debug("Request received in register MFI" + mfi);
         return (mfiService.registerMFI(mfi));
     }
 
@@ -71,7 +71,7 @@ public class MicFinRestController {
     //-------------------------------------------MICRO ENTREPRENEURS CALLS--------------------------------------------------
     @RequestMapping(method = RequestMethod.GET, path= "/mfi/{id}/micro-entrepreneurs")
     public @ResponseBody List<MicroEntrepreneur> getAllMicroEntrepreneurs(@PathVariable String id) throws Exception{
-        log.debug("Request received in getAllMFIs");
+        log.debug("Request received in getAllMicroEntrepreneurs");
         return microEntrepreneurService.getAllMicroEntrepreneursByMFIId(id);
     }
 

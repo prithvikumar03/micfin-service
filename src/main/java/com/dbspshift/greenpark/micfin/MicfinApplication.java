@@ -10,7 +10,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EnableSwagger2
 @EnableMongoAuditing
-@EnableReactiveMongoRepositories
+//@EnableReactiveMongoRepositories
 //Swagger UI will be available at http://localhost:<portnumber>/swagger-ui.html
 public class MicfinApplication {
 

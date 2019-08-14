@@ -36,6 +36,10 @@ public class MFI {
     //Has borrowed from banks?
     //Pending civil or criminal cases in any court?
 
+
+    public MFI() {
+    }
+
     public MFI(String companyName, String directorName) {
         this.companyName = companyName;
         this.directorName = directorName;

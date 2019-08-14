@@ -1,4 +1,4 @@
-package com.dbspshift.greenpark.micfin.integration.repository;
+package com.dbspshift.greenpark.micfin.repository;
 
 import com.dbspshift.greenpark.micfin.beans.MFI;
 import org.springframework.beans.factory.annotation.Autowired;

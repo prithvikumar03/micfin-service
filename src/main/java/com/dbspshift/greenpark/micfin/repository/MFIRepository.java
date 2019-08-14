@@ -1,4 +1,4 @@
-package com.dbspshift.greenpark.micfin.integration.repository;
+package com.dbspshift.greenpark.micfin.repository;
 
 import com.dbspshift.greenpark.micfin.beans.MFI;
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -10,5 +10,5 @@ import java.util.List;
  */
 
 public interface MFIRepository extends MongoRepository<MFI,String>,CustomMFIRepository<MFI,String>{
-      List<MFI> findByName(String name);
+      List<MFI> findByCompanyName(String companyName);
 }
