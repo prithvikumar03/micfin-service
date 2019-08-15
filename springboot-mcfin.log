@@ -23,3 +23,301 @@
 2019-08-15 05:56:06.458  INFO 10984 --- [main] c.d.greenpark.micfin.MicfinApplication   : Started MicfinApplication in 5.285 seconds (JVM running for 6.018)
 2019-08-15 05:56:06.536  INFO 10984 --- [cluster-ClusterId{value='5d54837665e2b42ae88a8010', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:2}] to localhost:27017
 2019-08-15 05:56:06.538  INFO 10984 --- [cluster-ClusterId{value='5d54837665e2b42ae88a8010', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 9]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=1863300}
+2019-08-15 19:43:19.971  INFO 14192 --- [main] c.d.greenpark.micfin.MicfinApplication   : Starting MicfinApplication on DESKTOP-BJMVDT9 with PID 14192 (D:\DbsPShift\code\micfin-service\target\classes started by prith in D:\DbsPShift\code\micfin-service)
+2019-08-15 19:43:20.012  INFO 14192 --- [main] c.d.greenpark.micfin.MicfinApplication   : No active profile set, falling back to default profiles: default
+2019-08-15 19:43:21.908  INFO 14192 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-15 19:43:22.144  INFO 14192 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 225ms. Found 0 repository interfaces.
+2019-08-15 19:43:22.151  INFO 14192 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-15 19:43:22.192  INFO 14192 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 41ms. Found 2 repository interfaces.
+2019-08-15 19:43:23.482  INFO 14192 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-08-15 19:43:23.534  INFO 14192 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-08-15 19:43:23.535  INFO 14192 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2019-08-15 19:43:23.750  INFO 14192 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-08-15 19:43:23.751  INFO 14192 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3620 ms
+2019-08-15 19:43:24.650  INFO 14192 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-08-15 19:43:24.766  INFO 14192 --- [cluster-ClusterId{value='5d55455c65e2b437704dd902', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:3}] to localhost:27017
+2019-08-15 19:43:24.776  INFO 14192 --- [cluster-ClusterId{value='5d55455c65e2b437704dd902', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 9]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=5665401}
+2019-08-15 19:43:25.766  INFO 14192 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-08-15 19:43:25.972  INFO 14192 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-15 19:43:26.300  INFO 14192 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-08-15 19:43:26.433  INFO 14192 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-08-15 19:43:26.471  INFO 14192 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-08-15 19:43:26.556  INFO 14192 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-08-15 19:43:26.930  INFO 14192 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: registerMicroEntrepreneurUsingPOST_1
+2019-08-15 19:43:26.993  INFO 14192 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2019-08-15 19:43:26.997  INFO 14192 --- [main] c.d.greenpark.micfin.MicfinApplication   : Started MicfinApplication in 7.86 seconds (JVM running for 8.864)
+2019-08-15 19:43:27.082  INFO 14192 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-08-15 19:43:27.082  INFO 14192 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-08-15 19:43:27.095  INFO 14192 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2019-08-15 19:43:27.178  INFO 14192 --- [cluster-ClusterId{value='5d55455e65e2b437704dd903', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:4}] to localhost:27017
+2019-08-15 19:43:27.187  INFO 14192 --- [cluster-ClusterId{value='5d55455e65e2b437704dd903', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 9]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=8580299}
+2019-08-15 19:44:26.183  INFO 17480 --- [main] c.d.greenpark.micfin.MicfinApplication   : Starting MicfinApplication on DESKTOP-BJMVDT9 with PID 17480 (D:\DbsPShift\code\micfin-service\target\classes started by prith in D:\DbsPShift\code\micfin-service)
+2019-08-15 19:44:26.189  INFO 17480 --- [main] c.d.greenpark.micfin.MicfinApplication   : No active profile set, falling back to default profiles: default
+2019-08-15 19:44:28.004  INFO 17480 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-15 19:44:28.190  INFO 17480 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 179ms. Found 0 repository interfaces.
+2019-08-15 19:44:28.198  INFO 17480 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-15 19:44:28.244  INFO 17480 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46ms. Found 2 repository interfaces.
+2019-08-15 19:44:29.463  INFO 17480 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-08-15 19:44:29.508  INFO 17480 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-08-15 19:44:29.509  INFO 17480 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2019-08-15 19:44:29.718  INFO 17480 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-08-15 19:44:29.718  INFO 17480 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3424 ms
+2019-08-15 19:44:30.602  INFO 17480 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-08-15 19:44:30.676  INFO 17480 --- [cluster-ClusterId{value='5d55459e65e2b444484689db', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:5}] to localhost:27017
+2019-08-15 19:44:30.685  INFO 17480 --- [cluster-ClusterId{value='5d55459e65e2b444484689db', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 9]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=4275400}
+2019-08-15 19:44:31.562  INFO 17480 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-08-15 19:44:31.778  INFO 17480 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-15 19:44:32.054  INFO 17480 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-08-15 19:44:32.172  INFO 17480 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-08-15 19:44:32.202  INFO 17480 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-08-15 19:44:32.271  INFO 17480 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-08-15 19:44:32.648  INFO 17480 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: registerMicroEntrepreneurUsingPOST_1
+2019-08-15 19:44:32.706  INFO 17480 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2019-08-15 19:44:32.711  INFO 17480 --- [main] c.d.greenpark.micfin.MicfinApplication   : Started MicfinApplication in 7.31 seconds (JVM running for 8.094)
+2019-08-15 19:44:32.821  INFO 17480 --- [cluster-ClusterId{value='5d5545a065e2b444484689dc', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:6}] to localhost:27017
+2019-08-15 19:44:32.825  INFO 17480 --- [cluster-ClusterId{value='5d5545a065e2b444484689dc', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 9]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2918601}
+2019-08-15 19:44:32.843  INFO 17480 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-08-15 19:44:32.844  INFO 17480 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-08-15 19:44:32.852  INFO 17480 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2019-08-15 19:44:46.412  INFO 17480 --- [http-nio-8081-exec-5] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:3, serverValue:7}] to localhost:27017
+2019-08-15 19:44:54.376 ERROR 17480 --- [http-nio-8081-exec-9] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.dbspshift.greenpark.micfin.exceptions.MFINotFoundException: Could not find details for MFI - [ID = 2  ]] with root cause
+
+com.dbspshift.greenpark.micfin.exceptions.MFINotFoundException: Could not find details for MFI - [ID = 2  ]
+	at com.dbspshift.greenpark.micfin.services.MFIServiceImpl.getMFIById(MFIServiceImpl.java:29) ~[classes/:na]
+	at com.dbspshift.greenpark.micfin.controllers.MicFinRestController.findMFIById(MicFinRestController.java:59) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:892) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1039) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:853) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1587) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+2019-08-15 19:45:32.066  INFO 11772 --- [main] c.d.greenpark.micfin.MicfinApplication   : Starting MicfinApplication on DESKTOP-BJMVDT9 with PID 11772 (D:\DbsPShift\code\micfin-service\target\classes started by prith in D:\DbsPShift\code\micfin-service)
+2019-08-15 19:45:32.071  INFO 11772 --- [main] c.d.greenpark.micfin.MicfinApplication   : No active profile set, falling back to default profiles: default
+2019-08-15 19:45:33.891  INFO 11772 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-15 19:45:34.091  INFO 11772 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 190ms. Found 0 repository interfaces.
+2019-08-15 19:45:34.098  INFO 11772 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-15 19:45:34.136  INFO 11772 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 38ms. Found 2 repository interfaces.
+2019-08-15 19:45:35.340  INFO 11772 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-08-15 19:45:35.393  INFO 11772 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-08-15 19:45:35.394  INFO 11772 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2019-08-15 19:45:35.611  INFO 11772 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-08-15 19:45:35.611  INFO 11772 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3427 ms
+2019-08-15 19:45:36.646  INFO 11772 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-08-15 19:45:36.772  INFO 11772 --- [cluster-ClusterId{value='5d5545e065e2b42dfc878773', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:8}] to localhost:27017
+2019-08-15 19:45:36.783  INFO 11772 --- [cluster-ClusterId{value='5d5545e065e2b42dfc878773', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 9]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=5403400}
+2019-08-15 19:45:38.066  INFO 11772 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-08-15 19:45:38.393  INFO 11772 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-15 19:45:38.808  INFO 11772 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-08-15 19:45:39.002  INFO 11772 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-08-15 19:45:39.053  INFO 11772 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-08-15 19:45:39.163  INFO 11772 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-08-15 19:45:39.690  INFO 11772 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: registerMicroEntrepreneurUsingPOST_1
+2019-08-15 19:45:39.764  INFO 11772 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2019-08-15 19:45:39.771  INFO 11772 --- [main] c.d.greenpark.micfin.MicfinApplication   : Started MicfinApplication in 8.381 seconds (JVM running for 9.1)
+2019-08-15 19:45:39.865  INFO 11772 --- [cluster-ClusterId{value='5d5545e265e2b42dfc878774', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:9}] to localhost:27017
+2019-08-15 19:45:39.869  INFO 11772 --- [cluster-ClusterId{value='5d5545e265e2b42dfc878774', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 9]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=3209300}
+2019-08-15 19:45:39.988  INFO 11772 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-08-15 19:45:39.988  INFO 11772 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-08-15 19:45:40.001  INFO 11772 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2019-08-15 19:46:30.131  INFO 10084 --- [main] c.d.greenpark.micfin.MicfinApplication   : Starting MicfinApplication on DESKTOP-BJMVDT9 with PID 10084 (D:\DbsPShift\code\micfin-service\target\classes started by prith in D:\DbsPShift\code\micfin-service)
+2019-08-15 19:46:30.136  INFO 10084 --- [main] c.d.greenpark.micfin.MicfinApplication   : No active profile set, falling back to default profiles: default
+2019-08-15 19:46:32.009  INFO 10084 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-15 19:46:32.198  INFO 10084 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 181ms. Found 0 repository interfaces.
+2019-08-15 19:46:32.207  INFO 10084 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-15 19:46:32.248  INFO 10084 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 41ms. Found 2 repository interfaces.
+2019-08-15 19:46:33.521  INFO 10084 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-08-15 19:46:33.569  INFO 10084 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-08-15 19:46:33.570  INFO 10084 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2019-08-15 19:46:33.764  INFO 10084 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-08-15 19:46:33.764  INFO 10084 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3509 ms
+2019-08-15 19:46:34.594  INFO 10084 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-08-15 19:46:34.672  INFO 10084 --- [cluster-ClusterId{value='5d55461a65e2b42764a713c7', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:10}] to localhost:27017
+2019-08-15 19:46:34.680  INFO 10084 --- [cluster-ClusterId{value='5d55461a65e2b42764a713c7', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 9]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=3790101}
+2019-08-15 19:46:35.689  INFO 10084 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-08-15 19:46:35.889  INFO 10084 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-15 19:46:36.225  INFO 10084 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-08-15 19:46:36.353  INFO 10084 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-08-15 19:46:36.382  INFO 10084 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-08-15 19:46:36.459  INFO 10084 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-08-15 19:46:36.804  INFO 10084 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: registerMicroEntrepreneurUsingPOST_1
+2019-08-15 19:46:36.859  INFO 10084 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2019-08-15 19:46:36.865  INFO 10084 --- [main] c.d.greenpark.micfin.MicfinApplication   : Started MicfinApplication in 7.424 seconds (JVM running for 8.13)
+2019-08-15 19:46:36.990  INFO 10084 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-08-15 19:46:36.990  INFO 10084 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-08-15 19:46:36.999  INFO 10084 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2019-08-15 19:46:37.072  INFO 10084 --- [cluster-ClusterId{value='5d55461c65e2b42764a713c8', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:11}] to localhost:27017
+2019-08-15 19:46:37.075  INFO 10084 --- [cluster-ClusterId{value='5d55461c65e2b42764a713c8', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 9]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2030700}
+2019-08-15 19:47:14.804  INFO 7472 --- [main] c.d.greenpark.micfin.MicfinApplication   : Starting MicfinApplication on DESKTOP-BJMVDT9 with PID 7472 (D:\DbsPShift\code\micfin-service\target\classes started by prith in D:\DbsPShift\code\micfin-service)
+2019-08-15 19:47:14.808  INFO 7472 --- [main] c.d.greenpark.micfin.MicfinApplication   : No active profile set, falling back to default profiles: default
+2019-08-15 19:47:16.695  INFO 7472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-15 19:47:16.930  INFO 7472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 224ms. Found 0 repository interfaces.
+2019-08-15 19:47:16.939  INFO 7472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-15 19:47:16.983  INFO 7472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 44ms. Found 2 repository interfaces.
+2019-08-15 19:47:18.466  INFO 7472 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-08-15 19:47:18.544  INFO 7472 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-08-15 19:47:18.545  INFO 7472 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2019-08-15 19:47:18.830  INFO 7472 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-08-15 19:47:18.830  INFO 7472 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3928 ms
+2019-08-15 19:47:20.077  INFO 7472 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-08-15 19:47:20.185  INFO 7472 --- [cluster-ClusterId{value='5d55464865e2b41d30785fe7', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:12}] to localhost:27017
+2019-08-15 19:47:20.197  INFO 7472 --- [cluster-ClusterId{value='5d55464865e2b41d30785fe7', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 9]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=5525500}
+2019-08-15 19:47:21.470  INFO 7472 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-08-15 19:47:21.755  INFO 7472 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-15 19:47:22.149  INFO 7472 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-08-15 19:47:22.326  INFO 7472 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-08-15 19:47:22.370  INFO 7472 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-08-15 19:47:22.474  INFO 7472 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-08-15 19:47:22.948  INFO 7472 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: registerMicroEntrepreneurUsingPOST_1
+2019-08-15 19:47:23.046  INFO 7472 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2019-08-15 19:47:23.053  INFO 7472 --- [main] c.d.greenpark.micfin.MicfinApplication   : Started MicfinApplication in 8.938 seconds (JVM running for 9.623)
+2019-08-15 19:47:23.273  INFO 7472 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-08-15 19:47:23.273  INFO 7472 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-08-15 19:47:23.298  INFO 7472 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 24 ms
+2019-08-15 19:47:23.321  INFO 7472 --- [cluster-ClusterId{value='5d55464a65e2b41d30785fe8', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:13}] to localhost:27017
+2019-08-15 19:47:23.325  INFO 7472 --- [cluster-ClusterId{value='5d55464a65e2b41d30785fe8', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 9]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=3579600}
+2019-08-15 19:47:42.541  INFO 20476 --- [main] c.d.greenpark.micfin.MicfinApplication   : Starting MicfinApplication on DESKTOP-BJMVDT9 with PID 20476 (D:\DbsPShift\code\micfin-service\target\classes started by prith in D:\DbsPShift\code\micfin-service)
+2019-08-15 19:47:42.546  INFO 20476 --- [main] c.d.greenpark.micfin.MicfinApplication   : No active profile set, falling back to default profiles: default
+2019-08-15 19:47:44.507  INFO 20476 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-15 19:47:44.700  INFO 20476 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 185ms. Found 0 repository interfaces.
+2019-08-15 19:47:44.706  INFO 20476 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-15 19:47:44.771  INFO 20476 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 65ms. Found 2 repository interfaces.
+2019-08-15 19:47:46.439  INFO 20476 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-08-15 19:47:46.502  INFO 20476 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-08-15 19:47:46.503  INFO 20476 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2019-08-15 19:47:46.794  INFO 20476 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-08-15 19:47:46.794  INFO 20476 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4142 ms
+2019-08-15 19:47:48.034  INFO 20476 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-08-15 19:47:48.220  INFO 20476 --- [cluster-ClusterId{value='5d55466465e2b44ffc4da29f', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:14}] to localhost:27017
+2019-08-15 19:47:48.240  INFO 20476 --- [cluster-ClusterId{value='5d55466465e2b44ffc4da29f', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 9]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=9732099}
+2019-08-15 19:47:49.528  INFO 20476 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-08-15 19:47:49.825  INFO 20476 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-15 19:47:50.251  INFO 20476 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-08-15 19:47:50.409  INFO 20476 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-08-15 19:47:50.460  INFO 20476 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-08-15 19:47:50.569  INFO 20476 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-08-15 19:47:51.036  INFO 20476 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: registerMicroEntrepreneurUsingPOST_1
+2019-08-15 19:47:51.127  INFO 20476 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2019-08-15 19:47:51.134  INFO 20476 --- [main] c.d.greenpark.micfin.MicfinApplication   : Started MicfinApplication in 9.307 seconds (JVM running for 9.991)
+2019-08-15 19:47:51.357  INFO 20476 --- [cluster-ClusterId{value='5d55466665e2b44ffc4da2a0', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:15}] to localhost:27017
+2019-08-15 19:47:51.362  INFO 20476 --- [cluster-ClusterId{value='5d55466665e2b44ffc4da2a0', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 9]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=4057700}
+2019-08-15 19:47:51.390  INFO 20476 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-08-15 19:47:51.390  INFO 20476 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-08-15 19:47:51.406  INFO 20476 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 15 ms
+2019-08-15 19:50:46.133  INFO 15476 --- [main] c.d.greenpark.micfin.MicfinApplication   : Starting MicfinApplication on DESKTOP-BJMVDT9 with PID 15476 (D:\DbsPShift\code\micfin-service\target\classes started by prith in D:\DbsPShift\code\micfin-service)
+2019-08-15 19:50:46.139  INFO 15476 --- [main] c.d.greenpark.micfin.MicfinApplication   : No active profile set, falling back to default profiles: default
+2019-08-15 19:50:48.026  INFO 15476 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-15 19:50:48.214  INFO 15476 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 180ms. Found 0 repository interfaces.
+2019-08-15 19:50:48.221  INFO 15476 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-15 19:50:48.267  INFO 15476 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 45ms. Found 2 repository interfaces.
+2019-08-15 19:50:49.468  INFO 15476 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-08-15 19:50:49.514  INFO 15476 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-08-15 19:50:49.514  INFO 15476 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2019-08-15 19:50:49.711  INFO 15476 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-08-15 19:50:49.711  INFO 15476 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3469 ms
+2019-08-15 19:50:50.642  INFO 15476 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-08-15 19:50:50.747  INFO 15476 --- [cluster-ClusterId{value='5d55471a65e2b43c74eeecda', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:16}] to localhost:27017
+2019-08-15 19:50:50.760  INFO 15476 --- [cluster-ClusterId{value='5d55471a65e2b43c74eeecda', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 9]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=5640400}
+2019-08-15 19:50:51.696  INFO 15476 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-08-15 19:50:51.878  INFO 15476 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-15 19:50:52.168  INFO 15476 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-08-15 19:50:52.389  INFO 15476 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: d465c0e4-3c7e-4e4a-b2ae-f04388fdf888
+
+2019-08-15 19:50:52.513  INFO 15476 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@291cbe70, org.springframework.security.web.context.SecurityContextPersistenceFilter@15ad5acb, org.springframework.security.web.header.HeaderWriterFilter@146833a2, org.springframework.security.web.csrf.CsrfFilter@3c3cd7a5, org.springframework.security.web.authentication.logout.LogoutFilter@fb2c2f3, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4feec184, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@12270a01, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@6be422da, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3c9ef37b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4bb9f7d4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@558127d2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@225ddf5f, org.springframework.security.web.session.SessionManagementFilter@424a152f, org.springframework.security.web.access.ExceptionTranslationFilter@2ed7978c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@24435620]
+2019-08-15 19:50:52.588  INFO 15476 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-08-15 19:50:52.620  INFO 15476 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-08-15 19:50:52.690  INFO 15476 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-08-15 19:50:53.006  INFO 15476 --- [cluster-ClusterId{value='5d55471c65e2b43c74eeecdb', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:17}] to localhost:27017
+2019-08-15 19:50:53.007  INFO 15476 --- [cluster-ClusterId{value='5d55471c65e2b43c74eeecdb', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 9]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2142700}
+2019-08-15 19:50:53.019  INFO 15476 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: registerMicroEntrepreneurUsingPOST_1
+2019-08-15 19:50:53.072  INFO 15476 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2019-08-15 19:50:53.077  INFO 15476 --- [main] c.d.greenpark.micfin.MicfinApplication   : Started MicfinApplication in 7.659 seconds (JVM running for 8.425)
+2019-08-15 19:50:53.228  INFO 15476 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-08-15 19:50:53.228  INFO 15476 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-08-15 19:50:53.239  INFO 15476 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2019-08-15 19:52:08.852  WARN 15476 --- [http-nio-8081-exec-7] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [403] milliseconds.
+2019-08-15 19:52:47.083  INFO 15476 --- [http-nio-8081-exec-7] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:3, serverValue:18}] to localhost:27017
+2019-08-15 20:13:32.694  INFO 15212 --- [main] c.d.greenpark.micfin.MicfinApplication   : Starting MicfinApplication on DESKTOP-BJMVDT9 with PID 15212 (D:\DbsPShift\code\micfin-service\target\classes started by prith in D:\DbsPShift\code\micfin-service)
+2019-08-15 20:13:32.702  INFO 15212 --- [main] c.d.greenpark.micfin.MicfinApplication   : No active profile set, falling back to default profiles: default
+2019-08-15 20:13:34.628  INFO 15212 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-15 20:13:34.840  INFO 15212 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 204ms. Found 0 repository interfaces.
+2019-08-15 20:13:34.848  INFO 15212 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-15 20:13:34.890  INFO 15212 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 41ms. Found 2 repository interfaces.
+2019-08-15 20:13:36.144  INFO 15212 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-08-15 20:13:36.184  INFO 15212 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-08-15 20:13:36.184  INFO 15212 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2019-08-15 20:13:36.385  INFO 15212 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-08-15 20:13:36.385  INFO 15212 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3577 ms
+2019-08-15 20:13:37.275  INFO 15212 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-08-15 20:13:37.348  INFO 15212 --- [cluster-ClusterId{value='5d554c7165e2b43b6cd6a54c', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:19}] to localhost:27017
+2019-08-15 20:13:37.355  INFO 15212 --- [cluster-ClusterId{value='5d554c7165e2b43b6cd6a54c', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 9]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=3682100}
+2019-08-15 20:13:38.555  INFO 15212 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-08-15 20:13:38.769  INFO 15212 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-15 20:13:39.056  INFO 15212 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-08-15 20:13:39.245  INFO 15212 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 5b0f4f94-8626-4c55-a1a7-8179d0d878a2
+
+2019-08-15 20:13:39.373  INFO 15212 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@df6f19b, org.springframework.security.web.context.SecurityContextPersistenceFilter@13f36d75, org.springframework.security.web.header.HeaderWriterFilter@3cb49121, org.springframework.security.web.csrf.CsrfFilter@4e3ee457, org.springframework.security.web.authentication.logout.LogoutFilter@50e1f3fc, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@ab4d2ba, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@79777da7, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@6d842877, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@278cb145, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3155f190, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@75aa7703, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@614cbec4, org.springframework.security.web.session.SessionManagementFilter@4c4215d7, org.springframework.security.web.access.ExceptionTranslationFilter@5e360c3b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@215a0264]
+2019-08-15 20:13:39.447  INFO 15212 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-08-15 20:13:39.474  INFO 15212 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-08-15 20:13:39.542  INFO 15212 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-08-15 20:13:39.848  INFO 15212 --- [cluster-ClusterId{value='5d554c7365e2b43b6cd6a54d', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:20}] to localhost:27017
+2019-08-15 20:13:39.851  INFO 15212 --- [cluster-ClusterId{value='5d554c7365e2b43b6cd6a54d', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 9]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2797201}
+2019-08-15 20:13:39.900  INFO 15212 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: registerMicroEntrepreneurUsingPOST_1
+2019-08-15 20:13:39.951  INFO 15212 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2019-08-15 20:13:39.955  INFO 15212 --- [main] c.d.greenpark.micfin.MicfinApplication   : Started MicfinApplication in 7.98 seconds (JVM running for 8.72)
+2019-08-15 20:13:40.104  INFO 15212 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-08-15 20:13:40.104  INFO 15212 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-08-15 20:13:40.112  INFO 15212 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2019-08-15 20:14:06.415  WARN 15212 --- [http-nio-8081-exec-7] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [247] milliseconds.
