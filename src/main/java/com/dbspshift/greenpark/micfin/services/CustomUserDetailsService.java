@@ -11,9 +11,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
 
+@Service
 public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired
@@ -23,6 +25,9 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    public User findUserByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
 
     public void saveUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
@@ -33,7 +38,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = userRepository.findByEmail(email);
         if(user != null) {
             List<GrantedAuthority> authorities = getUserAuthority(user.getRoles());
@@ -54,6 +59,6 @@ public class CustomUserDetailsService implements UserDetailsService {
     }
 
     private UserDetails buildUserForAuthentication(User user, List<GrantedAuthority> authorities) {
-        return new org.springframework.security.core.userdetails.User(user.getPassword(), authorities);
+        return new org.springframework.security.core.userdetails.User(user.getEmail(),user.getPassword(), authorities);
     }
 }
