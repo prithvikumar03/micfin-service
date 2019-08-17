@@ -83,6 +83,62 @@ public class MFI {
         this.address = address;
     }
 
+    public String getNetFundsOwned() {
+        return netFundsOwned;
+    }
+
+    public void setNetFundsOwned(String netFundsOwned) {
+        this.netFundsOwned = netFundsOwned;
+    }
+
+    public String getGovtRegistrationNumber() {
+        return govtRegistrationNumber;
+    }
+
+    public void setGovtRegistrationNumber(String govtRegistrationNumber) {
+        this.govtRegistrationNumber = govtRegistrationNumber;
+    }
+
+    public Date getRegistrationDate() {
+        return registrationDate;
+    }
+
+    public void setRegistrationDate(Date registrationDate) {
+        this.registrationDate = registrationDate;
+    }
+
+    public boolean isOperating() {
+        return isOperating;
+    }
+
+    public void setOperating(boolean operating) {
+        isOperating = operating;
+    }
+
+    public boolean isBorrowedFromBanks() {
+        return isBorrowedFromBanks;
+    }
+
+    public void setBorrowedFromBanks(boolean borrowedFromBanks) {
+        isBorrowedFromBanks = borrowedFromBanks;
+    }
+
+    public boolean isAnyCasePendingInCourt() {
+        return isAnyCasePendingInCourt;
+    }
+
+    public void setAnyCasePendingInCourt(boolean anyCasePendingInCourt) {
+        isAnyCasePendingInCourt = anyCasePendingInCourt;
+    }
+
+    public String getReasonForApplication() {
+        return reasonForApplication;
+    }
+
+    public void setReasonForApplication(String reasonForApplication) {
+        this.reasonForApplication = reasonForApplication;
+    }
+
     @Override
     public String toString() {
         return "MFI{" +

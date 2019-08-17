@@ -4536,3 +4536,297 @@ javax.servlet.ServletException: Circular view path [login]: would dispatch back 
 2019-08-17 11:30:24.658  INFO 21936 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2019-08-17 11:30:24.658  INFO 21936 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2019-08-17 11:30:24.665  INFO 21936 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2019-08-17 11:40:12.188  INFO 24384 --- [main] c.d.greenpark.micfin.MicfinApplication   : Starting MicfinApplication on DESKTOP-BJMVDT9 with PID 24384 (D:\DbsPShift\code\micfin-service\target\classes started by prith in D:\DbsPShift\code\micfin-service)
+2019-08-17 11:40:12.193  INFO 24384 --- [main] c.d.greenpark.micfin.MicfinApplication   : No active profile set, falling back to default profiles: default
+2019-08-17 11:40:13.593  INFO 24384 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-17 11:40:13.756  INFO 24384 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 158ms. Found 4 repository interfaces.
+2019-08-17 11:40:14.581  INFO 24384 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-08-17 11:40:14.610  INFO 24384 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-08-17 11:40:14.611  INFO 24384 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2019-08-17 11:40:14.735  INFO 24384 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-08-17 11:40:14.736  INFO 24384 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2475 ms
+2019-08-17 11:40:16.643  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : note: noprealloc may hurt performance in many applications
+2019-08-17 11:40:16.701  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:16.701+0800 I CONTROL  [initandlisten] MongoDB starting : pid=10392 port=50549 dbpath=C:\Users\prith\AppData\Local\Temp\embedmongo-db-5e11481d-6c94-490c-ba64-3ea66bb6893d 64-bit host=DESKTOP-BJMVDT9
+2019-08-17 11:40:16.701  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:16.701+0800 I CONTROL  [initandlisten] targetMinOS: Windows Vista/Windows Server 2008
+2019-08-17 11:40:16.701  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:16.701+0800 I CONTROL  [initandlisten] db version v3.5.5
+2019-08-17 11:40:16.701  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:16.701+0800 I CONTROL  [initandlisten] git version: 98515c812b6fa893613f063dae568ff8319cbfbd
+2019-08-17 11:40:16.701  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:16.701+0800 I CONTROL  [initandlisten] allocator: tcmalloc
+2019-08-17 11:40:16.701  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:16.701+0800 I CONTROL  [initandlisten] modules: none
+2019-08-17 11:40:16.701  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:16.701+0800 I CONTROL  [initandlisten] build environment:
+2019-08-17 11:40:16.702  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:16.701+0800 I CONTROL  [initandlisten]     distarch: x86_64
+2019-08-17 11:40:16.702  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:16.701+0800 I CONTROL  [initandlisten]     target_arch: x86_64
+2019-08-17 11:40:16.702  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:16.701+0800 I CONTROL  [initandlisten] options: { net: { bindIp: "127.0.0.1", http: { enabled: false }, port: 50549 }, security: { authorization: "disabled" }, storage: { dbPath: "C:\Users\prith\AppData\Local\Temp\embedmongo-db-5e11481d-6c94-490c-ba64-3ea66bb6893d", journal: { enabled: false }, mmapv1: { preallocDataFiles: false, smallFiles: true }, syncPeriodSecs: 0.0 } }
+2019-08-17 11:40:16.702  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:16.702+0800 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=7596M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=0,log_size=2GB),statistics_log=(wait=0),verbose=(recovery_progress),,log=(enabled=false),
+2019-08-17 11:40:16.755  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:16.756+0800 W STORAGE  [initandlisten] Detected configuration for non-active storage engine mmapv1 when current storage engine is wiredTiger
+2019-08-17 11:40:16.755  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:16.756+0800 I CONTROL  [initandlisten] 
+2019-08-17 11:40:16.755  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:16.756+0800 I CONTROL  [initandlisten] ** NOTE: This is a development version (3.5.5) of MongoDB.
+2019-08-17 11:40:16.756  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:16.756+0800 I CONTROL  [initandlisten] **       Not recommended for production.
+2019-08-17 11:40:16.756  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:16.756+0800 I CONTROL  [initandlisten] 
+2019-08-17 11:40:16.942  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:16.943+0800 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'C:/Users/prith/AppData/Local/Temp/embedmongo-db-5e11481d-6c94-490c-ba64-3ea66bb6893d/diagnostic.data'
+2019-08-17 11:40:16.975  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:16.975+0800 I INDEX    [initandlisten] build index on: admin.system.version properties: { v: 2, key: { version: 1 }, name: "incompatible_with_version_32", ns: "admin.system.version" }
+2019-08-17 11:40:16.975  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:16.975+0800 I INDEX    [initandlisten] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2019-08-17 11:40:16.977  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:16.977+0800 I INDEX    [initandlisten] build index done.  scanned 0 total records. 0 secs
+2019-08-17 11:40:16.977  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:16.978+0800 I COMMAND  [initandlisten] setting featureCompatibilityVersion to 3.4
+2019-08-17 11:40:16.978  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:16.979+0800 I NETWORK  [thread1] waiting for connections on port 50549
+2019-08-17 11:40:16.979  INFO 24384 --- [main] d.f.embed.mongo.MongodExecutable         : start de.flapdoodle.embed.mongo.config.MongodConfigBuilder$ImmutableMongodConfig@238291d4
+2019-08-17 11:40:17.339  INFO 24384 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:50549], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-08-17 11:40:17.339  INFO 24384 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:50549 to client view of cluster
+2019-08-17 11:40:17.364  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:17.364+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:50552 #1 (1 connection now open)
+2019-08-17 11:40:17.370  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:17.370+0800 I NETWORK  [conn1] received client metadata from 127.0.0.1:50552 conn1: { driver: { name: "mongo-java-driver", version: "3.8.2" }, os: { type: "Windows", name: "Windows 10", architecture: "amd64", version: "10.0" }, platform: "Java/Oracle Corporation/11+28" }
+2019-08-17 11:40:17.381  INFO 24384 --- [cluster-ClusterId{value='5d57772165e2b45f40c86d89', description='null'}-localhost:50549] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:1}] to localhost:50549
+2019-08-17 11:40:17.383  INFO 24384 --- [cluster-ClusterId{value='5d57772165e2b45f40c86d89', description='null'}-localhost:50549] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:50549, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 5, 5]}, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=827100}
+2019-08-17 11:40:17.384  INFO 24384 --- [cluster-ClusterId{value='5d57772165e2b45f40c86d89', description='null'}-localhost:50549] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
+2019-08-17 11:40:17.555  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:17.555+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:50553 #2 (2 connections now open)
+2019-08-17 11:40:17.555  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:17.556+0800 I NETWORK  [conn2] received client metadata from 127.0.0.1:50553 conn2: { driver: { name: "mongo-java-driver", version: "3.8.2" }, os: { type: "Windows", name: "Windows 10", architecture: "amd64", version: "10.0" }, platform: "Java/Oracle Corporation/11+28" }
+2019-08-17 11:40:17.556  INFO 24384 --- [main] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:2}] to localhost:50549
+2019-08-17 11:40:17.589  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:17.590+0800 I INDEX    [conn2] build index on: test.user properties: { v: 2, unique: true, key: { password: -1 }, name: "password", ns: "test.user" }
+2019-08-17 11:40:17.590  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:17.590+0800 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2019-08-17 11:40:17.591  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:17.592+0800 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2019-08-17 11:40:17.622  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:17.622+0800 I INDEX    [conn2] build index on: test.role properties: { v: 2, unique: true, key: { role: -1 }, name: "role", ns: "test.role" }
+2019-08-17 11:40:17.622  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:17.622+0800 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2019-08-17 11:40:17.625  INFO 24384 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T11:40:17.626+0800 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2019-08-17 11:40:18.088  INFO 24384 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/resources/**'], []
+2019-08-17 11:40:18.089  INFO 24384 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/static/**'], []
+2019-08-17 11:40:18.089  INFO 24384 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/css/**'], []
+2019-08-17 11:40:18.089  INFO 24384 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/js/**'], []
+2019-08-17 11:40:18.089  INFO 24384 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/images/**'], []
+2019-08-17 11:40:18.113  INFO 24384 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2a531637, org.springframework.security.web.context.SecurityContextPersistenceFilter@506b083, org.springframework.security.web.header.HeaderWriterFilter@2375a976, org.springframework.security.web.authentication.logout.LogoutFilter@5bf7f15f, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6b0ba697, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@ace2408, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@27b490de, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@539ee811, org.springframework.security.web.session.SessionManagementFilter@7544260a, org.springframework.security.web.access.ExceptionTranslationFilter@2932e15f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@18692e80]
+2019-08-17 11:40:18.131  INFO 24384 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-08-17 11:40:18.260  INFO 24384 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-17 11:40:18.417  INFO 24384 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-08-17 11:40:18.440  INFO 24384 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-08-17 11:40:18.469  INFO 24384 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-08-17 11:40:18.649  INFO 24384 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: registerMicroEntrepreneurUsingPOST_1
+2019-08-17 11:40:18.684  INFO 24384 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2019-08-17 11:40:18.687  INFO 24384 --- [main] c.d.greenpark.micfin.MicfinApplication   : Started MicfinApplication in 6.973 seconds (JVM running for 7.415)
+2019-08-17 11:40:37.677  INFO 24384 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-08-17 11:40:37.677  INFO 24384 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-08-17 11:40:37.685  INFO 24384 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2019-08-17 11:40:37.895  WARN 24384 --- [http-nio-8081-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [185] milliseconds.
+2019-08-17 11:40:50.941  INFO 24384 --- [http-nio-8081-exec-2] c.d.g.m.controllers.LoginController      : In Login Contoller, Login
+2019-08-17 11:41:09.802  WARN 24384 --- [http-nio-8081-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2019-08-17 23:07:36.569  INFO 14540 --- [main] c.d.greenpark.micfin.MicfinApplication   : Starting MicfinApplication on DESKTOP-BJMVDT9 with PID 14540 (D:\DbsPShift\code\micfin-service\target\classes started by prith in D:\DbsPShift\code\micfin-service)
+2019-08-17 23:07:36.583  INFO 14540 --- [main] c.d.greenpark.micfin.MicfinApplication   : No active profile set, falling back to default profiles: default
+2019-08-17 23:07:37.875  INFO 14540 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-17 23:07:38.038  INFO 14540 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 159ms. Found 4 repository interfaces.
+2019-08-17 23:07:38.867  INFO 14540 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-08-17 23:07:38.900  INFO 14540 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-08-17 23:07:38.900  INFO 14540 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2019-08-17 23:07:39.045  INFO 14540 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-08-17 23:07:39.045  INFO 14540 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2388 ms
+2019-08-17 23:07:41.352  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : note: noprealloc may hurt performance in many applications
+2019-08-17 23:07:41.412  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:41.412+0800 I CONTROL  [initandlisten] MongoDB starting : pid=19728 port=52475 dbpath=C:\Users\prith\AppData\Local\Temp\embedmongo-db-cbccfc65-3de9-4b9c-b776-6401a04d7be5 64-bit host=DESKTOP-BJMVDT9
+2019-08-17 23:07:41.412  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:41.413+0800 I CONTROL  [initandlisten] targetMinOS: Windows Vista/Windows Server 2008
+2019-08-17 23:07:41.412  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:41.413+0800 I CONTROL  [initandlisten] db version v3.5.5
+2019-08-17 23:07:41.412  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:41.413+0800 I CONTROL  [initandlisten] git version: 98515c812b6fa893613f063dae568ff8319cbfbd
+2019-08-17 23:07:41.413  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:41.413+0800 I CONTROL  [initandlisten] allocator: tcmalloc
+2019-08-17 23:07:41.413  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:41.413+0800 I CONTROL  [initandlisten] modules: none
+2019-08-17 23:07:41.413  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:41.413+0800 I CONTROL  [initandlisten] build environment:
+2019-08-17 23:07:41.413  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:41.413+0800 I CONTROL  [initandlisten]     distarch: x86_64
+2019-08-17 23:07:41.413  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:41.413+0800 I CONTROL  [initandlisten]     target_arch: x86_64
+2019-08-17 23:07:41.413  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:41.413+0800 I CONTROL  [initandlisten] options: { net: { bindIp: "127.0.0.1", http: { enabled: false }, port: 52475 }, security: { authorization: "disabled" }, storage: { dbPath: "C:\Users\prith\AppData\Local\Temp\embedmongo-db-cbccfc65-3de9-4b9c-b776-6401a04d7be5", journal: { enabled: false }, mmapv1: { preallocDataFiles: false, smallFiles: true }, syncPeriodSecs: 0.0 } }
+2019-08-17 23:07:41.414  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:41.414+0800 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=7596M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=0,log_size=2GB),statistics_log=(wait=0),verbose=(recovery_progress),,log=(enabled=false),
+2019-08-17 23:07:41.470  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:41.470+0800 W STORAGE  [initandlisten] Detected configuration for non-active storage engine mmapv1 when current storage engine is wiredTiger
+2019-08-17 23:07:41.470  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:41.470+0800 I CONTROL  [initandlisten] 
+2019-08-17 23:07:41.470  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:41.470+0800 I CONTROL  [initandlisten] ** NOTE: This is a development version (3.5.5) of MongoDB.
+2019-08-17 23:07:41.470  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:41.470+0800 I CONTROL  [initandlisten] **       Not recommended for production.
+2019-08-17 23:07:41.470  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:41.470+0800 I CONTROL  [initandlisten] 
+2019-08-17 23:07:41.674  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:41.674+0800 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'C:/Users/prith/AppData/Local/Temp/embedmongo-db-cbccfc65-3de9-4b9c-b776-6401a04d7be5/diagnostic.data'
+2019-08-17 23:07:41.707  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:41.708+0800 I INDEX    [initandlisten] build index on: admin.system.version properties: { v: 2, key: { version: 1 }, name: "incompatible_with_version_32", ns: "admin.system.version" }
+2019-08-17 23:07:41.707  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:41.708+0800 I INDEX    [initandlisten] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2019-08-17 23:07:41.709  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:41.709+0800 I INDEX    [initandlisten] build index done.  scanned 0 total records. 0 secs
+2019-08-17 23:07:41.709  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:41.710+0800 I COMMAND  [initandlisten] setting featureCompatibilityVersion to 3.4
+2019-08-17 23:07:41.710  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:41.711+0800 I NETWORK  [thread1] waiting for connections on port 52475
+2019-08-17 23:07:41.711  INFO 14540 --- [main] d.f.embed.mongo.MongodExecutable         : start de.flapdoodle.embed.mongo.config.MongodConfigBuilder$ImmutableMongodConfig@238291d4
+2019-08-17 23:07:42.149  INFO 14540 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:52475], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-08-17 23:07:42.149  INFO 14540 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:52475 to client view of cluster
+2019-08-17 23:07:42.174  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:42.174+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:52479 #1 (1 connection now open)
+2019-08-17 23:07:42.185  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:42.185+0800 I NETWORK  [conn1] received client metadata from 127.0.0.1:52479 conn1: { driver: { name: "mongo-java-driver", version: "3.8.2" }, os: { type: "Windows", name: "Windows 10", architecture: "amd64", version: "10.0" }, platform: "Java/Oracle Corporation/11+28" }
+2019-08-17 23:07:42.216  INFO 14540 --- [cluster-ClusterId{value='5d58183e65e2b438ccf2ea9c', description='null'}-localhost:52475] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:1}] to localhost:52475
+2019-08-17 23:07:42.220  INFO 14540 --- [cluster-ClusterId{value='5d58183e65e2b438ccf2ea9c', description='null'}-localhost:52475] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:52475, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 5, 5]}, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=3499200}
+2019-08-17 23:07:42.221  INFO 14540 --- [cluster-ClusterId{value='5d58183e65e2b438ccf2ea9c', description='null'}-localhost:52475] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
+2019-08-17 23:07:42.403  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:42.403+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:52480 #2 (2 connections now open)
+2019-08-17 23:07:42.403  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:42.404+0800 I NETWORK  [conn2] received client metadata from 127.0.0.1:52480 conn2: { driver: { name: "mongo-java-driver", version: "3.8.2" }, os: { type: "Windows", name: "Windows 10", architecture: "amd64", version: "10.0" }, platform: "Java/Oracle Corporation/11+28" }
+2019-08-17 23:07:42.404  INFO 14540 --- [main] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:2}] to localhost:52475
+2019-08-17 23:07:42.441  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:42.441+0800 I INDEX    [conn2] build index on: test.role properties: { v: 2, unique: true, key: { role: -1 }, name: "role", ns: "test.role" }
+2019-08-17 23:07:42.441  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:42.442+0800 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2019-08-17 23:07:42.443  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:42.443+0800 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2019-08-17 23:07:42.477  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:42.477+0800 I INDEX    [conn2] build index on: test.user properties: { v: 2, unique: true, key: { password: -1 }, name: "password", ns: "test.user" }
+2019-08-17 23:07:42.477  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:42.477+0800 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2019-08-17 23:07:42.479  INFO 14540 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:07:42.479+0800 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2019-08-17 23:07:42.952  INFO 14540 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/resources/**'], []
+2019-08-17 23:07:42.952  INFO 14540 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/static/**'], []
+2019-08-17 23:07:42.952  INFO 14540 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/css/**'], []
+2019-08-17 23:07:42.952  INFO 14540 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/js/**'], []
+2019-08-17 23:07:42.952  INFO 14540 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/images/**'], []
+2019-08-17 23:07:42.977  INFO 14540 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1aa59698, org.springframework.security.web.context.SecurityContextPersistenceFilter@ace2408, org.springframework.security.web.header.HeaderWriterFilter@7544260a, org.springframework.security.web.authentication.logout.LogoutFilter@11309dd4, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@539ee811, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5c1dd18, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3dd750ba, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2cacb445, org.springframework.security.web.session.SessionManagementFilter@506b083, org.springframework.security.web.access.ExceptionTranslationFilter@2375a976, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@31fe0ce5]
+2019-08-17 23:07:42.994  INFO 14540 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-08-17 23:07:43.111  INFO 14540 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-17 23:07:43.258  INFO 14540 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-08-17 23:07:43.281  INFO 14540 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-08-17 23:07:43.310  INFO 14540 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-08-17 23:07:43.491  INFO 14540 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: registerMicroEntrepreneurUsingPOST_1
+2019-08-17 23:07:43.532  INFO 14540 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2019-08-17 23:07:43.538  INFO 14540 --- [main] c.d.greenpark.micfin.MicfinApplication   : Started MicfinApplication in 7.472 seconds (JVM running for 7.938)
+2019-08-17 23:07:49.985  INFO 14540 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-08-17 23:07:49.985  INFO 14540 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-08-17 23:07:49.994  INFO 14540 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2019-08-17 23:16:58.263  INFO 17548 --- [main] c.d.greenpark.micfin.MicfinApplication   : Starting MicfinApplication on DESKTOP-BJMVDT9 with PID 17548 (D:\DbsPShift\code\micfin-service\target\classes started by prith in D:\DbsPShift\code\micfin-service)
+2019-08-17 23:16:58.266  INFO 17548 --- [main] c.d.greenpark.micfin.MicfinApplication   : No active profile set, falling back to default profiles: default
+2019-08-17 23:16:59.656  INFO 17548 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-08-17 23:16:59.808  INFO 17548 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 145ms. Found 4 repository interfaces.
+2019-08-17 23:17:00.695  INFO 17548 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-08-17 23:17:00.729  INFO 17548 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-08-17 23:17:00.729  INFO 17548 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2019-08-17 23:17:00.876  INFO 17548 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-08-17 23:17:00.876  INFO 17548 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2550 ms
+2019-08-17 23:17:02.803  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : note: noprealloc may hurt performance in many applications
+2019-08-17 23:17:02.859  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:02.858+0800 I CONTROL  [initandlisten] MongoDB starting : pid=16088 port=52538 dbpath=C:\Users\prith\AppData\Local\Temp\embedmongo-db-a99c8e39-ccd4-4030-88f1-9508e9f620c2 64-bit host=DESKTOP-BJMVDT9
+2019-08-17 23:17:02.859  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:02.859+0800 I CONTROL  [initandlisten] targetMinOS: Windows Vista/Windows Server 2008
+2019-08-17 23:17:02.859  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:02.859+0800 I CONTROL  [initandlisten] db version v3.5.5
+2019-08-17 23:17:02.859  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:02.859+0800 I CONTROL  [initandlisten] git version: 98515c812b6fa893613f063dae568ff8319cbfbd
+2019-08-17 23:17:02.859  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:02.859+0800 I CONTROL  [initandlisten] allocator: tcmalloc
+2019-08-17 23:17:02.859  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:02.859+0800 I CONTROL  [initandlisten] modules: none
+2019-08-17 23:17:02.859  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:02.859+0800 I CONTROL  [initandlisten] build environment:
+2019-08-17 23:17:02.859  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:02.859+0800 I CONTROL  [initandlisten]     distarch: x86_64
+2019-08-17 23:17:02.859  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:02.859+0800 I CONTROL  [initandlisten]     target_arch: x86_64
+2019-08-17 23:17:02.860  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:02.859+0800 I CONTROL  [initandlisten] options: { net: { bindIp: "127.0.0.1", http: { enabled: false }, port: 52538 }, security: { authorization: "disabled" }, storage: { dbPath: "C:\Users\prith\AppData\Local\Temp\embedmongo-db-a99c8e39-ccd4-4030-88f1-9508e9f620c2", journal: { enabled: false }, mmapv1: { preallocDataFiles: false, smallFiles: true }, syncPeriodSecs: 0.0 } }
+2019-08-17 23:17:02.860  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:02.860+0800 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=7596M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=0,log_size=2GB),statistics_log=(wait=0),verbose=(recovery_progress),,log=(enabled=false),
+2019-08-17 23:17:02.920  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:02.920+0800 W STORAGE  [initandlisten] Detected configuration for non-active storage engine mmapv1 when current storage engine is wiredTiger
+2019-08-17 23:17:02.920  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:02.920+0800 I CONTROL  [initandlisten] 
+2019-08-17 23:17:02.920  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:02.920+0800 I CONTROL  [initandlisten] ** NOTE: This is a development version (3.5.5) of MongoDB.
+2019-08-17 23:17:02.920  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:02.920+0800 I CONTROL  [initandlisten] **       Not recommended for production.
+2019-08-17 23:17:02.920  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:02.920+0800 I CONTROL  [initandlisten] 
+2019-08-17 23:17:03.111  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:03.111+0800 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'C:/Users/prith/AppData/Local/Temp/embedmongo-db-a99c8e39-ccd4-4030-88f1-9508e9f620c2/diagnostic.data'
+2019-08-17 23:17:03.144  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:03.145+0800 I INDEX    [initandlisten] build index on: admin.system.version properties: { v: 2, key: { version: 1 }, name: "incompatible_with_version_32", ns: "admin.system.version" }
+2019-08-17 23:17:03.144  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:03.145+0800 I INDEX    [initandlisten] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2019-08-17 23:17:03.146  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:03.147+0800 I INDEX    [initandlisten] build index done.  scanned 0 total records. 0 secs
+2019-08-17 23:17:03.147  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:03.147+0800 I COMMAND  [initandlisten] setting featureCompatibilityVersion to 3.4
+2019-08-17 23:17:03.148  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:03.148+0800 I NETWORK  [thread1] waiting for connections on port 52538
+2019-08-17 23:17:03.148  INFO 17548 --- [main] d.f.embed.mongo.MongodExecutable         : start de.flapdoodle.embed.mongo.config.MongodConfigBuilder$ImmutableMongodConfig@4cc12db2
+2019-08-17 23:17:03.513  INFO 17548 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:52538], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-08-17 23:17:03.513  INFO 17548 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:52538 to client view of cluster
+2019-08-17 23:17:03.536  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:03.537+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:52548 #1 (1 connection now open)
+2019-08-17 23:17:03.542  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:03.542+0800 I NETWORK  [conn1] received client metadata from 127.0.0.1:52548 conn1: { driver: { name: "mongo-java-driver", version: "3.8.2" }, os: { type: "Windows", name: "Windows 10", architecture: "amd64", version: "10.0" }, platform: "Java/Oracle Corporation/11+28" }
+2019-08-17 23:17:03.553  INFO 17548 --- [cluster-ClusterId{value='5d581a6f65e2b4448c854ab0', description='null'}-localhost:52538] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:1}] to localhost:52538
+2019-08-17 23:17:03.555  INFO 17548 --- [cluster-ClusterId{value='5d581a6f65e2b4448c854ab0', description='null'}-localhost:52538] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:52538, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 5, 5]}, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=986400}
+2019-08-17 23:17:03.556  INFO 17548 --- [cluster-ClusterId{value='5d581a6f65e2b4448c854ab0', description='null'}-localhost:52538] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
+2019-08-17 23:17:03.749  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:03.749+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:52549 #2 (2 connections now open)
+2019-08-17 23:17:03.749  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:03.749+0800 I NETWORK  [conn2] received client metadata from 127.0.0.1:52549 conn2: { driver: { name: "mongo-java-driver", version: "3.8.2" }, os: { type: "Windows", name: "Windows 10", architecture: "amd64", version: "10.0" }, platform: "Java/Oracle Corporation/11+28" }
+2019-08-17 23:17:03.751  INFO 17548 --- [main] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:2}] to localhost:52538
+2019-08-17 23:17:03.785  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:03.786+0800 I INDEX    [conn2] build index on: test.user properties: { v: 2, unique: true, key: { password: -1 }, name: "password", ns: "test.user" }
+2019-08-17 23:17:03.786  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:03.786+0800 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2019-08-17 23:17:03.787  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:03.787+0800 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2019-08-17 23:17:03.815  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:03.815+0800 I INDEX    [conn2] build index on: test.role properties: { v: 2, unique: true, key: { role: -1 }, name: "role", ns: "test.role" }
+2019-08-17 23:17:03.816  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:03.815+0800 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2019-08-17 23:17:03.817  INFO 17548 --- [Thread-1] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2019-08-17T23:17:03.817+0800 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2019-08-17 23:17:04.294  INFO 17548 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/resources/**'], []
+2019-08-17 23:17:04.294  INFO 17548 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/static/**'], []
+2019-08-17 23:17:04.294  INFO 17548 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/css/**'], []
+2019-08-17 23:17:04.294  INFO 17548 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/js/**'], []
+2019-08-17 23:17:04.294  INFO 17548 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/images/**'], []
+2019-08-17 23:17:04.316  INFO 17548 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@25823192, org.springframework.security.web.context.SecurityContextPersistenceFilter@2739ecc0, org.springframework.security.web.header.HeaderWriterFilter@fceab5d, org.springframework.security.web.csrf.CsrfFilter@53a09566, org.springframework.security.web.authentication.logout.LogoutFilter@3dec79f8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3d98729a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5178345d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3df04fa1, org.springframework.security.web.session.SessionManagementFilter@573870cb, org.springframework.security.web.access.ExceptionTranslationFilter@1b8ee69d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@653e7b]
+2019-08-17 23:17:04.335  INFO 17548 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-08-17 23:17:04.474  INFO 17548 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-17 23:17:04.639  INFO 17548 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-08-17 23:17:04.663  INFO 17548 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-08-17 23:17:04.694  INFO 17548 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-08-17 23:17:04.885  INFO 17548 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: registerMicroEntrepreneurUsingPOST_1
+2019-08-17 23:17:04.925  INFO 17548 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2019-08-17 23:17:04.928  INFO 17548 --- [main] c.d.greenpark.micfin.MicfinApplication   : Started MicfinApplication in 7.137 seconds (JVM running for 7.583)
+2019-08-17 23:17:10.022  INFO 17548 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-08-17 23:17:10.022  INFO 17548 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-08-17 23:17:10.030  INFO 17548 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2019-08-17 23:17:27.207 ERROR 17548 --- [http-nio-8081-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.dbspshift.greenpark.micfin.exceptions.MFINotFoundException: Could not find details for MFI - [ID = 1  ]] with root cause
+
+com.dbspshift.greenpark.micfin.exceptions.MFINotFoundException: Could not find details for MFI - [ID = 1  ]
+	at com.dbspshift.greenpark.micfin.services.MFIServiceImpl.getMFIById(MFIServiceImpl.java:29) ~[classes/:na]
+	at com.dbspshift.greenpark.micfin.controllers.MicFinRestController.findMFIById(MicFinRestController.java:67) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:892) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1039) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882) ~[spring-webmvc-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:100) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:74) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) ~[spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:853) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1587) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.21.jar:9.0.21]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
