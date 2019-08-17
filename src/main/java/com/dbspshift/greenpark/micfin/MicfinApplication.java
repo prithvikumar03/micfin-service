@@ -24,12 +24,10 @@ public class MicfinApplication {
         SpringApplication.run(MicfinApplication.class, args);
     }
 
-
     @Bean
     CommandLineRunner init(RoleRepository roleRepository) {
 
         return args -> {
-
             Role adminRole = roleRepository.findByRole("ADMIN");
             if (adminRole == null) {
                 Role newAdminRole = new Role();

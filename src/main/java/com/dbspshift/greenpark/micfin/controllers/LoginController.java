@@ -1,5 +1,4 @@
 package com.dbspshift.greenpark.micfin.controllers;
-/*
 
 import com.dbspshift.greenpark.micfin.beans.User;
 import com.dbspshift.greenpark.micfin.services.CustomUserDetailsService;
@@ -12,12 +11,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/micfin/admin/")
+@RequestMapping("/micfin/auth/")
 public class LoginController {
 
     private final Logger log = LogManager.getLogger(LoginController.class);
@@ -25,7 +24,7 @@ public class LoginController {
     @Autowired
     private CustomUserDetailsService userService;
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    /*@RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView login() {
         log.info("In Login Contoller, Login");
         ModelAndView modelAndView = new ModelAndView();
@@ -81,6 +80,29 @@ public class LoginController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("home");
         return modelAndView;
+    }*/
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public @ResponseBody String login() {
+        log.info("In Login Contoller, Login");
+        return "Welcome To MicFin Login";
+    }
+
+    @RequestMapping(value = "/signup", method = RequestMethod.POST)
+    public @ResponseBody
+    String createNewUser(@Valid User user, BindingResult bindingResult) {
+        User userExists = userService.findUserByEmail(user.getEmail());
+        if (userExists != null) {
+            bindingResult
+                    .rejectValue("email", "error.user",
+                            "There is already a user registered with the username provided");
+        }
+        if (bindingResult.hasErrors()) {
+
+        } else {
+            userService.saveUser(user);
+        }
+        return bindingResult.hasErrors()?"Failed":"Success";
     }
 }
-*/
+

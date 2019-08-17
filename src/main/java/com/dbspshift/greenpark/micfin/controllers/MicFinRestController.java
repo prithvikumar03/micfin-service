@@ -110,8 +110,8 @@ public class MicFinRestController {
 
 
     //------------------------------------------LOGIN STUFF----------------------------------------------------------------------------------
-    @Autowired
-    private CustomUserDetailsService userService;
+    //@Autowired
+    //private CustomUserDetailsService userService;
 
 /*    @RequestMapping(value = "/login", method = RequestMethod.GET)
     public @ResponseBody String login() {
@@ -131,9 +131,8 @@ public class MicFinRestController {
         return modelAndView;
     }*/
 
-    @RequestMapping(value = "/signup", method = RequestMethod.POST)
+    /*@RequestMapping(value = "/signup", method = RequestMethod.POST)
     public @ResponseBody String createNewUser(@Valid User user, BindingResult bindingResult) {
-        //ModelAndView modelAndView = new ModelAndView();
         User userExists = userService.findUserByEmail(user.getEmail());
         if (userExists != null) {
             bindingResult
@@ -141,16 +140,12 @@ public class MicFinRestController {
                             "There is already a user registered with the username provided");
         }
         if (bindingResult.hasErrors()) {
-            //modelAndView.setViewName("signup");
+
         } else {
             userService.saveUser(user);
-            //modelAndView.addObject("successMessage", "User has been registered successfully");
-            //modelAndView.addObject("user", new User());
-            //modelAndView.setViewName("login");
-
         }
         return bindingResult.hasErrors()?"Failed":"Success";
-    }
+    }*/
 
     /*@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
     public ModelAndView dashboard() {

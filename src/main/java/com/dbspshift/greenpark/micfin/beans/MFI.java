@@ -36,7 +36,6 @@ public class MFI {
     //Has borrowed from banks?
     //Pending civil or criminal cases in any court?
 
-
     public MFI() {
     }
 
