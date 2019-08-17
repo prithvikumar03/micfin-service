@@ -25,7 +25,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/micfin/api/")
-//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:3000")
 public class MicFinRestController {
 
     private final Logger log = LogManager.getLogger(MicFinRestController.class);

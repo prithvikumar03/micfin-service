@@ -15,8 +15,6 @@ public class MFI {
     private String id;
     private String companyName;
     private String directorName;
-    //private String companyName;
-    //private String directorName;
     private Address address;
     private String netFundsOwned;
     private String govtRegistrationNumber;
@@ -25,16 +23,6 @@ public class MFI {
     private boolean isBorrowedFromBanks;
     private boolean isAnyCasePendingInCourt;
     private String reasonForApplication;
-
-    //company companyName
-    //Director Name
-    //Net funds owned
-    //Govt Identification Number
-    //Date of Registration
-    //Company started business operations
-    //Reasons for applying
-    //Has borrowed from banks?
-    //Pending civil or criminal cases in any court?
 
     public MFI() {
     }
@@ -49,6 +37,20 @@ public class MFI {
         this.companyName = companyName;
         this.directorName = directorName;
         this.address = address;
+    }
+
+    public MFI(String id, String companyName, String directorName, Address address, String netFundsOwned, String govtRegistrationNumber, Date registrationDate, boolean isOperating, boolean isBorrowedFromBanks, boolean isAnyCasePendingInCourt, String reasonForApplication) {
+        this.id = id;
+        this.companyName = companyName;
+        this.directorName = directorName;
+        this.address = address;
+        this.netFundsOwned = netFundsOwned;
+        this.govtRegistrationNumber = govtRegistrationNumber;
+        this.registrationDate = registrationDate;
+        this.isOperating = isOperating;
+        this.isBorrowedFromBanks = isBorrowedFromBanks;
+        this.isAnyCasePendingInCourt = isAnyCasePendingInCourt;
+        this.reasonForApplication = reasonForApplication;
     }
 
     public String getId() {
@@ -146,6 +148,26 @@ public class MFI {
                 ", companyName='" + companyName + '\'' +
                 ", directorName='" + directorName + '\'' +
                 ", address=" + address +
+                ", netFundsOwned='" + netFundsOwned + '\'' +
+                ", govtRegistrationNumber='" + govtRegistrationNumber + '\'' +
+                ", registrationDate=" + registrationDate +
+                ", isOperating=" + isOperating +
+                ", isBorrowedFromBanks=" + isBorrowedFromBanks +
+                ", isAnyCasePendingInCourt=" + isAnyCasePendingInCourt +
+                ", reasonForApplication='" + reasonForApplication + '\'' +
                 '}';
     }
 }
+
+//company companyName
+//Director Name
+//Net funds owned
+//Govt Identification Number
+//Date of Registration
+//Company started business operations
+//Reasons for applying
+//Has borrowed from banks?
+//Pending civil or criminal cases in any court?
+
+//private String companyName;
+//private String directorName;
