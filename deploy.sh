@@ -3,7 +3,7 @@ export PATH=$PATH:$HOME/.local/bin
 
 add-apt-repository ppa:micfin/ppa
 apt-get update
-apt-get install python3.6
+apt-get install python36
 apt-get install jq -y
 
 curl https://raw.githubusercontent.com/silinternational/ecs-deploy/master/ecs-deploy | sudo tee -a /usr/bin/ecs-deploy
