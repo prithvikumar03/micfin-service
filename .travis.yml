@@ -1,9 +1,11 @@
 matrix:
   include:
     - language: python
-      python: 2.7
+      python:
+        - 3.4
     - language: java
-      jdk: oraclejdk8
+      jdk:
+        - oraclejdk8
 
 before_install:
   - echo "MAVEN_OPTS='-Xmx2048M -Xss128M -XX:+CMSClassUnloadingEnabled -XX:+UseG1GC -XX:-UseGCOverheadLimit'" > ~/.mavenrc
