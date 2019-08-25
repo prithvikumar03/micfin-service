@@ -1,7 +1,7 @@
 pip install --user awscli
 export PATH=$PATH:$HOME/.local/bin
 
-add-apt-repository ppa:ggavarra/ppa
+add-apt-repository ppa:micfin/ppa
 apt-get update
 apt-get install jq -y
 
@@ -15,8 +15,8 @@ eval $(	aws ecr get-login --no-include-email --region ap-southeast-1)
 # Use this for Docker Hub
 #docker login --username $DOCKER_HUB_USER --password $DOCKER_HUB_PSW
 
-docker build -t ggavarra/ecs-auto-deploy .
-docker tag ggavarra/ecs-auto-deploy:latest $IMAGE_REPO_URL:latest
+docker build -t micfin/ecs-auto-deploy .
+docker tag micfin/ecs-auto-deploy:latest $IMAGE_REPO_URL:latest
 docker push $IMAGE_REPO_URL:latest
 
 ecs-deploy -c $CLUSTER_NAME -n $SERVICE_NAME -t 600 -i $IMAGE_REPO_URL:latest
