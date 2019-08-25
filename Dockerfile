@@ -1,4 +1,10 @@
-FROM java:8
-EXPOSE 8081
-ADD /target/micfin-0.0.1-SNAPSHOT.jar micfin-services.jar
-ENTRYPOINT ["java","-jar","micfin-services.jar"]
+FROM maven:3.5.4-jdk-8-slim
+
+EXPOSE 9000
+VOLUME /root/.m2
+
+WORKDIR /usr/src/micfin
+
+COPY . /usr/src/micfin/
+
+CMD ["mvn", "spring-boot:run"]
