@@ -1,8 +1,8 @@
 language: java
-  jdk:
-    - oraclejdk8
-  dist:
-    - trusty
+  #jdk:
+   # - oraclejdk8
+  #dist:
+   # - trusty
 
 before_install:
   - echo "MAVEN_OPTS='-Xmx2048M -Xss128M -XX:+CMSClassUnloadingEnabled -XX:+UseG1GC -XX:-UseGCOverheadLimit'" > ~/.mavenrc
@@ -10,8 +10,10 @@ before_install:
 
 sudo: required
 
-#jdk:
-#  - oraclejdk8
+jdk:
+  - oraclejdk8
+  dist:
+    - trusty
 
 #script: mvn package -DskipTests
 services:
