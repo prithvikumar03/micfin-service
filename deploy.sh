@@ -1,10 +1,11 @@
 pip install --user awscli
 export PATH=$PATH:$HOME/.local/bin
 
-add-apt-repository ppa:micfin/ppa
-apt-get update
-apt-get install python36
-apt-get install jq -y
+sudo add-apt-repository ppa:micfin/ppa
+sudo apt-get update
+sudo apt-get install python36
+sudo apt-get install jq -y
+
 
 curl https://raw.githubusercontent.com/silinternational/ecs-deploy/master/ecs-deploy | sudo tee -a /usr/bin/ecs-deploy
 sudo chmod +x /usr/bin/ecs-deploy
