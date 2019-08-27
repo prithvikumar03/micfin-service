@@ -24,6 +24,31 @@ public class LoginController {
     @Autowired
     private CustomUserDetailsService userService;
 
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public @ResponseBody String login() {
+        log.info("In Login Contoller, Login");
+        return "Welcome To MicFin Login";
+    }
+
+    @RequestMapping(value = "/signup", method = RequestMethod.POST)
+    public @ResponseBody
+    String createNewUser(@Valid User user, BindingResult bindingResult) {
+        User userExists = userService.findUserByEmail(user.getEmail());
+        if (userExists != null) {
+            bindingResult
+                    .rejectValue("email", "error.user",
+                            "There is already a user registered with the username provided");
+        }
+        if (bindingResult.hasErrors()) {
+
+        } else {
+            userService.saveUser(user);
+        }
+        return bindingResult.hasErrors()?"Failed":"Success";
+    }
+}
+
+
     /*@RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView login() {
         log.info("In Login Contoller, Login");
@@ -81,28 +106,4 @@ public class LoginController {
         modelAndView.setViewName("home");
         return modelAndView;
     }*/
-
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public @ResponseBody String login() {
-        log.info("In Login Contoller, Login");
-        return "Welcome To MicFin Login";
-    }
-
-    @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public @ResponseBody
-    String createNewUser(@Valid User user, BindingResult bindingResult) {
-        User userExists = userService.findUserByEmail(user.getEmail());
-        if (userExists != null) {
-            bindingResult
-                    .rejectValue("email", "error.user",
-                            "There is already a user registered with the username provided");
-        }
-        if (bindingResult.hasErrors()) {
-
-        } else {
-            userService.saveUser(user);
-        }
-        return bindingResult.hasErrors()?"Failed":"Success";
-    }
-}
 

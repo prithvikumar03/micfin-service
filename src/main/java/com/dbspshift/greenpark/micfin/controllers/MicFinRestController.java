@@ -2,6 +2,7 @@ package com.dbspshift.greenpark.micfin.controllers;
 
 import com.dbspshift.greenpark.micfin.beans.MFI;
 import com.dbspshift.greenpark.micfin.beans.MicroEntrepreneur;
+import com.dbspshift.greenpark.micfin.beans.Transaction;
 import com.dbspshift.greenpark.micfin.beans.User;
 import com.dbspshift.greenpark.micfin.services.CustomUserDetailsService;
 import com.dbspshift.greenpark.micfin.services.MFIService;
