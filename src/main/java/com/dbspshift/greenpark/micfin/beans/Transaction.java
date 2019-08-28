@@ -5,14 +5,27 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(value = "Transactions")
 public class Transaction {
-
     @Id
     private String id;
     private String microEntrepreneurId;
     private String mfiId;
-    private boolean isCredit;
-    private boolean isDebit;
+    private String loanId;
+    //private boolean isCredit;
+    //private boolean isDebit;
     private Integer amount;
     private Integer paymentDelayedInMonths;
-
+    private Product product;
 }
+
+//loan disbursement
+//id
+//mfiId
+//microEntrepreneurId
+//loanAmount
+//product --- separate bean
+//List<LoanSchedule>
+
+//Loan Schedule
+//Date
+//Amount to be repaid
+//Rebate

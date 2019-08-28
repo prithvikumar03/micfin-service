@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
 @Log4j2
 public class MessageController {
 
-   /* private final Logger log = LogManager.getLogger(MessageController.class);
+    private final Logger log = LogManager.getLogger(MessageController.class);
 
     @Autowired
     private MessageProxy messageProxy;
@@ -47,5 +47,5 @@ public class MessageController {
         ResponseEntity<String> response = messageProxy.sendSMSToIndividuals(phoneNumber);
         log.info(response.getStatusCode());
         return response;
-    }*/
+    }
 }

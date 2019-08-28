@@ -38,6 +38,8 @@ public class MicroEntrepreneur {
 
     private String mfiId;
 
+    private Double creditScore;
+
     public String getId() {
         return id;
     }
@@ -252,5 +254,13 @@ public class MicroEntrepreneur {
 
     public void setMfiId(String mfiId) {
         this.mfiId = mfiId;
+    }
+
+    public Double getCreditScore() {
+        return creditScore;
+    }
+
+    public void setCreditScore(Double creditScore) {
+        this.creditScore = creditScore;
     }
 }
