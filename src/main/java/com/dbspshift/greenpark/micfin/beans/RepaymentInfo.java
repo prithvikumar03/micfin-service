@@ -3,8 +3,8 @@ package com.dbspshift.greenpark.micfin.beans;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(value = "Transactions")
-public class Transaction {
+@Document(value = "RepaymentInfo")
+public class RepaymentInfo {
     @Id
     private String id;
     private String microEntrepreneurId;

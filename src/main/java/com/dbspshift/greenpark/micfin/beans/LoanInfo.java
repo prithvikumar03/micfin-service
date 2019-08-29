@@ -1,6 +1,11 @@
 package com.dbspshift.greenpark.micfin.beans;
 
-public class LoanDisbursal {
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.List;
+
+@Document(value = "LoanInfo")
+public class LoanInfo {
 
     //loan disbursement
     String id;
@@ -8,6 +13,6 @@ public class LoanDisbursal {
     String microEntrepreneurId;
     Integer loanAmount;
     Product product;
-    //List<LoanSchedule> listLoanSchedule;
+    List<LoanSchedule> listLoanSchedule;
 
 }

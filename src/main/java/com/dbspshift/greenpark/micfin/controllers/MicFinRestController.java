@@ -2,9 +2,6 @@ package com.dbspshift.greenpark.micfin.controllers;
 
 import com.dbspshift.greenpark.micfin.beans.MFI;
 import com.dbspshift.greenpark.micfin.beans.MicroEntrepreneur;
-import com.dbspshift.greenpark.micfin.beans.Transaction;
-import com.dbspshift.greenpark.micfin.beans.User;
-import com.dbspshift.greenpark.micfin.services.CustomUserDetailsService;
 import com.dbspshift.greenpark.micfin.services.MFIService;
 import com.dbspshift.greenpark.micfin.services.MicroEntrepreneurService;
 import org.apache.logging.log4j.LogManager;
@@ -13,11 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
-import javax.validation.Valid;
 import java.util.List;
 
 /**
