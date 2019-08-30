@@ -38,7 +38,7 @@ public class MicroEntrepreneur {
 
     private String mfiId;
 
-    private Double creditScore;
+    private String creditScore;
 
     public String getId() {
         return id;
@@ -256,11 +256,11 @@ public class MicroEntrepreneur {
         this.mfiId = mfiId;
     }
 
-    public Double getCreditScore() {
+    public String getCreditScore() {
         return creditScore;
     }
 
-    public void setCreditScore(Double creditScore) {
+    public void setCreditScore(String creditScore) {
         this.creditScore = creditScore;
     }
 }
