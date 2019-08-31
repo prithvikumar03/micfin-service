@@ -1,5 +1,6 @@
 package com.dbspshift.greenpark.micfin.beans;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.List;
 public class LoanInfo {
 
     //loan disbursement
+    @Id
     String id;
     String mfiId;
     String microEntrepreneurId;

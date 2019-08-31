@@ -1,11 +1,13 @@
 package com.dbspshift.greenpark.micfin.beans;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document( value = "Product")
 public class Product {
 
     //id, productName, loanTenure, interestRate
+    @Id
     String id;
     String productName;
     Integer loanTenure;
