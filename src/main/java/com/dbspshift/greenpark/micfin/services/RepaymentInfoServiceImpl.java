@@ -1,6 +1,7 @@
 package com.dbspshift.greenpark.micfin.services;
 
 import com.dbspshift.greenpark.micfin.beans.RepaymentInfo;
+import com.dbspshift.greenpark.micfin.repository.LoanInfoRepository;
 import com.dbspshift.greenpark.micfin.repository.RepaymentInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,10 +16,17 @@ public class RepaymentInfoServiceImpl implements RepaymentInfoService {
 
     @Autowired
     RepaymentInfoRepository repository;
+    //LoanInfoRepository loanInfoRepository;
 
 
     @Override
     public RepaymentInfo registerRepaymentInfo(RepaymentInfo repaymentInfo) throws Exception {
+        List<RepaymentInfo> allRepaymentInfoByMicroEntrepreneurId = getAllRepaymentInfoByMicroEntrepreneurId(repaymentInfo.getMicroEntrepreneurId());
+
+        //Require to get 6 months transaction from RepaymentInfo
+        //6 months delayed info from RepaymentInfo
+        ///*'LIMIT_BAL', 'SEX', 'EDUCATION', 'MARRIAGE', 'AGE', from MicroEntrepreneur
+        //loanInfoRepository.f
         RepaymentInfo save = repository.save(repaymentInfo);
         return save;
     }

@@ -16,4 +16,5 @@ public interface LoanInfoService {
 
     public String deleteLoanInfo(String id) throws Exception;
 
+    public List<LoanInfo> getAllLoanInfosForMFI(String mfiId) throws Exception;
 }

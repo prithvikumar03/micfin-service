@@ -8,11 +8,12 @@ import java.util.Date;
  * Created by gayathrig on 24/07/2019.
  */
 
-@Document (value = "MFI")
+@Document (collection = "MFI")
 public class MFI {
 
     @Id
     private String id;
+    private String mfiId;
     private String companyName;
     private String directorName;
     private Address address;

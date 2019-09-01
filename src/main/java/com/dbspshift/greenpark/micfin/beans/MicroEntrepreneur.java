@@ -5,11 +5,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
-@Document (value = "MicroEntrepreneur")
+@Document (collection = "MicroEntrepreneur")
 public class MicroEntrepreneur {
 
     @Id
     private String id;
+    private String microEntrepreneurId;
     private String firstName;
     private String lastName;
     private String aadhar;

@@ -3,14 +3,15 @@ package com.dbspshift.greenpark.micfin.beans;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document( value = "Product")
+@Document( collection = "Product")
 public class Product {
 
     //id, productName, loanTenure, interestRate
     @Id
     String id;
+    String productId;
     String productName;
-    Integer loanTenure;
+    Integer tenure;
     Integer inerestRate;
 
     public String getId() {
@@ -29,12 +30,12 @@ public class Product {
         this.productName = productName;
     }
 
-    public Integer getLoanTenure() {
-        return loanTenure;
+    public Integer getTenure() {
+        return tenure;
     }
 
-    public void setLoanTenure(Integer loanTenure) {
-        this.loanTenure = loanTenure;
+    public void setTenure(Integer tenure) {
+        this.tenure = tenure;
     }
 
     public Integer getInerestRate() {
@@ -43,5 +44,13 @@ public class Product {
 
     public void setInerestRate(Integer inerestRate) {
         this.inerestRate = inerestRate;
+    }
+
+    public String getProductId() {
+        return productId;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
     }
 }

@@ -3,19 +3,32 @@ package com.dbspshift.greenpark.micfin.beans;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
 import java.util.List;
 
-@Document(value = "LoanInfo")
+@Document(collection = "LoanInfo")
 public class LoanInfo {
 
     //loan disbursement
     @Id
-    String id;
-    String mfiId;
-    String microEntrepreneurId;
-    Integer loanAmount;
-    Product product;
+    private String id;
+    private String loanId;
+    private String mfiId;
+    private String mfiName;
+    private String microEntrepreneurId;
+    private String microEntrepreneurName;
+    private Integer loanAmount;
+    //Product product;
+    private String productId;
+    private String productName;
+    private Integer tenure;
+    private Integer inerestRate;
+    private Date date;
+    //???
     List<LoanSchedule> listLoanSchedule;
+
+    List<RepaymentInfo> repaymentInfoList;
+
 
     public String getId() {
         return id;
@@ -49,13 +62,13 @@ public class LoanInfo {
         this.loanAmount = loanAmount;
     }
 
-    public Product getProduct() {
+/*    public Product getProduct() {
         return product;
     }
 
     public void setProduct(Product product) {
         this.product = product;
-    }
+    }*/
 
     public List<LoanSchedule> getListLoanSchedule() {
         return listLoanSchedule;

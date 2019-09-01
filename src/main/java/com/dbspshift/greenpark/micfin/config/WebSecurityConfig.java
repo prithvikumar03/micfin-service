@@ -52,16 +52,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
         .cors().and().csrf().disable()
                 .authorizeRequests()
+
                 .antMatchers("/micfin/api/").permitAll()
                 .antMatchers("/micfin/auth/login").permitAll()
                 .antMatchers("/micfin/auth/signup").permitAll()
                 .antMatchers("/swagger-resources/**","/v2/api-docs","/configuration/ui","/swagger-resources","/configuration/security","/swagger-ui.html","/webjars/**").permitAll()
-                .antMatchers("/micfin/api/**").permitAll()
+                .antMatchers("/micfin/api/").permitAll()
+                .antMatchers("/micfin/sms/**").permitAll()
+                .antMatchers("/micfin/transaction/**").permitAll()
+
+
                 //.antMatchers("/micfin/api/**").hasAuthority("ADMIN").anyRequest()
                 //.authenticated().and().csrf().disable().formLogin().successHandler(customizeAuthenticationSuccessHandler)
                 //.loginPage("/micfin/auth/login").failureUrl("/micfin/auth/login?error=true")
                 //.usernameParameter("email")
                 //.passwordParameter("password")
+
+
                 .and().logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/micfin/logout"))
                 .logoutSuccessUrl("/").and().exceptionHandling();

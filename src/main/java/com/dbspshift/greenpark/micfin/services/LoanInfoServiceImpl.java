@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 @Service
 public class LoanInfoServiceImpl implements LoanInfoService{
@@ -47,5 +49,12 @@ public class LoanInfoServiceImpl implements LoanInfoService{
         }catch(Exception e){
             return "failed";
         }
+    }
+
+    @Override
+    public List<LoanInfo> getAllLoanInfosForMFI(String mfiId) throws Exception {
+        Predicate<LoanInfo> predFilterByMeId = rp -> rp.getMicroEntrepreneurId().equals(mfiId);
+        List<LoanInfo> collect = loanInfoRepository.findAll().stream().filter(p -> predFilterByMeId.test(p)).collect(Collectors.toList());
+        return collect;
     }
 }

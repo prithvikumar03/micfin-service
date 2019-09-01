@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.constraints.NotNull;
 
 @RestController
-@RequestMapping("/micfin/sms")
+@RequestMapping("/micfin/sms/")
 @Log4j2
 public class MessageController {
 
-    private final Logger log = LogManager.getLogger(MessageController.class);
+   /* private final Logger log = LogManager.getLogger(MessageController.class);
 
     @Autowired
     private MessageProxy messageProxy;
@@ -47,5 +47,5 @@ public class MessageController {
         ResponseEntity<String> response = messageProxy.sendSMSToIndividuals(phoneNumber);
         log.info(response.getStatusCode());
         return response;
-    }
+    }*/
 }

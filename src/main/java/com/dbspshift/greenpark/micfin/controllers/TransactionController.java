@@ -38,18 +38,25 @@ public class TransactionController {
         return loanInfoService.getLoanInfoById(id);
     }
 
-    @RequestMapping(method = RequestMethod.POST, path="/loan/{id}")
+    @RequestMapping(method = RequestMethod.POST, path="/loan")
     public @ResponseBody
-    LoanInfo registerRepaymentInfo(@RequestBody LoanInfo loanInfo) throws Exception{
+    LoanInfo registerLoanInfo(@RequestBody LoanInfo loanInfo) throws Exception{
         log.debug("Request received in registerTransaction");
         return loanInfoService.registerLoanInfo(loanInfo);
     }
 
     @RequestMapping(method = RequestMethod.GET, path= "/loans")
     public @ResponseBody
-    List<LoanInfo> getAllRepaymentInfoForMfi() throws Exception{
+    List<LoanInfo> getAllLoanInfos() throws Exception{
         log.debug("Request received in getTransaction");
         return loanInfoService.getAllLoanInfos();
+    }
+
+    @RequestMapping(method = RequestMethod.GET, path= "/loans/{mfiId}")
+    public @ResponseBody
+    List<LoanInfo> getAllLoanInfosForMFI(@PathVariable String mfiId) throws Exception{
+        log.debug("Request received in getTransaction");
+        return loanInfoService.getAllLoanInfosForMFI(mfiId);
     }
 
 
