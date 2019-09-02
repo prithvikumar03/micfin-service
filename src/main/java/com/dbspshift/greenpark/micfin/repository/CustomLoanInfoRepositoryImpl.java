@@ -20,4 +20,12 @@ public class CustomLoanInfoRepositoryImpl implements CustomLoanInfoRepository<Lo
         List<LoanInfo> loanInfo = mongoTemplate.find(query,LoanInfo.class);
         return loanInfo.size()>0?loanInfo.get(0):null;
     }
+
+    @Override
+    public LoanInfo findByMicroEntrepreneurId(String microEntrepreneurId) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("microEntrepreneurId").regex("^"+microEntrepreneurId));
+        List<LoanInfo> loanInfo = mongoTemplate.find(query,LoanInfo.class);
+        return loanInfo.size()>0?loanInfo.get(0):null;
+    }
 }

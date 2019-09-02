@@ -1,5 +1,6 @@
 package com.dbspshift.greenpark.micfin.services;
 
+import com.dbspshift.greenpark.micfin.beans.LoanInfo;
 import com.dbspshift.greenpark.micfin.beans.RepaymentInfo;
 import com.dbspshift.greenpark.micfin.repository.LoanInfoRepository;
 import com.dbspshift.greenpark.micfin.repository.RepaymentInfoRepository;
@@ -14,36 +15,44 @@ import java.util.stream.Collectors;
 @Service
 public class RepaymentInfoServiceImpl implements RepaymentInfoService {
 
+
+    //RepaymentInfoRepository repository;
     @Autowired
-    RepaymentInfoRepository repository;
-    //LoanInfoRepository loanInfoRepository;
+    LoanInfoRepository loanInfoRepository;
 
 
     @Override
     public RepaymentInfo registerRepaymentInfo(RepaymentInfo repaymentInfo) throws Exception {
-        List<RepaymentInfo> allRepaymentInfoByMicroEntrepreneurId = getAllRepaymentInfoByMicroEntrepreneurId(repaymentInfo.getMicroEntrepreneurId());
+        //List<RepaymentInfo> allRepaymentInfoByMicroEntrepreneurId = getAllRepaymentInfoByMicroEntrepreneurId(repaymentInfo.getMicroEntrepreneurId());
 
-        //Require to get 6 months transaction from RepaymentInfo
-        //6 months delayed info from RepaymentInfo
+
         ///*'LIMIT_BAL', 'SEX', 'EDUCATION', 'MARRIAGE', 'AGE', from MicroEntrepreneur
         //loanInfoRepository.f
-        RepaymentInfo save = repository.save(repaymentInfo);
-        return save;
+        LoanInfo loanInfo = loanInfoRepository.findByLoanId(repaymentInfo.getLoanId());
+        //List<RepaymentInfo> repaymentInfoList = loanInfo.getRepaymentInfoList();
+        loanInfo.addToRepaymentInfoList(repaymentInfo);
+        //RepaymentInfo save = repository.save(repaymentInfo);
+        loanInfoRepository.save(loanInfo);
+
+        //Require to get 6 months transaction from RepaymentInfo
+        //6 months delayed info from RepaymentInfo to get credit score
+        return repaymentInfo;
     }
 
     @Override
     public RepaymentInfo getRepaymentInfoById(String id) throws Exception {
-        Optional<RepaymentInfo> byId = repository.findById(id);
+       /* Optional<RepaymentInfo> byId = repository.findById(id);
         if(byId.isPresent())
             return byId.get();
-        else
+        else*/
             return null;
     }
 
     @Override
-    public List<RepaymentInfo> getAllRepaymentInfoByMicroEntrepreneurId(String id) throws Exception {
-        Predicate<RepaymentInfo> predFilterByMeId = rp -> rp.getMicroEntrepreneurId().equals(id);
-        List<RepaymentInfo> collect = repository.findAll().stream().filter(p -> predFilterByMeId.test(p)).collect(Collectors.toList());
-        return collect;
+    public List<RepaymentInfo> getAllRepaymentInfoByMicroEntrepreneurId(String microEntrepreneurId) throws Exception {
+        //Predicate<RepaymentInfo> predFilterByMeId = rp -> rp.getMicroEntrepreneurId().equals(id);
+        //List<RepaymentInfo> collect = repository.findAll().stream().filter(p -> predFilterByMeId.test(p)).collect(Collectors.toList());
+        LoanInfo loanInfo = loanInfoRepository.findByMicroEntrepreneurId(microEntrepreneurId);
+        return loanInfo.getRepaymentInfoList();
     }
 }
