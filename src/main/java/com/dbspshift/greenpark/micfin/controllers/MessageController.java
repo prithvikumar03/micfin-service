@@ -7,6 +7,8 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
@@ -20,6 +22,12 @@ public class MessageController {
 
     @Autowired
     private MessageProxy messageProxy;
+
+    @RequestMapping(method = RequestMethod.GET, path = "/")
+    public @ResponseBody String NoRequest(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return "Welcome to SMS " + authentication.getName();
+    }
 
     @PostMapping("/subscribe/{phoneNumber}")
     public ResponseEntity<String> subscribe(@NotNull @PathVariable String phoneNumber) {

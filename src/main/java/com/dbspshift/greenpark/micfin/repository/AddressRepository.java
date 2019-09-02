@@ -1,9 +1,13 @@
 package com.dbspshift.greenpark.micfin.repository;
 
+import com.dbspshift.greenpark.micfin.beans.Address;
+import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
+import org.springframework.stereotype.Repository;
+
 /**
  * Created by gayathrig on 24/07/2019.
  */
 
-/*@Repository
+@Repository
 public interface AddressRepository extends ReactiveMongoRepository<Address,String> {
-}*/
+}
