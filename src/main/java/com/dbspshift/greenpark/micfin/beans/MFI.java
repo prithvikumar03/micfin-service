@@ -62,6 +62,14 @@ public class MFI {
         this.id = id;
     }
 
+    public String getMfiId() {
+        return mfiId;
+    }
+
+    public void setMfiId(String mfiId) {
+        this.mfiId = mfiId;
+    }
+
     public String getCompanyName() {
         return companyName;
     }

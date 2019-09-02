@@ -25,8 +25,6 @@ public class RepaymentInfo {
     Integer tenure;
     Integer inerestRate;
 
-
-
     //private String creditScore;
 
     public String getId() {
@@ -77,28 +75,52 @@ public class RepaymentInfo {
         this.paymentDelayedInMonths = paymentDelayedInMonths;
     }
 
-/*    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public String getCreditScore() {
-        return creditScore;
-    }
-
-    public void setCreditScore(String creditScore) {
-        this.creditScore = creditScore;
-    }*/
-
     public Date getDate() {
         return date;
     }
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getLoanAmount() {
+        return loanAmount;
+    }
+
+    public void setLoanAmount(String loanAmount) {
+        this.loanAmount = loanAmount;
+    }
+
+    public String getProductId() {
+        return productId;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public Integer getTenure() {
+        return tenure;
+    }
+
+    public void setTenure(Integer tenure) {
+        this.tenure = tenure;
+    }
+
+    public Integer getInerestRate() {
+        return inerestRate;
+    }
+
+    public void setInerestRate(Integer inerestRate) {
+        this.inerestRate = inerestRate;
     }
 }
 

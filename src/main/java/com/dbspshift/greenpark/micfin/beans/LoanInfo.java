@@ -29,7 +29,6 @@ public class LoanInfo {
 
     List<RepaymentInfo> repaymentInfoList;
 
-
     public String getId() {
         return id;
     }
@@ -62,19 +61,87 @@ public class LoanInfo {
         this.loanAmount = loanAmount;
     }
 
-/*    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }*/
-
     public List<LoanSchedule> getListLoanSchedule() {
         return listLoanSchedule;
     }
 
     public void setListLoanSchedule(List<LoanSchedule> listLoanSchedule) {
         this.listLoanSchedule = listLoanSchedule;
+    }
+
+    public String getLoanId() {
+        return loanId;
+    }
+
+    public void setLoanId(String loanId) {
+        this.loanId = loanId;
+    }
+
+    public String getMfiName() {
+        return mfiName;
+    }
+
+    public void setMfiName(String mfiName) {
+        this.mfiName = mfiName;
+    }
+
+    public String getMicroEntrepreneurName() {
+        return microEntrepreneurName;
+    }
+
+    public void setMicroEntrepreneurName(String microEntrepreneurName) {
+        this.microEntrepreneurName = microEntrepreneurName;
+    }
+
+    public String getProductId() {
+        return productId;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public Integer getTenure() {
+        return tenure;
+    }
+
+    public void setTenure(Integer tenure) {
+        this.tenure = tenure;
+    }
+
+    public Integer getInerestRate() {
+        return inerestRate;
+    }
+
+    public void setInerestRate(Integer inerestRate) {
+        this.inerestRate = inerestRate;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public List<RepaymentInfo> getRepaymentInfoList() {
+        return repaymentInfoList;
+    }
+
+    public void setRepaymentInfoList(List<RepaymentInfo> repaymentInfoList) {
+        this.repaymentInfoList = repaymentInfoList;
+    }
+
+    public void addToRepaymentInfoList(RepaymentInfo repaymentInfo) {
+        this.repaymentInfoList.add(repaymentInfo);
     }
 }

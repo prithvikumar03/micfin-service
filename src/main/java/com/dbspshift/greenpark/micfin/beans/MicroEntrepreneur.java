@@ -49,6 +49,14 @@ public class MicroEntrepreneur {
         this.id = id;
     }
 
+    public String getMicroEntrepreneurId() {
+        return microEntrepreneurId;
+    }
+
+    public void setMicroEntrepreneurId(String microEntrepreneurId) {
+        this.microEntrepreneurId = microEntrepreneurId;
+    }
+
     public String getFirstName() {
         return firstName;
     }

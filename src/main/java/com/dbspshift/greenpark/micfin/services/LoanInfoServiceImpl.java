@@ -23,12 +23,13 @@ public class LoanInfoServiceImpl implements LoanInfoService{
     }
 
     @Override
-    public LoanInfo getLoanInfoById(String id) throws Exception {
-        Optional<LoanInfo> byId = loanInfoRepository.findById(id);
+    public LoanInfo getLoanInfoById(String loanId) throws Exception {
+        Optional<LoanInfo> byId = loanInfoRepository.findAll().stream().filter(li -> li.getLoanId().equals(loanId.trim())).findFirst();
+        //Optional<LoanInfo> byId = loanInfoRepository.findById(id);
         if(byId.isPresent())
             return byId.get();
         else
-            throw new LoanInfoNotFoundException("Could not find details for LoanInfo - [ID = "+id+"  ]");
+            throw new LoanInfoNotFoundException("Could not find details for LoanInfo - [ID = "+loanId+"  ]");
     }
 
     @Override

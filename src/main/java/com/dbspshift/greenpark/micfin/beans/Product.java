@@ -8,11 +8,11 @@ public class Product {
 
     //id, productName, loanTenure, interestRate
     @Id
-    String id;
-    String productId;
-    String productName;
-    Integer tenure;
-    Integer inerestRate;
+    private String id;
+    private String productId;
+    private String productName;
+    private Integer tenure;
+    private Integer inerestRate;
 
     public String getId() {
         return id;
