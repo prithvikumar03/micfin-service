@@ -3,6 +3,7 @@ package com.dbspshift.greenpark.micfin.beans;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -25,9 +26,9 @@ public class LoanInfo {
     private Integer inerestRate;
     private Date date;
     //???
-    List<LoanSchedule> listLoanSchedule;
+    List<LoanSchedule> listLoanSchedule = new ArrayList<>();
 
-    List<RepaymentInfo> repaymentInfoList;
+    List<RepaymentInfo> repaymentInfoList = new ArrayList<>();
 
     public String getId() {
         return id;

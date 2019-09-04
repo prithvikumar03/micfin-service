@@ -59,7 +59,8 @@ public class CreditScoreGenerator {
 
     public void getCreditScore(RepaymentInfo repaymentInfo) throws Exception {
         HttpURLConnection con = getLambdaConnection();
-        String jsonInputString = "{\"values\": [1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8]}";
+        //String jsonInputString = "{\"values\": [1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8]}";
+        String jsonInputString = getInputParametersInJsonFormat(repaymentInfo);
         try(OutputStream os = con.getOutputStream()) {
             byte[] input = jsonInputString.getBytes("utf-8");
             os.write(input, 0, input.length);
@@ -74,6 +75,7 @@ public class CreditScoreGenerator {
             }
             System.out.println(response.toString());
         }
+        con.disconnect();
     }
 
     public String getInputParametersInJsonFormat(RepaymentInfo repaymentInfo){
@@ -109,20 +111,30 @@ public class CreditScoreGenerator {
         byMicroEntrepreneurId.getDob();
         inputParamHashMap.put(1, String.valueOf(repaymentInfo.getPayment()));
         inputParamHashMap.put(2, gender.equals("female")?"1":"0");
-        inputParamHashMap.put(3, highestEducation);
+        inputParamHashMap.put(3, highestEducation.contains("graduate")?"8":"3");
         inputParamHashMap.put(4, maritialStatus.equals("married")?"1":"0");
         inputParamHashMap.put(5, "37");
 
-
-        //Predicate<RepaymentInfo> predFilterByMeId = rp -> rp.getMicroEntrepreneurId().equals(microEntrepreneurId);
-        //List<RepaymentInfo> collect = repaymentInfoRepository.findAll().stream().filter(p -> predFilterByMeId.test(p)).collect(Collectors.toList());
-        //List<RepaymentInfo> repaymentInfosSixMonths;
-        //if(collect.size()>6){
-            //repaymentInfosSixMonths = collect.subList(0, 5);
-        //}
-        return "";
+        String jsonInput = "[";
+        for(int j=1;j<18;j++) {
+            String s = inputParamHashMap.get(j);
+            jsonInput = jsonInput + s;
+            if(j!=17){
+                jsonInput = jsonInput + ",";
+            }
+        }
+        jsonInput = jsonInput + "]";
+        return jsonInput;
     }
 }
+
+
+//Predicate<RepaymentInfo> predFilterByMeId = rp -> rp.getMicroEntrepreneurId().equals(microEntrepreneurId);
+//List<RepaymentInfo> collect = repaymentInfoRepository.findAll().stream().filter(p -> predFilterByMeId.test(p)).collect(Collectors.toList());
+//List<RepaymentInfo> repaymentInfosSixMonths;
+//if(collect.size()>6){
+//repaymentInfosSixMonths = collect.subList(0, 5);
+//}
 
 
   /*private Json requestCreditScore(){
