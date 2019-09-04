@@ -15,6 +15,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/micfin/transaction/")
+@CrossOrigin(origins = "*")
 public class TransactionController {
 
     private final Logger log = LogManager.getLogger(TransactionController.class);

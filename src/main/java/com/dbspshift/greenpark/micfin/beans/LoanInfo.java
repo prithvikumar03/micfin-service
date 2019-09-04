@@ -23,7 +23,7 @@ public class LoanInfo {
     private String productId;
     private String productName;
     private Integer tenure;
-    private Integer inerestRate;
+    private Integer interestRate;
     private Date date;
     //???
     List<LoanSchedule> listLoanSchedule = new ArrayList<>();
@@ -118,12 +118,12 @@ public class LoanInfo {
         this.tenure = tenure;
     }
 
-    public Integer getInerestRate() {
-        return inerestRate;
+    public Integer getInterestRate() {
+        return interestRate;
     }
 
-    public void setInerestRate(Integer inerestRate) {
-        this.inerestRate = inerestRate;
+    public void setInterestRate(Integer interestRate) {
+        this.interestRate = interestRate;
     }
 
     public Date getDate() {

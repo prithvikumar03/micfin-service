@@ -33,7 +33,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/micfinreactive/api/")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class MicFinRestControllerReactive {
 
     private final Logger log = LogManager.getLogger(MicFinRestControllerReactive.class);

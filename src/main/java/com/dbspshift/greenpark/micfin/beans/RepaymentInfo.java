@@ -23,7 +23,7 @@ public class RepaymentInfo {
     String productId;
     String productName;
     Integer tenure;
-    Integer inerestRate;
+    Integer interestRate;
 
     //private String creditScore;
 
@@ -115,12 +115,12 @@ public class RepaymentInfo {
         this.tenure = tenure;
     }
 
-    public Integer getInerestRate() {
-        return inerestRate;
+    public Integer getInterestRate() {
+        return interestRate;
     }
 
-    public void setInerestRate(Integer inerestRate) {
-        this.inerestRate = inerestRate;
+    public void setInterestRate(Integer interestRate) {
+        this.interestRate = interestRate;
     }
 }
 
