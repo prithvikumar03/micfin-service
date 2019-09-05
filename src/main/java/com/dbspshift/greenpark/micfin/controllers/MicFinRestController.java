@@ -56,10 +56,10 @@ public class MicFinRestController {
 
     //@Bank 1. This api is for the Bank to get details about the MFI.
     //@MFI 2. For the MFI to get their own details
-    @RequestMapping(method = RequestMethod.GET, path = "/mfi/{id}")
-    public @ResponseBody String findMFIById(@PathVariable String id) throws Exception {
-        log.debug("Request received in getMFIById for " + id);
-        return String.valueOf((mfiService.getMFIById(id)));
+    @RequestMapping(method = RequestMethod.GET, path = "/mfi/{mfiId}")
+    public @ResponseBody String findMFIById(@PathVariable String mfiId) throws Exception {
+        log.debug("Request received in getMFIById for " + mfiId);
+        return String.valueOf((mfiService.getMFIById(mfiId)));
     }
 
     //@Bank 1. This api is for the Bank to update details about the MFI.
@@ -70,10 +70,10 @@ public class MicFinRestController {
         return mfiService.updateMFI(mfi);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, path = "/mfi/{id}")
-    public @ResponseBody String deleteMFIById(@PathVariable String id) throws Exception{
-        log.debug("Request received to delete MFI for " + id);
-        return mfiService.deleteMFI(id);
+    @RequestMapping(method = RequestMethod.DELETE, path = "/mfi/{mfiId}")
+    public @ResponseBody String deleteMFIById(@PathVariable String mfiId) throws Exception{
+        log.debug("Request received to delete MFI for " + mfiId);
+        return mfiService.deleteMFI(mfiId);
     }
 
     //-------------------------------------------MICRO ENTREPRENEURS CALLS--------------------------------------------------
@@ -84,20 +84,22 @@ public class MicFinRestController {
     }
 
     //Register and MFI.
-    @RequestMapping(method = RequestMethod.POST, path = "/mfi/{id}/micro-entrepreneur")
-    public @ResponseBody MicroEntrepreneur registerMicroEntrepreneur(@RequestBody MicroEntrepreneur microEntrepreneur) throws Exception {
+    @RequestMapping(method = RequestMethod.POST, path = "/mfi/{mfiId}/micro-entrepreneur")
+    public @ResponseBody MicroEntrepreneur registerMicroEntrepreneur(@RequestBody MicroEntrepreneur microEntrepreneur,@PathVariable String mfiId) throws Exception {
         log.debug("Request received in register micro entrepreneur" + microEntrepreneur);
+        //Improvements - Check if the MFI exists before registrering the micro-entrepreneur.
         return (microEntrepreneurService.registerMicroEntrepreneur(microEntrepreneur));
     }
 
     //Get a particular micro entrepreneur.
-    @RequestMapping(method = RequestMethod.GET, path= "/mfi/micro-entrepreneurs/{microEntId}")
+    //@RequestMapping(method = RequestMethod.GET, path= "/mfi/micro-entrepreneurs/{microEntId}")
+    @RequestMapping(method = RequestMethod.GET, path= "/micro-entrepreneurs/{microEntId}")
     public @ResponseBody MicroEntrepreneur getMicroEntrepreneur(@PathVariable String microEntId) throws Exception{
         log.debug("Request received in getMicroEntrepreneur" + microEntId);
         return (microEntrepreneurService.getMicroEntrepreneurById(microEntId));
     }
 
-    @RequestMapping(method = RequestMethod.PUT, path = "/mfi/micro-entrepreneurs/{microEntId")
+    @RequestMapping(method = RequestMethod.PUT, path = "/micro-entrepreneurs/{microEntId}")
     public @ResponseBody MicroEntrepreneur updateMicroEntrepreneur(@RequestBody MicroEntrepreneur microEntrepreneur) throws Exception{
         log.debug("Request received in updateMicroEntrepreneur" + microEntrepreneur);
         return (microEntrepreneurService.updateMicroEntrepreneur(microEntrepreneur));

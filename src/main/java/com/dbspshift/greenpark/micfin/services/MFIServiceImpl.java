@@ -21,12 +21,12 @@ public class MFIServiceImpl implements MFIService {
     }
 
     @Override
-    public MFI getMFIById(String id) throws Exception {
-        Optional<MFI> mfi=repository.findById(id);
+    public MFI getMFIById(String mfiId) throws Exception {
+        Optional<MFI> mfi=repository.findByMfiId(mfiId);
         if(mfi.isPresent())
             return mfi.get();
         else
-            throw new MFINotFoundException("Could not find details for MFI - [ID = "+id+"  ]");
+            throw new MFINotFoundException("Could not find details for MFI - [ID = "+mfiId+"  ]");
     }
 
     @Override
@@ -36,7 +36,7 @@ public class MFIServiceImpl implements MFIService {
 
     @Override
     public MFI updateMFI(MFI mfi) throws Exception {
-        Optional<MFI> byId = repository.findById(mfi.getId());
+        Optional<MFI> byId = repository.findByMfiId(mfi.getId());
         if(byId.isPresent()){
             repository.save(mfi);
         }
@@ -44,14 +44,14 @@ public class MFIServiceImpl implements MFIService {
     }
 
     @Override
-    public String deleteMFI(String id){
-        try{
-            repository.deleteById(id);
+    public String deleteMFI(String mfiId){
+        Optional<MFI> byId = repository.findByMfiId(mfiId);
+        if(byId.isPresent()){
+            repository.deleteById(byId.get().getId());
             return "success";
         }
-        catch(IllegalArgumentException e) {
-            return "failed";
-        }
+        else
+            return "Mfi not present";
     }
 
 

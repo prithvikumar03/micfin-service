@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
-@Document(collection = "RepaymentInfo")
+//@Document(collection = "RepaymentInfo")
 public class RepaymentInfo {
     @Id
     private String id;
@@ -26,6 +26,10 @@ public class RepaymentInfo {
     Integer interestRate;
 
     //private String creditScore;
+
+
+    public RepaymentInfo() {
+    }
 
     public String getId() {
         return id;
@@ -123,16 +127,3 @@ public class RepaymentInfo {
         this.interestRate = interestRate;
     }
 }
-
-//loan disbursement
-//id
-//mfiId
-//microEntrepreneurId
-//loanAmount
-//product --- separate bean
-//List<LoanSchedule>
-
-//Loan Schedule
-//Date
-//Amount to be repaid
-//Rebate

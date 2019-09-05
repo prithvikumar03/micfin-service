@@ -1,6 +1,7 @@
 package com.dbspshift.greenpark.micfin.services;
 
 import com.dbspshift.greenpark.micfin.beans.MicroEntrepreneur;
+import com.dbspshift.greenpark.micfin.repository.MFIRepository;
 import com.dbspshift.greenpark.micfin.repository.MicroEntrepreneurRepository;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,8 @@ public class MicroEntrepreneurServiceImpl implements MicroEntrepreneurService {
 
     @Override
     public MicroEntrepreneur registerMicroEntrepreneur(MicroEntrepreneur microEntrepreneur) throws Exception {
+
+        microEntrepreneur.setCreditScore("5.0");
         return microEntrepreneurRepository.save(microEntrepreneur);
     }
 

@@ -54,7 +54,7 @@ public class LoanInfoServiceImpl implements LoanInfoService{
 
     @Override
     public List<LoanInfo> getAllLoanInfosForMFI(String mfiId) throws Exception {
-        Predicate<LoanInfo> predFilterByMeId = rp -> rp.getMicroEntrepreneurId().equals(mfiId);
+        Predicate<LoanInfo> predFilterByMeId = rp -> rp.getMfiId().equals(mfiId);
         List<LoanInfo> collect = loanInfoRepository.findAll().stream().filter(p -> predFilterByMeId.test(p)).collect(Collectors.toList());
         return collect;
     }

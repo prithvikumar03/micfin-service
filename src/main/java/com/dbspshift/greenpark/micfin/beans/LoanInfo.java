@@ -26,6 +26,11 @@ public class LoanInfo {
     private Integer interestRate;
     private Date date;
     //???
+
+
+    public LoanInfo() {
+    }
+
     List<LoanSchedule> listLoanSchedule = new ArrayList<>();
 
     List<RepaymentInfo> repaymentInfoList = new ArrayList<>();

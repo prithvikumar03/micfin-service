@@ -3,7 +3,7 @@ package com.dbspshift.greenpark.micfin.beans;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(value = "Address")
+//@Document(value = "Address")
 public class Address {
 
     @Id
@@ -15,6 +15,7 @@ public class Address {
     private String pinCode;
 
     public Address() {
+
 
     }
 

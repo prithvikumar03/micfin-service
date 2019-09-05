@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.query.Query;
 
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Use this for complex MongoDB queries
@@ -32,12 +33,22 @@ public class CustomMFIRepositoryImpl implements CustomMFIRepository<MFI,String>{
         return null;
     }*/
 
-    @Override
+/*    @Override
     public MFI findByMicroEntrepreneurId(String microEntrepreneurId) {
         Query query = new Query();
         query.addCriteria(Criteria.where("microEntrepreneurId").regex("^"+microEntrepreneurId));
         List<MFI> mfi = mongoTemplate.find(query,MFI.class);
         return mfi.size()>0?mfi.get(0):null;
+    }*/
+
+    @Override
+    public Optional<MFI> findByMfiId(String mfiId) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("mfiId").regex("^"+mfiId));
+        List<MFI> mfi = mongoTemplate.find(query,MFI.class);
+        Optional<MFI> mfiOptional = Optional.of(mfi.get(0));
+        //return mfi.size()>0?mfi.get(0):null;
+        return mfiOptional;
     }
 
 }

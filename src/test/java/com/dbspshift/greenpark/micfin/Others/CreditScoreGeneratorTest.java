@@ -17,18 +17,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-
-
 @RunWith(SpringRunner.class)
 public class CreditScoreGeneratorTest {
-
-   /* @Autowired
-    CreditScoreGenerator creditScoreGenerator;
-
-    @MockBean
-    LoanInfoRepository loanInfoRepository;
-    @MockBean
-    MicroEntrepreneurRepository microEntrepreneurRepository;
 
     @Configuration
     static class TestConfiguration {
@@ -42,6 +32,14 @@ public class CreditScoreGeneratorTest {
     LoanInfo loanInfo = new LoanInfo();
     MicroEntrepreneur microEntrepreneur = new MicroEntrepreneur();
 
+    @Autowired
+    CreditScoreGenerator creditScoreGenerator;
+
+    @MockBean
+    LoanInfoRepository loanInfoRepository;
+    @MockBean
+    MicroEntrepreneurRepository microEntrepreneurRepository;
+
     @Before
     public void setUp() {
         //MockitoAnnotations.initMocks(this);
@@ -50,6 +48,7 @@ public class CreditScoreGeneratorTest {
         repaymentInfo.setLoanId("123");
         repaymentInfo.setLoanAmount("1000");
         repaymentInfo.setMicroEntrepreneurId("456");
+        repaymentInfo.setPayment(100);
 
         //List<RepaymentInfo> repaymentInfoList = new ArrayList<>();
         RepaymentInfo repaymentInfo1 = new RepaymentInfo();
@@ -68,6 +67,7 @@ public class CreditScoreGeneratorTest {
         microEntrepreneur.setMaritialStatus("married");
         microEntrepreneur.setGender("female");
         microEntrepreneur.setHighestEducation("graduate");
+        microEntrepreneur.setCreditScore("5.0");
 
         Mockito.when(loanInfoRepository.findByLoanId("123")).thenReturn(loanInfo);
         Mockito.when(microEntrepreneurRepository.findByMicroEntrepreneurId("456")).thenReturn(microEntrepreneur);
@@ -78,18 +78,20 @@ public class CreditScoreGeneratorTest {
     }
 
     @Test
-    public void getCreditScore() {
+    public void getCreditScore() throws Exception {
+        MicroEntrepreneur creditScore = creditScoreGenerator.getCreditScore(repaymentInfo);
+        System.out.println(creditScore);
     }
 
     @Test
     public void getInputParametersInJsonFormat() {
-        creditScoreGenerator.getInputParametersInJsonFormat(repaymentInfo);
+        creditScoreGenerator.getInputParametersInJsonFormat(repaymentInfo,loanInfo,microEntrepreneur);
     }
 
     @Test
     public void sendPost() throws Exception {
 
-    }*/
+    }
 
 
 

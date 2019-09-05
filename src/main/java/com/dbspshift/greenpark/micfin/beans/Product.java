@@ -14,6 +14,9 @@ public class Product {
     private Integer tenure;
     private Integer inerestRate;
 
+    public Product() {
+    }
+
     public String getId() {
         return id;
     }

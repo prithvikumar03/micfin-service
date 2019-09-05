@@ -41,6 +41,9 @@ public class MicroEntrepreneur {
 
     private String creditScore;
 
+    public MicroEntrepreneur() {
+    }
+
     public String getId() {
         return id;
     }

@@ -100,14 +100,14 @@ public class MicFinRestControllerTest {
 
     @Test
     public void registerMFI() throws Exception {
-        MicroEntrepreneur microEntrepreneur = new MicroEntrepreneur();
-        microEntrepreneur.setId("1");
-        microEntrepreneur.setAadhar("123456");
-        microEntrepreneur.setFirstName("Aditya");
+        MFI mfi = new MFI();
+        mfi.setMfiId("1");
+        mfi.setCompanyName("123456");
+        mfi.setDirectorName("Aditya");
 
-        when(microEntrepreneurService.registerMicroEntrepreneur(microEntrepreneur)).thenReturn(microEntrepreneur);
-        MicroEntrepreneur microEntrepreneur1 = micFinRestController.registerMicroEntrepreneur(microEntrepreneur);
-        assertThat(microEntrepreneur.getFirstName().equals("Aditya"));
+        when(mfiService.registerMFI(mfi)).thenReturn(mfi);
+        MFI mfi1 = micFinRestController.registerMicroEntrepreneur(mfi);
+        assertThat(mfi.getDirectorName().equals("Aditya"));
     }
 
     @Test

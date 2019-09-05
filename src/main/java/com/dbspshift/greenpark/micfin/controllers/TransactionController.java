@@ -69,7 +69,7 @@ public class TransactionController {
         return repaymentInfoService.getRepaymentInfoById(id);
     }
 
-    @RequestMapping(method = RequestMethod.POST, path="/repayment/{id}")
+    @RequestMapping(method = RequestMethod.POST, path="/repayment")
     public @ResponseBody
     RepaymentInfo registerRepaymentInfo(@RequestBody RepaymentInfo repaymentInfo) throws Exception{
         log.debug("Request received in registerTransaction");
