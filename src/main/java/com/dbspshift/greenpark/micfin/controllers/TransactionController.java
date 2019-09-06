@@ -32,11 +32,11 @@ public class TransactionController {
     }
 
     //-------------------------------------------LOAN DISBURSAL--------------------------------------------------
-    @RequestMapping(method = RequestMethod.GET, path= "/loan/{id}")
+    @RequestMapping(method = RequestMethod.GET, path= "/loan/{loanId}")
     public @ResponseBody
-    LoanInfo getLoanInfo(@PathVariable String id) throws Exception{
+    LoanInfo getLoanInfoByLoanId(@PathVariable String loanId) throws Exception{
         log.debug("Request received in getTransaction");
-        return loanInfoService.getLoanInfoById(id);
+        return loanInfoService.getLoanInfoByLoanId(loanId);
     }
 
     @RequestMapping(method = RequestMethod.POST, path="/loan")
@@ -53,7 +53,7 @@ public class TransactionController {
         return loanInfoService.getAllLoanInfos();
     }
 
-    @RequestMapping(method = RequestMethod.GET, path= "/loans/{mfiId}")
+    @RequestMapping(method = RequestMethod.GET, path= "/mfi/{mfiId}/loans")
     public @ResponseBody
     List<LoanInfo> getAllLoanInfosForMFI(@PathVariable String mfiId) throws Exception{
         log.debug("Request received in getTransaction");
@@ -62,12 +62,12 @@ public class TransactionController {
 
 
     //-------------------------------------------REPAYMENT CALLS--------------------------------------------------
-    @RequestMapping(method = RequestMethod.GET, path= "/repayment/{id}")
+    /*@RequestMapping(method = RequestMethod.GET, path= "/repayment/{id}")
     public @ResponseBody
     RepaymentInfo getRepaymentInfo(@PathVariable String id) throws Exception{
         log.debug("Request received in getTransaction");
         return repaymentInfoService.getRepaymentInfoById(id);
-    }
+    }*/
 
     @RequestMapping(method = RequestMethod.POST, path="/repayment")
     public @ResponseBody
@@ -76,11 +76,20 @@ public class TransactionController {
         return repaymentInfoService.registerRepaymentInfo(repaymentInfo);
     }
 
-    @RequestMapping(method = RequestMethod.GET, path= "/repayment/mfi/{id}")
+    /*@RequestMapping(method = RequestMethod.GET, path= "mfi/{id}/repayments")
     public @ResponseBody
     List<RepaymentInfo> getAllRepaymentInfoForMfi(@PathVariable String id) throws Exception{
         log.debug("Request received in getTransaction");
         return repaymentInfoService.getAllRepaymentInfoByMicroEntrepreneurId(id);
+    }*/
+
+    //all repayments done for a micro-entrepreneur
+    @RequestMapping(method = RequestMethod.GET, path= "micro-entrepreneur/{microEntId}/repayments")
+    public @ResponseBody
+    List<RepaymentInfo> getAllRepaymentInfoForMicroEntrepreneur(@PathVariable String microEntId) throws Exception{
+        log.debug("Request received in getTransaction");
+        return repaymentInfoService.getAllRepaymentInfoByMicroEntrepreneurId(microEntId);
     }
-    //micro-entrepreneurs
+
+    //all repayments done for a loan
 }

@@ -4,7 +4,11 @@ import java.util.Date;
 
 public class LoanSchedule {
   Date repaymentDate;
-  Integer monthlyPayment;
+  Double monthlyPayment;
+  Double interestAmtPaid;
+  Double amtRepayPrincipal;
+  Double endingBalance;
+
   Integer rebate;
 
   public Date getRepaymentDate() {
@@ -15,11 +19,11 @@ public class LoanSchedule {
     this.repaymentDate = repaymentDate;
   }
 
-  public Integer getMonthlyPayment() {
+  public Double getMonthlyPayment() {
     return monthlyPayment;
   }
 
-  public void setMonthlyPayment(Integer monthlyPayment) {
+  public void setMonthlyPayment(Double monthlyPayment) {
     this.monthlyPayment = monthlyPayment;
   }
 
@@ -29,5 +33,29 @@ public class LoanSchedule {
 
   public void setRebate(Integer rebate) {
     this.rebate = rebate;
+  }
+
+  public Double getInterestAmtPaid() {
+    return interestAmtPaid;
+  }
+
+  public void setInterestAmtPaid(Double interestAmtPaid) {
+    this.interestAmtPaid = interestAmtPaid;
+  }
+
+  public Double getAmtRepayPrincipal() {
+    return amtRepayPrincipal;
+  }
+
+  public void setAmtRepayPrincipal(Double amtRepayPrincipal) {
+    this.amtRepayPrincipal = amtRepayPrincipal;
+  }
+
+  public Double getEndingBalance() {
+    return endingBalance;
+  }
+
+  public void setEndingBalance(Double endingBalance) {
+    this.endingBalance = endingBalance;
   }
 }

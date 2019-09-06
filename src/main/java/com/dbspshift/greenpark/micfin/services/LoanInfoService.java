@@ -8,7 +8,7 @@ public interface LoanInfoService {
 
     public LoanInfo registerLoanInfo(LoanInfo LoanInfo) throws Exception;
 
-    public LoanInfo getLoanInfoById(String id) throws Exception;
+    public LoanInfo getLoanInfoByLoanId(String id) throws Exception;
 
     public List<LoanInfo> getAllLoanInfos() throws Exception;
 

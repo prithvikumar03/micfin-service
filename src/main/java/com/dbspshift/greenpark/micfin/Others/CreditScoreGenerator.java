@@ -32,6 +32,7 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -55,25 +56,26 @@ public class CreditScoreGenerator {
     public MicroEntrepreneur getCreditScore(RepaymentInfo repaymentInfo) throws Exception {
         String walletBalanceUrl = ML_LAMBDA_URI;
 
-        MicroEntrepreneur byMicroEntrepreneurId = microEntrepreneurRepository.findByMicroEntrepreneurId(repaymentInfo.getMicroEntrepreneurId());
+        Optional<MicroEntrepreneur> byMicroEntrepreneurId = microEntrepreneurRepository.findByMicroEntrepreneurId(repaymentInfo.getMicroEntrepreneurId());
         String loanId = repaymentInfo.getLoanId();
-        LoanInfo loanInfo = loanInfoRepository.findByLoanId(loanId);
+        Optional<LoanInfo> loanInfo = loanInfoRepository.findByLoanId(loanId);
 
-        String creditScore = byMicroEntrepreneurId.getCreditScore();
+        try {
+        String creditScore = byMicroEntrepreneurId.get().getCreditScore();
         if(creditScore==null){
             creditScore="5.0";
-            byMicroEntrepreneurId.setCreditScore(creditScore);
+            byMicroEntrepreneurId.get().setCreditScore(creditScore);
         }
-        try {
+
             HttpHeaders httpHeaders = new HttpHeaders();
             httpHeaders.set("Content-Type", "application/json");
 
             JSONObject json = new JSONObject();
-            String jsonInputString = getInputParametersInJsonFormat(repaymentInfo, loanInfo, byMicroEntrepreneurId);
+            String jsonInputString = getInputParametersInJsonFormat(repaymentInfo, loanInfo.get(), byMicroEntrepreneurId.get());
             //int[] arry = {1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8};
             //json.put("values", arry);
 
-            String temp = "{\"values\": [1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8]}";
+            //String temp = "{\"values\": [1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8]}";
             HttpEntity<String> httpEntity = new HttpEntity<String>(jsonInputString, httpHeaders);
 
             RestTemplate restTemplate = new RestTemplate();
@@ -87,13 +89,13 @@ public class CreditScoreGenerator {
             double newCreditScore = Double.parseDouble(creditScore);
             if (!(newCreditScore + creditIncrDecr > 10) && !(newCreditScore + creditIncrDecr < 0)) {
                 newCreditScore = newCreditScore + creditIncrDecr;
-                byMicroEntrepreneurId.setCreditScore(String.valueOf(newCreditScore));
+                byMicroEntrepreneurId.get().setCreditScore(String.valueOf(newCreditScore));
             }
         }
         catch(Exception e){
 
         }
-        return byMicroEntrepreneurId;
+        return byMicroEntrepreneurId.get();
     }
 
     public Double jasonToCreditScore(String jsonRetValue){
@@ -188,40 +190,3 @@ public class CreditScoreGenerator {
         return jsonInput;
     }
 }
-
-/*public String getCreditScore(RepaymentInfo repaymentInfo) throws Exception {
-        HttpURLConnection con = getLambdaConnection();
-        //String jsonInputString = "{\"values\": [1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8]}";
-        String jsonInputString = getInputParametersInJsonFormat(repaymentInfo);
-        try(OutputStream os = con.getOutputStream()) {
-            byte[] input = jsonInputString.getBytes("utf-8");
-            os.write(input, 0, input.length);
-        }
-
-        StringBuilder response = new StringBuilder();
-        try(BufferedReader br = new BufferedReader(
-                new InputStreamReader(con.getInputStream(), "utf-8"))) {
-
-            String responseLine = null;
-            while ((responseLine = br.readLine()) != null) {
-                response.append(responseLine.trim());
-            }
-            System.out.println(response.toString());
-        }
-        con.disconnect();
-        return response.toString();
-        return getLambdaOutputUsingRest(repaymentInfo);
-    }*/
-
- /*public HttpURLConnection getLambdaConnection() throws Exception {
-        URL url = new URL (ML_LAMBDA_URI);
-        HttpURLConnection con = (HttpURLConnection)url.openConnection();
-        //con.setRequestMethod("POST");
-
-        con.setDoOutput(true);
-        con.setDoInput(true);
-        con.setRequestProperty("Content-Type", "application/json; utf-8");
-        con.setRequestProperty("Accept", "application/json");
-
-        return con;
-    }*/

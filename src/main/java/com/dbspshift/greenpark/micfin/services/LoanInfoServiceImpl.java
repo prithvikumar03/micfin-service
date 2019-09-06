@@ -1,5 +1,6 @@
 package com.dbspshift.greenpark.micfin.services;
 
+import com.dbspshift.greenpark.micfin.Others.LoanCalculationsManager;
 import com.dbspshift.greenpark.micfin.beans.LoanInfo;
 import com.dbspshift.greenpark.micfin.exceptions.LoanInfoNotFoundException;
 import com.dbspshift.greenpark.micfin.repository.LoanInfoRepository;
@@ -8,24 +9,29 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 @Service
 public class LoanInfoServiceImpl implements LoanInfoService{
 
     @Autowired
     LoanInfoRepository loanInfoRepository;
+    @Autowired
+    LoanCalculationsManager loanCalculationsManager;
 
     @Override
     public LoanInfo registerLoanInfo(LoanInfo loanInfo) throws Exception {
+        double emi = loanCalculationsManager.getEmi(loanInfo.getLoanAmount(), loanInfo.getInterestRate(), loanInfo.getTenure());
+        loanCalculationsManager.getLoanSchedule(emi,loanInfo.getLoanAmount(),loanInfo.getInterestRate(),loanInfo.getListLoanSchedule());
+        loanInfo.setEmi(emi);
+        double i=loanInfo.getLoanAmount();
+        loanInfo.setLoanBalance(i);
         return loanInfoRepository.insert(loanInfo);
     }
 
     @Override
-    public LoanInfo getLoanInfoById(String loanId) throws Exception {
-        Optional<LoanInfo> byId = loanInfoRepository.findAll().stream().filter(li -> li.getLoanId().equals(loanId.trim())).findFirst();
-        //Optional<LoanInfo> byId = loanInfoRepository.findById(id);
+    public LoanInfo getLoanInfoByLoanId(String loanId) throws Exception {
+        //Optional<LoanInfo> byId = loanInfoRepository.findAll().stream().filter(li -> li.getLoanId().equals(loanId.trim())).findFirst();
+        Optional<LoanInfo> byId = loanInfoRepository.findByLoanId(loanId);
         if(byId.isPresent())
             return byId.get();
         else
@@ -38,8 +44,24 @@ public class LoanInfoServiceImpl implements LoanInfoService{
     }
 
     @Override
+    public List<LoanInfo> getAllLoanInfosForMFI(String mfiId) throws Exception {
+        /*Predicate<LoanInfo> predFilterByMeId = rp -> rp.getMfiId().equals(mfiId);
+        List<LoanInfo> collect = loanInfoRepository.findAll().stream().filter(p -> predFilterByMeId.test(p)).collect(Collectors.toList());
+        return collect;*/
+        Optional<List<LoanInfo>> byMfiId = loanInfoRepository.findByMfiId(mfiId);
+        if(byMfiId.isPresent())
+            return byMfiId.get();
+        else
+            throw new LoanInfoNotFoundException("Could not find loan details for MFI- [ID = "+mfiId+"  ]");
+    }
+
+    @Override
     public LoanInfo updateLoanInfo(LoanInfo loanInfo) throws Exception {
-        return loanInfoRepository.save(loanInfo);
+        Optional<LoanInfo> byId = loanInfoRepository.findByLoanId(loanInfo.getLoanId());
+        if(byId.isPresent())
+            return loanInfoRepository.save(loanInfo);
+        else
+            throw new LoanInfoNotFoundException("Could not update LoanInfo - [ID = "+loanInfo.getLoanId()+"  ]");
     }
 
     @Override
@@ -52,10 +74,4 @@ public class LoanInfoServiceImpl implements LoanInfoService{
         }
     }
 
-    @Override
-    public List<LoanInfo> getAllLoanInfosForMFI(String mfiId) throws Exception {
-        Predicate<LoanInfo> predFilterByMeId = rp -> rp.getMfiId().equals(mfiId);
-        List<LoanInfo> collect = loanInfoRepository.findAll().stream().filter(p -> predFilterByMeId.test(p)).collect(Collectors.toList());
-        return collect;
-    }
 }

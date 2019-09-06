@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 
 import java.util.List;
+import java.util.Optional;
 
 public class CustomLoanInfoRepositoryImpl implements CustomLoanInfoRepository<LoanInfo,String> {
 
@@ -14,18 +15,27 @@ public class CustomLoanInfoRepositoryImpl implements CustomLoanInfoRepository<Lo
     MongoTemplate mongoTemplate;
 
     @Override
-    public LoanInfo findByLoanId(String loanId) {
+    public Optional<LoanInfo> findByLoanId(String loanId) {
         Query query = new Query();
         query.addCriteria(Criteria.where("loanId").regex("^"+loanId));
         List<LoanInfo> loanInfo = mongoTemplate.find(query,LoanInfo.class);
-        return loanInfo.size()>0?loanInfo.get(0):null;
+        return Optional.of(loanInfo.get(0));
+        //return loanInfo.size()>0?loanInfo.get(0):null;
     }
 
     @Override
-    public LoanInfo findByMicroEntrepreneurId(String microEntrepreneurId) {
+    public Optional<LoanInfo> findByMicroEntrepreneurId(String microEntrepreneurId) {
         Query query = new Query();
         query.addCriteria(Criteria.where("microEntrepreneurId").regex("^"+microEntrepreneurId));
         List<LoanInfo> loanInfo = mongoTemplate.find(query,LoanInfo.class);
-        return loanInfo.size()>0?loanInfo.get(0):null;
+        return Optional.of(loanInfo.get(0));
+    }
+
+    @Override
+    public Optional<List<LoanInfo>> findByMfiId(String mfiId) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("mfiId").regex("^"+mfiId));
+        List<LoanInfo> loanInfo = mongoTemplate.find(query,LoanInfo.class);
+        return Optional.of(loanInfo);
     }
 }

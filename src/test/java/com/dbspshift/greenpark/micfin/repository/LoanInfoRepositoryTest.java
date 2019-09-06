@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.Optional;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -30,8 +32,8 @@ class LoanInfoRepositoryTest {
         loanInfo.setLoanId("123");
         loanInfo.setMfiId("456");
         loanInfoRepository.save(loanInfo);
-        LoanInfo byLoanId = loanInfoRepository.findByLoanId("123");
-        assertTrue(byLoanId !=null);
+        Optional<LoanInfo> byLoanId = loanInfoRepository.findByLoanId("123");
+        assertTrue(byLoanId.isPresent());
     }
 
 }

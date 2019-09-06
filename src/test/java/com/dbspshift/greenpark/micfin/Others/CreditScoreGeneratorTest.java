@@ -17,6 +17,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Optional;
+
 @RunWith(SpringRunner.class)
 public class CreditScoreGeneratorTest {
 
@@ -69,8 +71,8 @@ public class CreditScoreGeneratorTest {
         microEntrepreneur.setHighestEducation("graduate");
         microEntrepreneur.setCreditScore("5.0");
 
-        Mockito.when(loanInfoRepository.findByLoanId("123")).thenReturn(loanInfo);
-        Mockito.when(microEntrepreneurRepository.findByMicroEntrepreneurId("456")).thenReturn(microEntrepreneur);
+        Mockito.when(loanInfoRepository.findByLoanId("123")).thenReturn(Optional.ofNullable(loanInfo));
+        Mockito.when(microEntrepreneurRepository.findByMicroEntrepreneurId("456")).thenReturn(Optional.ofNullable(microEntrepreneur));
     }
 
     @Test

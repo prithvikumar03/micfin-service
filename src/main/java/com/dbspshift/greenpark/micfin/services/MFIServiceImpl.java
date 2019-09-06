@@ -36,7 +36,7 @@ public class MFIServiceImpl implements MFIService {
 
     @Override
     public MFI updateMFI(MFI mfi) throws Exception {
-        Optional<MFI> byId = repository.findByMfiId(mfi.getId());
+        Optional<MFI> byId = repository.findByMfiId(mfi.getMfiId());
         if(byId.isPresent()){
             repository.save(mfi);
         }

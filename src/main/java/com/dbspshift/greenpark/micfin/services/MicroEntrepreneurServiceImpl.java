@@ -45,7 +45,11 @@ public class MicroEntrepreneurServiceImpl implements MicroEntrepreneurService {
 
     @Override
     public MicroEntrepreneur updateMicroEntrepreneur(MicroEntrepreneur microEntrepreneur) throws Exception {
-        return null;
+        Optional<MicroEntrepreneur> byId = microEntrepreneurRepository.findByMicroEntrepreneurId(microEntrepreneur.getMicroEntrepreneurId());
+        if(byId.isPresent()){
+            microEntrepreneurRepository.save(microEntrepreneur);
+        }
+        return microEntrepreneur;
     }
 
     @Override

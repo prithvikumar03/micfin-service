@@ -27,6 +27,11 @@ public class LoanInfo {
     private Date date;
     //???
 
+    private Double emi;
+    private Double loanBalance;
+    private Double totalPrincipalPaid;
+    private Double totalInterestPaid;
+
 
     public LoanInfo() {
     }
@@ -149,5 +154,37 @@ public class LoanInfo {
 
     public void addToRepaymentInfoList(RepaymentInfo repaymentInfo) {
         this.repaymentInfoList.add(repaymentInfo);
+    }
+
+    public Double getEmi() {
+        return emi;
+    }
+
+    public void setEmi(Double emi) {
+        this.emi = emi;
+    }
+
+    public Double getLoanBalance() {
+        return loanBalance;
+    }
+
+    public void setLoanBalance(Double loanBalance) {
+        this.loanBalance = loanBalance;
+    }
+
+    public Double getTotalPrincipalPaid() {
+        return totalPrincipalPaid;
+    }
+
+    public void setTotalPrincipalPaid(Double totalPrincipalPaid) {
+        this.totalPrincipalPaid = totalPrincipalPaid;
+    }
+
+    public Double getTotalInterestPaid() {
+        return totalInterestPaid;
+    }
+
+    public void setTotalInterestPaid(Double totalInterestPaid) {
+        this.totalInterestPaid = totalInterestPaid;
     }
 }

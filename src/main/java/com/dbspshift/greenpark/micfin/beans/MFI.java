@@ -33,15 +33,15 @@ public class MFI {
         this.directorName = directorName;
     }
 
-    public MFI(String id, String companyName, String directorName, Address address) {
-        this.id = id;
+    public MFI(String mfiId, String companyName, String directorName, Address address) {
+        this.mfiId = mfiId;
         this.companyName = companyName;
         this.directorName = directorName;
         this.address = address;
     }
 
-    public MFI(String id, String companyName, String directorName, Address address, String netFundsOwned, String govtRegistrationNumber, Date registrationDate, boolean isOperating, boolean isBorrowedFromBanks, boolean isAnyCasePendingInCourt, String reasonForApplication) {
-        this.id = id;
+    public MFI(String mfiId, String companyName, String directorName, Address address, String netFundsOwned, String govtRegistrationNumber, Date registrationDate, boolean isOperating, boolean isBorrowedFromBanks, boolean isAnyCasePendingInCourt, String reasonForApplication) {
+        this.mfiId = mfiId;
         this.companyName = companyName;
         this.directorName = directorName;
         this.address = address;

@@ -40,8 +40,8 @@ public class MicFinRestControllerTest {
         MFI mfi = new MFI("1","Aditya","Aditya Mohan",new Address());
     
         when(mfiService.getMFIById("1")).thenReturn(mfi);
-        String retValue = micFinRestController.findMFIById("1");
-        assertThat(retValue.contains("Aditya"));
+        MFI retValue = micFinRestController.findMFIById("1");
+        assertThat(retValue.getDirectorName().contains("Aditya"));
         System.out.println(retValue);
     }
     
@@ -49,7 +49,7 @@ public class MicFinRestControllerTest {
     public void testRegisterMFI() throws Exception {
         MFI mfi = new MFI("1","Aditya","Aditya Mohan",new Address());
         when(mfiService.registerMFI(mfi)).thenReturn(mfi);
-        MFI mfi1 = micFinRestController.registerMicroEntrepreneur(mfi);
+        MFI mfi1 = micFinRestController.registerMfi(mfi);
         assertThat(mfi1.getDirectorName().equals(mfi.getDirectorName()));
     }
     
@@ -106,7 +106,7 @@ public class MicFinRestControllerTest {
         mfi.setDirectorName("Aditya");
 
         when(mfiService.registerMFI(mfi)).thenReturn(mfi);
-        MFI mfi1 = micFinRestController.registerMicroEntrepreneur(mfi);
+        MFI mfi1 = micFinRestController.registerMfi(mfi);
         assertThat(mfi.getDirectorName().equals("Aditya"));
     }
 
