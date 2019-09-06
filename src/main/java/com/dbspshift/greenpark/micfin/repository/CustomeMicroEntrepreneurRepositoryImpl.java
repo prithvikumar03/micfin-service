@@ -23,4 +23,12 @@ public class CustomeMicroEntrepreneurRepositoryImpl implements CustomeMicroEntre
         return Optional.of(microEntrepreneurs.get(0));
         //return microEntrepreneurs.size()>0?microEntrepreneurs.get(0):null;
     }
+
+    @Override
+    public Optional<List<MicroEntrepreneur>> findAllMicroEntrepreneursByMFIId(String mfiId) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("mfiId").regex("^"+mfiId));
+        List<MicroEntrepreneur> microEntrepreneurs = mongoTemplate.find(query,MicroEntrepreneur.class);
+        return Optional.of(microEntrepreneurs);
+    }
 }

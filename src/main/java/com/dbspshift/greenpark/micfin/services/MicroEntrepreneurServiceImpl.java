@@ -29,18 +29,23 @@ public class MicroEntrepreneurServiceImpl implements MicroEntrepreneurService {
     }
 
     @Override
-    public MicroEntrepreneur getMicroEntrepreneurById(String id) throws Exception {
-        Optional<MicroEntrepreneur> byId = microEntrepreneurRepository.findById(id);
+    public MicroEntrepreneur getMicroEntrepreneurById(String mfiId) throws Exception {
+        Optional<MicroEntrepreneur> byId = microEntrepreneurRepository.findByMicroEntrepreneurId(mfiId);
         if(byId.isPresent()){
             return byId.get();
         }
-        throw new MicroEntrepreneurNotFoundException("Could not find details for MicroEntrepreneur - [ID = "+id+"  ]");
+        throw new MicroEntrepreneurNotFoundException("Could not find details for MicroEntrepreneur - [ID = "+mfiId+"  ]");
         //return
     }
 
     @Override
     public List<MicroEntrepreneur> getAllMicroEntrepreneursByMFIId(String mfiId) throws Exception {
-        return microEntrepreneurRepository.findAll();
+        Optional<List<MicroEntrepreneur>> allMicroEntrepreneursByMFIId = microEntrepreneurRepository.findAllMicroEntrepreneursByMFIId(mfiId);
+        if(allMicroEntrepreneursByMFIId.isPresent()){
+            return allMicroEntrepreneursByMFIId.get();
+        }
+        throw new MicroEntrepreneurNotFoundException("Could not find any MicroEntrepreneur for this Mfi - [ID = "+mfiId+"  ]");
+        //return
     }
 
     @Override
