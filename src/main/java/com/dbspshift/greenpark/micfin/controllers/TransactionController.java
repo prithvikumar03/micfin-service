@@ -1,6 +1,7 @@
 package com.dbspshift.greenpark.micfin.controllers;
 
 import com.dbspshift.greenpark.micfin.beans.LoanInfo;
+import com.dbspshift.greenpark.micfin.beans.LoanSchedule;
 import com.dbspshift.greenpark.micfin.beans.RepaymentInfo;
 import com.dbspshift.greenpark.micfin.services.LoanInfoService;
 import com.dbspshift.greenpark.micfin.services.ProductService;
@@ -35,29 +36,36 @@ public class TransactionController {
     @RequestMapping(method = RequestMethod.GET, path= "/loan/{loanId}")
     public @ResponseBody
     LoanInfo getLoanInfoByLoanId(@PathVariable String loanId) throws Exception{
-        log.debug("Request received in getTransaction");
+        log.debug("Request received in getLoanInfoByLoanId");
         return loanInfoService.getLoanInfoByLoanId(loanId);
     }
 
     @RequestMapping(method = RequestMethod.POST, path="/loan")
     public @ResponseBody
     LoanInfo registerLoanInfo(@RequestBody LoanInfo loanInfo) throws Exception{
-        log.debug("Request received in registerTransaction");
+        log.debug("Request received in registerLoanInfo");
         return loanInfoService.registerLoanInfo(loanInfo);
     }
 
     @RequestMapping(method = RequestMethod.GET, path= "/loans")
     public @ResponseBody
     List<LoanInfo> getAllLoanInfos() throws Exception{
-        log.debug("Request received in getTransaction");
+        log.debug("Request received in getAllLoanInfos");
         return loanInfoService.getAllLoanInfos();
     }
 
     @RequestMapping(method = RequestMethod.GET, path= "/mfi/{mfiId}/loans")
     public @ResponseBody
     List<LoanInfo> getAllLoanInfosForMFI(@PathVariable String mfiId) throws Exception{
-        log.debug("Request received in getTransaction");
+        log.debug("Request received in getAllLoanInfosForMFI");
         return loanInfoService.getAllLoanInfosForMFI(mfiId);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, path= "/loan/{loanId}/loanSchedule")
+    public @ResponseBody
+    List<LoanSchedule> getLoanScheduleForLoanId(@PathVariable String loanId) throws Exception{
+        log.debug("Request received in getLoanScheduleForLoanId");
+        return loanInfoService.getLoanScheduleForLoanId(loanId);
     }
 
 

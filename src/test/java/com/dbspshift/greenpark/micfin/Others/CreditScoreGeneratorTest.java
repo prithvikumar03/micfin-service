@@ -48,7 +48,7 @@ public class CreditScoreGeneratorTest {
         //creditScoreGenerator = new CreditScoreGenerator();
         repaymentInfo = new RepaymentInfo();
         repaymentInfo.setLoanId("123");
-        repaymentInfo.setLoanAmount("1000");
+        repaymentInfo.setLoanAmount(1000);
         repaymentInfo.setMicroEntrepreneurId("456");
         repaymentInfo.setPayment(100);
 

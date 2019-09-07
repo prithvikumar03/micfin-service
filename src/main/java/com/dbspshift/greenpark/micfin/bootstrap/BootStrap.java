@@ -1,10 +1,11 @@
 package com.dbspshift.greenpark.micfin.bootstrap;
 
-import com.dbspshift.greenpark.micfin.beans.Address;
-import com.dbspshift.greenpark.micfin.beans.MFI;
-import com.dbspshift.greenpark.micfin.beans.MicroEntrepreneur;
+import com.dbspshift.greenpark.micfin.beans.*;
+import com.dbspshift.greenpark.micfin.repository.LoanInfoRepository;
 import com.dbspshift.greenpark.micfin.repository.MFIRepository;
 import com.dbspshift.greenpark.micfin.repository.MicroEntrepreneurRepository;
+import com.dbspshift.greenpark.micfin.services.LoanInfoService;
+import com.dbspshift.greenpark.micfin.services.RepaymentInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -23,11 +24,17 @@ public class BootStrap implements ApplicationRunner {
     private MFIRepository repository;
     @Autowired
     private MicroEntrepreneurRepository microEntrepreneurRepository;
+    @Autowired
+    private LoanInfoService loanInfoService;
+    @Autowired
+    private RepaymentInfoService repaymentInfoService;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
         loadMFIs();
         loadMicroEntrepreneurs();
+        loadLoanInfos();
+        loadRepayments();
     }
 
     private void loadMFIs() throws ParseException {
@@ -93,6 +100,30 @@ public class BootStrap implements ApplicationRunner {
 
         for(MicroEntrepreneur microEntrepreneur : listOfMicroEntrepreneurs) {
             microEntrepreneurRepository.save(microEntrepreneur);
+        }
+    }
+
+    private void loadLoanInfos() throws Exception {
+        List<LoanInfo> listOfLoans = new ArrayList<>();
+        listOfLoans.add(new LoanInfo("L-200","MFI-1","OmGanesh Pte Ltd","ME-100",20000,"P-400","QuickCash",12,10));
+        listOfLoans.add(new LoanInfo("L-201","MFI-2","WikiViki","ME-101",45000,"P-400","QuickCash",24,12));
+        listOfLoans.add(new LoanInfo("L-202","MFI-1","OmGanesh Pte Ltd","ME-102",28000,"P-400","QuickCash",20,15));
+        listOfLoans.add(new LoanInfo("L-203","MFI-4","Nordic Wonders","ME-103",80000,"P-400","QuickCash",36,18));
+        listOfLoans.add(new LoanInfo("L-204","MFI-3","ThinVoice Limited","ME-104",25000,"P-400","QuickCash",12,5));
+
+        for(LoanInfo loanInfo : listOfLoans) {
+            loanInfoService.registerLoanInfo(loanInfo);
+        }
+    }
+
+    private void loadRepayments() throws Exception {
+        List<RepaymentInfo> repaymentInfoList = new ArrayList<>();
+        //String microEntrepreneurId, String mfiId, String loanId, String loanAmount, Integer payment, Integer paymentDelayedInMonths, String productId, Integer tenure, Integer interestRate
+        repaymentInfoList.add(new RepaymentInfo("ME-100","MFI-1","L-200",20000,2000,1,"P-400",12,10));
+        repaymentInfoList.add(new RepaymentInfo("ME-101","MFI-2","L-201",45000,1890,2,"P-400",24,12));
+
+        for(RepaymentInfo repaymentInfo : repaymentInfoList) {
+            repaymentInfoService.registerRepaymentInfo(repaymentInfo);
         }
     }
 }

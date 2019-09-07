@@ -1,6 +1,7 @@
 package com.dbspshift.greenpark.micfin.repository;
 
 import com.dbspshift.greenpark.micfin.beans.LoanInfo;
+import com.dbspshift.greenpark.micfin.beans.LoanSchedule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -28,7 +29,7 @@ public class CustomLoanInfoRepositoryImpl implements CustomLoanInfoRepository<Lo
         Query query = new Query();
         query.addCriteria(Criteria.where("microEntrepreneurId").regex("^"+microEntrepreneurId));
         List<LoanInfo> loanInfo = mongoTemplate.find(query,LoanInfo.class);
-        return Optional.of(loanInfo.get(0));
+        return loanInfo.size()>0?Optional.of(loanInfo.get(0)):Optional.empty();
     }
 
     @Override
@@ -37,5 +38,16 @@ public class CustomLoanInfoRepositoryImpl implements CustomLoanInfoRepository<Lo
         query.addCriteria(Criteria.where("mfiId").regex("^"+mfiId));
         List<LoanInfo> loanInfo = mongoTemplate.find(query,LoanInfo.class);
         return Optional.of(loanInfo);
+    }
+
+    @Override
+    public Optional<List<LoanSchedule>> getLoanSchedule(String loanId) {
+        Optional<LoanInfo> byLoanId = findByLoanId(loanId);
+        if(byLoanId.isPresent()){
+            LoanInfo loanInfo = byLoanId.get();
+            List<LoanSchedule> listLoanSchedule = loanInfo.getListLoanSchedule();
+            return Optional.ofNullable(listLoanSchedule);
+        }
+        return Optional.empty();
     }
 }

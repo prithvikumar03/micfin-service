@@ -13,7 +13,7 @@ public class RepaymentInfo {
     //Is mfiId required???
     private String mfiId;
     private String loanId;
-    private String loanAmount;
+    private Integer loanAmount;
     private Integer payment;
     private Date date;
     //to be calculated on the server side.
@@ -27,8 +27,20 @@ public class RepaymentInfo {
 
     //private String creditScore;
 
-
     public RepaymentInfo() {
+
+    }
+
+    public RepaymentInfo(String microEntrepreneurId, String mfiId, String loanId, Integer loanAmount, Integer payment, Integer paymentDelayedInMonths, String productId, Integer tenure, Integer interestRate) {
+        this.microEntrepreneurId = microEntrepreneurId;
+        this.mfiId = mfiId;
+        this.loanId = loanId;
+        this.loanAmount = loanAmount;
+        this.payment = payment;
+        this.paymentDelayedInMonths = paymentDelayedInMonths;
+        this.productId = productId;
+        this.tenure = tenure;
+        this.interestRate = interestRate;
     }
 
     public String getId() {
@@ -87,11 +99,11 @@ public class RepaymentInfo {
         this.date = date;
     }
 
-    public String getLoanAmount() {
+    public Integer getLoanAmount() {
         return loanAmount;
     }
 
-    public void setLoanAmount(String loanAmount) {
+    public void setLoanAmount(Integer loanAmount) {
         this.loanAmount = loanAmount;
     }
 

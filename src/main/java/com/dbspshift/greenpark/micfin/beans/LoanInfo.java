@@ -22,18 +22,30 @@ public class LoanInfo {
     //Product product;
     private String productId;
     private String productName;
-    private Integer tenure;
-    private Integer interestRate;
+    private Integer tenure=0;
+    private Integer interestRate=0;
     private Date date;
     //???
 
-    private Double emi;
-    private Double loanBalance;
-    private Double totalPrincipalPaid;
-    private Double totalInterestPaid;
+    private Double emi=0.0;
+    private Double loanBalance=0.0;
+    private Double totalPrincipalPaid=0.0;
+    private Double totalInterestPaid=0.0;
 
 
     public LoanInfo() {
+    }
+
+    public LoanInfo(String loanId, String mfiId, String mfiName, String microEntrepreneurId, Integer loanAmount, String productId, String productName, Integer tenure, Integer interestRate) {
+        this.loanId = loanId;
+        this.mfiId = mfiId;
+        this.mfiName = mfiName;
+        this.microEntrepreneurId = microEntrepreneurId;
+        this.loanAmount = loanAmount;
+        this.productId = productId;
+        this.productName = productName;
+        this.tenure = tenure;
+        this.interestRate = interestRate;
     }
 
     List<LoanSchedule> listLoanSchedule = new ArrayList<>();

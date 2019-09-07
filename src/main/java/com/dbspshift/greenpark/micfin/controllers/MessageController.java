@@ -17,8 +17,8 @@ import javax.validation.constraints.NotNull;
 @RequestMapping("/micfin/sms/")
 @Log4j2
 public class MessageController {
-
-    /*private final Logger log = LogManager.getLogger(MessageController.class);
+/*
+    private final Logger log = LogManager.getLogger(MessageController.class);
 
     @Autowired
     private MessageProxy messageProxy;

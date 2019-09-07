@@ -2,6 +2,7 @@ package com.dbspshift.greenpark.micfin.services;
 
 import com.dbspshift.greenpark.micfin.Others.LoanCalculationsManager;
 import com.dbspshift.greenpark.micfin.beans.LoanInfo;
+import com.dbspshift.greenpark.micfin.beans.LoanSchedule;
 import com.dbspshift.greenpark.micfin.exceptions.LoanInfoNotFoundException;
 import com.dbspshift.greenpark.micfin.repository.LoanInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +54,17 @@ public class LoanInfoServiceImpl implements LoanInfoService{
             return byMfiId.get();
         else
             throw new LoanInfoNotFoundException("Could not find loan details for MFI- [ID = "+mfiId+"  ]");
+    }
+
+    @Override
+    public List<LoanSchedule> getLoanScheduleForLoanId(String loanId) throws LoanInfoNotFoundException {
+        Optional<List<LoanSchedule>> loanSchedule = loanInfoRepository.getLoanSchedule(loanId);
+        if(loanSchedule.isPresent()){
+            return loanSchedule.get();
+        }
+        else{
+            throw new LoanInfoNotFoundException("Could not find loan schedule for loanId- [ID = "+loanId+"  ]");
+        }
     }
 
     @Override
