@@ -6,7 +6,7 @@ import com.dbspshift.greenpark.micfin.beans.RepaymentInfo;
 import com.dbspshift.greenpark.micfin.repository.LoanInfoRepository;
 import com.dbspshift.greenpark.micfin.repository.MicroEntrepreneurRepository;
 import com.dbspshift.greenpark.micfin.repository.RepaymentInfoRepository;
-import org.apache.commons.lang.time.DateUtils;
+//import org.apache.commons.lang.time.DateUtils;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -109,7 +109,7 @@ public class CreditScoreGenerator {
                     String s = split[1];
                     probablity = Double.parseDouble(s);
                 }
-                int i = probablity.intValue() % 20;
+                int i = (int) (probablity/20);
                 switch (i){
                     case 1:
                         creditIncrDecr = 0.4;

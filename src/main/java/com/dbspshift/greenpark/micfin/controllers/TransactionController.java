@@ -22,7 +22,7 @@ public class TransactionController {
     private final Logger log = LogManager.getLogger(TransactionController.class);
     private RepaymentInfoService repaymentInfoService;
     private LoanInfoService loanInfoService;
-    private ProductService productService;
+    //private ProductService productService;
 
     @Autowired
     public TransactionController(

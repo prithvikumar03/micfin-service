@@ -87,15 +87,15 @@ public class MicFinRestControllerTest {
     public void getAllMicroEntrepreneurs() throws Exception {
        List<MicroEntrepreneur> listMicroEntpr = new ArrayList<>();
        MicroEntrepreneur microEntrepreneur = new MicroEntrepreneur();
-       microEntrepreneur.setId("1");
+       microEntrepreneur.setMicroEntrepreneurId("1");
        listMicroEntpr.add(microEntrepreneur);
        microEntrepreneur = new MicroEntrepreneur();
-       microEntrepreneur.setId("2");
+       microEntrepreneur.setMicroEntrepreneurId("2");
 
        when(microEntrepreneurService.getAllMicroEntrepreneursByMFIId("1"))
        .thenReturn(listMicroEntpr);
        List<MicroEntrepreneur> allMicroEntrepreneursByMFIId = micFinRestController.getAllMicroEntrepreneurs("1");
-       assertThat(allMicroEntrepreneursByMFIId.size()==2 && allMicroEntrepreneursByMFIId.get(0).getId().equals("1"));
+       assertThat(allMicroEntrepreneursByMFIId.size()==2 && allMicroEntrepreneursByMFIId.get(0).getMicroEntrepreneurId().equals("1"));
     }
 
     @Test
@@ -113,7 +113,7 @@ public class MicFinRestControllerTest {
     @Test
     public void getMicroEntrepreneur() throws Exception {
         MicroEntrepreneur microEntrepreneur = new MicroEntrepreneur();
-        microEntrepreneur.setId("1");
+        microEntrepreneur.setMicroEntrepreneurId("1");
         microEntrepreneur.setAadhar("123456");
         microEntrepreneur.setFirstName("Varun");
 
@@ -125,12 +125,12 @@ public class MicFinRestControllerTest {
     @Test
     public void updateMicroEntrepreneur() throws Exception {
         MicroEntrepreneur microEntrepreneur = new MicroEntrepreneur();
-        microEntrepreneur.setId("1");
+        microEntrepreneur.setMicroEntrepreneurId("1");
         microEntrepreneur.setAadhar("123456");
         microEntrepreneur.setFirstName("Aditya");
 
         MicroEntrepreneur microEntrepreneur1 = new MicroEntrepreneur();
-        microEntrepreneur1.setId("1");
+        microEntrepreneur1.setMicroEntrepreneurId("1");
         microEntrepreneur1.setAadhar("123456");
         microEntrepreneur1.setFirstName("Aalur");
 
