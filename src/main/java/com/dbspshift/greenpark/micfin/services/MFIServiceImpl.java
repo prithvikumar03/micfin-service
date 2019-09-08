@@ -17,7 +17,13 @@ public class MFIServiceImpl implements MFIService {
 
     @Override
     public MFI registerMFI(MFI mfi) throws Exception {
-        return(repository.save(mfi));
+        Optional<MFI> byMfiId = repository.findByMfiId(mfi.getMfiId());
+        if(byMfiId.isPresent()){
+            throw new MFINotFoundException("MFI is already registered - [ID = "+mfi.getMfiId()+"  ]");
+        }
+        else {
+            return (repository.save(mfi));
+        }
     }
 
     @Override

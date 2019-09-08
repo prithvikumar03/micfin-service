@@ -46,9 +46,9 @@ public class CustomMFIRepositoryImpl implements CustomMFIRepository<MFI,String>{
         Query query = new Query();
         query.addCriteria(Criteria.where("mfiId").regex("^"+mfiId));
         List<MFI> mfi = mongoTemplate.find(query,MFI.class);
-        Optional<MFI> mfiOptional = Optional.of(mfi.get(0));
-        //return mfi.size()>0?mfi.get(0):null;
-        return mfiOptional;
+        //Optional<MFI> mfiOptional = Optional.of(mfi.get(0));
+        //return mfiOptional;
+        return mfi.size()>0? Optional.of(mfi.get(0)):Optional.empty();
     }
 
 }

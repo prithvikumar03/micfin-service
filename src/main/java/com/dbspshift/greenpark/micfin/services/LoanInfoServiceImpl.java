@@ -21,12 +21,19 @@ public class LoanInfoServiceImpl implements LoanInfoService{
 
     @Override
     public LoanInfo registerLoanInfo(LoanInfo loanInfo) throws Exception {
-        double emi = loanCalculationsManager.getEmi(loanInfo.getLoanAmount(), loanInfo.getInterestRate(), loanInfo.getTenure());
-        loanCalculationsManager.getLoanSchedule(emi,loanInfo.getLoanAmount(),loanInfo.getInterestRate(),loanInfo.getListLoanSchedule());
-        loanInfo.setEmi(emi);
-        double i=loanInfo.getLoanAmount();
-        loanInfo.setLoanBalance(i);
-        return loanInfoRepository.insert(loanInfo);
+        Optional<LoanInfo> byId = loanInfoRepository.findByLoanId(loanInfo.getLoanId());
+        if(byId.isPresent()){
+            throw new LoanInfoNotFoundException("LoanInfo is already present: Duplicate entry - [ID = "+loanInfo.getLoanId()+"  ]");
+        }
+        else {
+            //loanInfo.setLoanId(loanInfo.getLoanId().toUpperCase());
+            double emi = loanCalculationsManager.getEmi(loanInfo.getLoanAmount(), loanInfo.getInterestRate(), loanInfo.getTenure());
+            loanCalculationsManager.getLoanSchedule(emi, loanInfo.getLoanAmount(), loanInfo.getInterestRate(), loanInfo.getListLoanSchedule());
+            loanInfo.setEmi(emi);
+            double i = loanInfo.getLoanAmount();
+            loanInfo.setLoanBalance(i);
+            return loanInfoRepository.insert(loanInfo);
+        }
     }
 
     @Override
@@ -70,8 +77,9 @@ public class LoanInfoServiceImpl implements LoanInfoService{
     @Override
     public LoanInfo updateLoanInfo(LoanInfo loanInfo) throws Exception {
         Optional<LoanInfo> byId = loanInfoRepository.findByLoanId(loanInfo.getLoanId());
-        if(byId.isPresent())
+        if(byId.isPresent()) {
             return loanInfoRepository.save(loanInfo);
+        }
         else
             throw new LoanInfoNotFoundException("Could not update LoanInfo - [ID = "+loanInfo.getLoanId()+"  ]");
     }

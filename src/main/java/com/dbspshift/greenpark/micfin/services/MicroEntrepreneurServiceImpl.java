@@ -23,18 +23,23 @@ public class MicroEntrepreneurServiceImpl implements MicroEntrepreneurService {
 
     @Override
     public MicroEntrepreneur registerMicroEntrepreneur(MicroEntrepreneur microEntrepreneur) throws Exception {
-
-        microEntrepreneur.setCreditScore("5.0");
-        return microEntrepreneurRepository.save(microEntrepreneur);
+        Optional<MicroEntrepreneur> byId = microEntrepreneurRepository.findByMicroEntrepreneurId(microEntrepreneur.getMicroEntrepreneurId());
+        if(byId.isPresent()){
+            throw new MicroEntrepreneurNotFoundException("MicroEntrepreneur is already registered - [ID = "+microEntrepreneur.getMicroEntrepreneurId()+"  ]");
+        }
+        else {
+            microEntrepreneur.setCreditScore("5.0");
+            return microEntrepreneurRepository.save(microEntrepreneur);
+        }
     }
 
     @Override
-    public MicroEntrepreneur getMicroEntrepreneurById(String mfiId) throws Exception {
-        Optional<MicroEntrepreneur> byId = microEntrepreneurRepository.findByMicroEntrepreneurId(mfiId);
+    public MicroEntrepreneur getMicroEntrepreneurById(String microEntrepreneurId) throws Exception {
+        Optional<MicroEntrepreneur> byId = microEntrepreneurRepository.findByMicroEntrepreneurId(microEntrepreneurId);
         if(byId.isPresent()){
             return byId.get();
         }
-        throw new MicroEntrepreneurNotFoundException("Could not find details for MicroEntrepreneur - [ID = "+mfiId+"  ]");
+        throw new MicroEntrepreneurNotFoundException("Could not find details for MicroEntrepreneur - [ID = "+microEntrepreneurId+"  ]");
         //return
     }
 
