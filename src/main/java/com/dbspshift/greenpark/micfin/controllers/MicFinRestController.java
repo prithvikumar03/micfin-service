@@ -7,12 +7,16 @@ import com.dbspshift.greenpark.micfin.services.MicroEntrepreneurService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by gayathrig on 15/07/2019.
@@ -27,6 +31,9 @@ public class MicFinRestController {
 
     private MFIService mfiService;
     private MicroEntrepreneurService microEntrepreneurService;
+
+    @Value("${sms.service.url}")
+    private String smsUrl;
 
     @Autowired
     public MicFinRestController(MFIService mfiService, MicroEntrepreneurService microEntrepreneurService) {
@@ -89,6 +96,13 @@ public class MicFinRestController {
     public @ResponseBody MicroEntrepreneur registerMicroEntrepreneur(@RequestBody MicroEntrepreneur microEntrepreneur,@PathVariable String mfiId) throws Exception {
         log.debug("Request received in register micro entrepreneur" + microEntrepreneur);
         //Improvements - Check if the MFI exists before registrering the micro-entrepreneur.
+        if(microEntrepreneur.getPhoneBusiness() != null && !microEntrepreneur.getPhoneBusiness().isEmpty()) {
+            log.info("Subscribe to MicFin and send SMS");
+            RestTemplate restTemplate = new RestTemplate();
+            boolean translateToHindi = false;
+            ResponseEntity<ResponseEntity> response = restTemplate.postForEntity(smsUrl + "subscribe/" + microEntrepreneur.getPhoneBusiness(), null, ResponseEntity.class);
+            restTemplate.postForEntity(smsUrl + microEntrepreneur.getPhoneBusiness()+"/"+translateToHindi, null, ResponseEntity.class);
+        }
         return (microEntrepreneurService.registerMicroEntrepreneur(microEntrepreneur));
     }
 
