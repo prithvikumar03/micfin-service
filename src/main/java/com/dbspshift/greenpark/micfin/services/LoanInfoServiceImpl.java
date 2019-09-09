@@ -75,6 +75,15 @@ public class LoanInfoServiceImpl implements LoanInfoService{
     }
 
     @Override
+    public List<LoanInfo> getAllLoanInfosForMfiAndMicroEntrepreneur(String mfiId, String microEntId) throws Exception{
+        Optional<List<LoanInfo>> byMfiIdMEId = loanInfoRepository.findByMfiIdMicroEntrepreneurId(mfiId,microEntId);
+        if(byMfiIdMEId.isPresent())
+            return byMfiIdMEId.get();
+        else
+            throw new LoanInfoNotFoundException("Could not find loan details for MFI- [ID = "+mfiId+"  ] and ME- [ID = \"+microEntId+\"  ]");
+    }
+
+    @Override
     public LoanInfo updateLoanInfo(LoanInfo loanInfo) throws Exception {
         Optional<LoanInfo> byId = loanInfoRepository.findByLoanId(loanInfo.getLoanId());
         if(byId.isPresent()) {

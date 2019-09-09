@@ -53,4 +53,12 @@ public class CustomLoanInfoRepositoryImpl implements CustomLoanInfoRepository<Lo
         }
         return Optional.empty();
     }
+
+    @Override
+    public Optional<List<LoanInfo>> findByMfiIdMicroEntrepreneurId(String mfiId, String microEntrepreneurId) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("mfiId").regex("^"+mfiId).and("microEntrepreneurId").regex("^"+microEntrepreneurId));
+        List<LoanInfo> loanInfo = mongoTemplate.find(query,LoanInfo.class);
+        return Optional.of(loanInfo);
+    }
 }

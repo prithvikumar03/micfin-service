@@ -69,6 +69,13 @@ public class TransactionController {
     }
 
 
+    @RequestMapping(method = RequestMethod.GET, path= "/mfi/{mfiId}/micro-entrepreneur/{microEntId}/loans")
+    public @ResponseBody
+    List<LoanInfo> getAllLoanInfosForMfiForMicroEntrepreneur(@PathVariable String mfiId,@PathVariable String microEntId) throws Exception{
+        log.debug("Request received in getAllLoanInfosForMFI");
+        return loanInfoService.getAllLoanInfosForMfiAndMicroEntrepreneur(mfiId,microEntId);
+    }
+
     //-------------------------------------------REPAYMENT CALLS--------------------------------------------------
     /*@RequestMapping(method = RequestMethod.GET, path= "/repayment/{id}")
     public @ResponseBody
