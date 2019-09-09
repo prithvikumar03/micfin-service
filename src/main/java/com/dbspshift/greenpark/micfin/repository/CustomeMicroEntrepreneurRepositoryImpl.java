@@ -20,8 +20,9 @@ public class CustomeMicroEntrepreneurRepositoryImpl implements CustomeMicroEntre
         Query query = new Query();
         query.addCriteria(Criteria.where("microEntrepreneurId").regex("^"+microEntrepreneurId));
         List<MicroEntrepreneur> microEntrepreneurs = mongoTemplate.find(query,MicroEntrepreneur.class);
-        return Optional.of(microEntrepreneurs.get(0));
-        //return microEntrepreneurs.size()>0?microEntrepreneurs.get(0):null;
+        //Optional<MicroEntrepreneur> microEntrepreneurOptional = Optional.of(microEntrepreneurs.get(0));
+        //return microEntrepreneurOptional;
+        return microEntrepreneurs.size()>0?Optional.of(microEntrepreneurs.get(0)):Optional.empty();
     }
 
     @Override

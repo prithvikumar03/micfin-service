@@ -3,14 +3,16 @@ package com.dbspshift.greenpark.micfin.services;
 import com.dbspshift.greenpark.micfin.Others.CreditScoreGenerator;
 import com.dbspshift.greenpark.micfin.Others.LoanCalculationsManager;
 import com.dbspshift.greenpark.micfin.beans.LoanInfo;
+import com.dbspshift.greenpark.micfin.beans.MFI;
 import com.dbspshift.greenpark.micfin.beans.MicroEntrepreneur;
 import com.dbspshift.greenpark.micfin.beans.RepaymentInfo;
 import com.dbspshift.greenpark.micfin.exceptions.LoanInfoNotFoundException;
+import com.dbspshift.greenpark.micfin.exceptions.RepaymentInfoNotFound;
 import com.dbspshift.greenpark.micfin.repository.LoanInfoRepository;
+import com.dbspshift.greenpark.micfin.repository.MFIRepository;
 import com.dbspshift.greenpark.micfin.repository.MicroEntrepreneurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -26,6 +28,8 @@ public class RepaymentInfoServiceImpl implements RepaymentInfoService {
     LoanCalculationsManager loanCalculationsManager;
     @Autowired
     MicroEntrepreneurRepository microEntrepreneurRepository;
+    @Autowired
+    MFIRepository mfiRepository;
 
     @Override
     public RepaymentInfo registerRepaymentInfo(RepaymentInfo repaymentInfo) throws Exception {
@@ -34,12 +38,26 @@ public class RepaymentInfoServiceImpl implements RepaymentInfoService {
         //loanInfoRepository.f
 
         Optional<LoanInfo> optionalLoanInfo = loanInfoRepository.findByLoanId(repaymentInfo.getLoanId());
+        //Optional<MFI> byMfiId = mfiRepository.findByMfiId(repaymentInfo.getMfiId());
+        Optional<MicroEntrepreneur> byMicroEntrepreneurId = microEntrepreneurRepository.findByMicroEntrepreneurId(repaymentInfo.getMicroEntrepreneurId());
+
+        if(byMicroEntrepreneurId.isPresent()){
+            MicroEntrepreneur microEntrepreneur = byMicroEntrepreneurId.get();
+            boolean equals = microEntrepreneur.getMfiId().toUpperCase().trim().equals(repaymentInfo.getMfiId().toUpperCase().trim());
+            if(!equals){
+                throw new RepaymentInfoNotFound("MicroEntrepreneur has not registered with this MFI, LoanInfo - [ID = "+repaymentInfo.getMfiId()+"  ]");
+            }
+        }
+        else{
+            throw new RepaymentInfoNotFound("MicroEntrepreneur has no record of this loan, LoanInfo - [ID = "+repaymentInfo.getLoanId()+"  ]");
+        }
 
         if(optionalLoanInfo.isPresent()) {
             //List<RepaymentInfo> repaymentInfoList = loanInfo.getRepaymentInfoList();
             LoanInfo loanInfo = optionalLoanInfo.get();
             loanInfo.addToRepaymentInfoList(repaymentInfo);
             //RepaymentInfo save = repository.save(repaymentInfo);
+            updateLoanInfoLegder(repaymentInfo,loanInfo);
             loanInfoRepository.save(loanInfo);
 
             //Require to get 6 months transaction from RepaymentInfo
@@ -49,11 +67,11 @@ public class RepaymentInfoServiceImpl implements RepaymentInfoService {
                 microEntrepreneurRepository.save(microEntrepreneur);
             }
 
-            updateLoanInfoLegder(repaymentInfo,loanInfo);
+
             return repaymentInfo;
         }
         else{
-            throw new LoanInfoNotFoundException("No loan exists for this repayment, LoanInfo - [ID = "+repaymentInfo.getLoanId()+"  ]");
+            throw new RepaymentInfoNotFound("No loan exists for this repayment, LoanInfo - [ID = "+repaymentInfo.getLoanId()+"  ]");
         }
     }
 
@@ -68,9 +86,10 @@ public class RepaymentInfoServiceImpl implements RepaymentInfoService {
         double interestAmt = loanCalculationsManager.getInterest(loanBalance, interestRate);
         //loanInfo.setTotalInterestPaid(totalInterestPaid + interestAmt);
         if(rePayment>interestAmt){
-            double v = totalPrincipalPaid + (rePayment - interestAmt);
-            loanInfo.setTotalPrincipalPaid(v);
-            loanInfo.setLoanBalance(loanBalance-v);
+            double amtPaidTowPrincipal = rePayment - interestAmt;
+            double totalPrincipal = totalPrincipalPaid + amtPaidTowPrincipal;
+            loanInfo.setTotalPrincipalPaid(totalPrincipal);
+            loanInfo.setLoanBalance(loanBalance-amtPaidTowPrincipal);
             loanInfo.setTotalInterestPaid(totalInterestPaid + interestAmt);
         }
         else{
@@ -96,7 +115,7 @@ public class RepaymentInfoServiceImpl implements RepaymentInfoService {
             return loanInfo.getRepaymentInfoList();
         }
         else{
-            throw new LoanInfoNotFoundException("No loan exists for this microentrepreneur, LoanInfo - [ID = "+microEntrepreneurId+"  ]");
+            throw new RepaymentInfoNotFound("No loan exists for this microentrepreneur, LoanInfo - [ID = "+microEntrepreneurId+"  ]");
         }
     }
 }

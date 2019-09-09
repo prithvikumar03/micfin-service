@@ -46,7 +46,7 @@ public class MicroEntrepreneur {
 
     public MicroEntrepreneur(String microEntrepreneurId, String firstName, String aadhar, String maritialStatus,
                              String highestEducation, Integer householdIncome, Integer emiMonthly,
-                             boolean isDrinker, String mfiId, String gender) {
+                             boolean isDrinker, String mfiId, String gender, Date dob) {
         this.microEntrepreneurId = microEntrepreneurId;
         this.firstName = firstName;
         this.aadhar = aadhar;
@@ -57,6 +57,7 @@ public class MicroEntrepreneur {
         this.isDrinker = isDrinker;
         this.mfiId = mfiId;
         this.gender = gender;
+        this.dob = dob;
     }
 
     public String getId() {

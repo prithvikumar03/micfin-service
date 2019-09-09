@@ -20,8 +20,9 @@ public class CustomLoanInfoRepositoryImpl implements CustomLoanInfoRepository<Lo
         Query query = new Query();
         query.addCriteria(Criteria.where("loanId").regex("^"+loanId));
         List<LoanInfo> loanInfo = mongoTemplate.find(query,LoanInfo.class);
-        return Optional.of(loanInfo.get(0));
-        //return loanInfo.size()>0?loanInfo.get(0):null;
+        //Optional<LoanInfo> loanInfoOptional = Optional.of(loanInfo.get(0));
+        //return loanInfoOptional;
+        return loanInfo.size()>0? Optional.of(loanInfo.get(0)):Optional.empty();
     }
 
     @Override
@@ -29,7 +30,9 @@ public class CustomLoanInfoRepositoryImpl implements CustomLoanInfoRepository<Lo
         Query query = new Query();
         query.addCriteria(Criteria.where("microEntrepreneurId").regex("^"+microEntrepreneurId));
         List<LoanInfo> loanInfo = mongoTemplate.find(query,LoanInfo.class);
-        return loanInfo.size()>0?Optional.of(loanInfo.get(0)):Optional.empty();
+        //Optional<LoanInfo> loanInfoOptional = Optional.of(loanInfo.get(0));
+        //return loanInfoOptional;
+        return loanInfo.size()>0? Optional.of(loanInfo.get(0)):Optional.empty();
     }
 
     @Override
@@ -49,5 +52,13 @@ public class CustomLoanInfoRepositoryImpl implements CustomLoanInfoRepository<Lo
             return Optional.ofNullable(listLoanSchedule);
         }
         return Optional.empty();
+    }
+
+    @Override
+    public Optional<List<LoanInfo>> findByMfiIdMicroEntrepreneurId(String mfiId, String microEntrepreneurId) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("mfiId").regex("^"+mfiId).and("microEntrepreneurId").regex("^"+microEntrepreneurId));
+        List<LoanInfo> loanInfo = mongoTemplate.find(query,LoanInfo.class);
+        return Optional.of(loanInfo);
     }
 }

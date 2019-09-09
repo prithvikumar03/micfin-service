@@ -21,4 +21,6 @@ public interface LoanInfoService {
     public List<LoanInfo> getAllLoanInfosForMFI(String mfiId) throws Exception;
 
     List<LoanSchedule> getLoanScheduleForLoanId(String loanId) throws LoanInfoNotFoundException;
+
+    List<LoanInfo> getAllLoanInfosForMfiAndMicroEntrepreneur(String mfiId, String microEntId)  throws Exception;
 }

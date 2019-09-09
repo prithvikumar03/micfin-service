@@ -22,7 +22,7 @@ public class TransactionController {
     private final Logger log = LogManager.getLogger(TransactionController.class);
     private RepaymentInfoService repaymentInfoService;
     private LoanInfoService loanInfoService;
-    private ProductService productService;
+    //private ProductService productService;
 
     @Autowired
     public TransactionController(
@@ -68,6 +68,13 @@ public class TransactionController {
         return loanInfoService.getLoanScheduleForLoanId(loanId);
     }
 
+
+    @RequestMapping(method = RequestMethod.GET, path= "/mfi/{mfiId}/micro-entrepreneur/{microEntId}/loans")
+    public @ResponseBody
+    List<LoanInfo> getAllLoanInfosForMfiForMicroEntrepreneur(@PathVariable String mfiId,@PathVariable String microEntId) throws Exception{
+        log.debug("Request received in getAllLoanInfosForMFI");
+        return loanInfoService.getAllLoanInfosForMfiAndMicroEntrepreneur(mfiId,microEntId);
+    }
 
     //-------------------------------------------REPAYMENT CALLS--------------------------------------------------
     /*@RequestMapping(method = RequestMethod.GET, path= "/repayment/{id}")

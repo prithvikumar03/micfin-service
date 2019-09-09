@@ -6,6 +6,7 @@ import com.dbspshift.greenpark.micfin.beans.RepaymentInfo;
 import com.dbspshift.greenpark.micfin.repository.LoanInfoRepository;
 import com.dbspshift.greenpark.micfin.repository.MicroEntrepreneurRepository;
 import com.dbspshift.greenpark.micfin.repository.RepaymentInfoRepository;
+//import org.apache.commons.lang.time.DateUtils;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -29,10 +30,9 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -109,7 +109,7 @@ public class CreditScoreGenerator {
                     String s = split[1];
                     probablity = Double.parseDouble(s);
                 }
-                int i = probablity.intValue() % 20;
+                int i = (int) (probablity/20);
                 switch (i){
                     case 1:
                         creditIncrDecr = 0.4;
@@ -143,7 +143,7 @@ public class CreditScoreGenerator {
             int size = repaymentInfoList.size();
             List<RepaymentInfo> repaymentInfosSixMonths = repaymentInfoList;
             if (size > 5) {
-                repaymentInfosSixMonths = repaymentInfoList.subList(size - 6, size - 1);
+                repaymentInfosSixMonths = repaymentInfoList.subList(size - 6, size);
             }
 
             //String parameters = "{\"values\": [";
@@ -166,14 +166,19 @@ public class CreditScoreGenerator {
             String gender = byMicroEntrepreneurId.getGender();
             String highestEducation = byMicroEntrepreneurId.getHighestEducation();
             String maritialStatus = byMicroEntrepreneurId.getMaritialStatus();
-            byMicroEntrepreneurId.getDob();
+
             inputParamHashMap.put(1, String.valueOf(repaymentInfo.getPayment()));
             inputParamHashMap.put(2, gender.contains("female") ? "2" : "1");
 
             String education = highestEducation.contains("graduate") ? "1" : highestEducation.contains("university") ? "2" : "3";
             inputParamHashMap.put(3, education);
             inputParamHashMap.put(4, maritialStatus.equals("married") ? "1" : "2");
-            inputParamHashMap.put(5, "37");
+
+            Date dob = byMicroEntrepreneurId.getDob();
+            Date now = new Date();
+            long diffSec = (now.getTime() - dob.getTime())/1000;
+            int age = Math.toIntExact(diffSec / (31556952));
+            inputParamHashMap.put(5, String.valueOf(age));
 
             //String jsonInput = "[";
             for (int j = 1; j < 18; j++) {
