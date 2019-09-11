@@ -96,14 +96,20 @@ public class MicFinRestController {
     public @ResponseBody MicroEntrepreneur registerMicroEntrepreneur(@RequestBody MicroEntrepreneur microEntrepreneur,@PathVariable String mfiId) throws Exception {
         log.debug("Request received in register micro entrepreneur" + microEntrepreneur);
         //Improvements - Check if the MFI exists before registrering the micro-entrepreneur.
-        if(microEntrepreneur.getPhoneBusiness() != null && !microEntrepreneur.getPhoneBusiness().isEmpty()) {
-            log.info("Subscribe to MicFin and send SMS");
-            RestTemplate restTemplate = new RestTemplate();
-            boolean translateToHindi = false;
-            ResponseEntity<ResponseEntity> response = restTemplate.postForEntity(smsUrl + "subscribe/" + microEntrepreneur.getPhoneBusiness(), null, ResponseEntity.class);
-            restTemplate.postForEntity(smsUrl + microEntrepreneur.getPhoneBusiness()+"/"+translateToHindi, null, ResponseEntity.class);
+        MicroEntrepreneur microEntrepreneur1 = microEntrepreneurService.registerMicroEntrepreneur(microEntrepreneur);
+        try {
+            if (microEntrepreneur.getPhoneBusiness() != null && !microEntrepreneur.getPhoneBusiness().isEmpty()) {
+                log.info("Subscribe to MicFin and send SMS");
+                RestTemplate restTemplate = new RestTemplate();
+                boolean translateToHindi = false;
+                ResponseEntity<ResponseEntity> response = restTemplate.postForEntity(smsUrl + "subscribe/" + microEntrepreneur.getPhoneBusiness(), null, ResponseEntity.class);
+                restTemplate.postForEntity(smsUrl + microEntrepreneur.getPhoneBusiness() + "/" + translateToHindi, null, ResponseEntity.class);
+            }
         }
-        return (microEntrepreneurService.registerMicroEntrepreneur(microEntrepreneur));
+        catch(Exception e) {
+            log.info("Sending SMS unsuccessful " + microEntrepreneur.getMicroEntrepreneurId());
+        }
+        return microEntrepreneur1;
     }
 
     //Get a particular micro entrepreneur.
