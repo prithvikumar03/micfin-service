@@ -100,10 +100,14 @@ public class MicFinRestController {
         try {
             if (microEntrepreneur.getPhoneBusiness() != null && !microEntrepreneur.getPhoneBusiness().isEmpty()) {
                 log.info("Subscribe to MicFin and send SMS");
-                RestTemplate restTemplate = new RestTemplate();
-                boolean translateToHindi = false;
-                ResponseEntity<ResponseEntity> response = restTemplate.postForEntity(smsUrl + "subscribe/" + microEntrepreneur.getPhoneBusiness(), null, ResponseEntity.class);
-                restTemplate.postForEntity(smsUrl + microEntrepreneur.getPhoneBusiness() + "/" + translateToHindi, null, ResponseEntity.class);
+                try {
+                    RestTemplate restTemplate = new RestTemplate();
+                    boolean translateToHindi = false;
+                    ResponseEntity<ResponseEntity> response = restTemplate.postForEntity(smsUrl + "subscribe/" + microEntrepreneur.getPhoneBusiness(), null, ResponseEntity.class);
+                    restTemplate.postForEntity(smsUrl + microEntrepreneur.getPhoneBusiness() + "/" + translateToHindi, null, ResponseEntity.class);
+                } catch(Exception e) {
+                    log.error("Error sending SMS");
+                }
             }
         }
         catch(Exception e) {
