@@ -55,6 +55,7 @@ public class RepaymentInfoServiceImpl implements RepaymentInfoService {
         if(optionalLoanInfo.isPresent()) {
             //List<RepaymentInfo> repaymentInfoList = loanInfo.getRepaymentInfoList();
             LoanInfo loanInfo = optionalLoanInfo.get();
+            repaymentInfo.setLoanAmount(loanInfo.getLoanAmount());
             loanInfo.addToRepaymentInfoList(repaymentInfo);
             //RepaymentInfo save = repository.save(repaymentInfo);
             updateLoanInfoLegder(repaymentInfo,loanInfo);

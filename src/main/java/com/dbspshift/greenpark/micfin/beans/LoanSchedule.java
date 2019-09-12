@@ -24,7 +24,7 @@ public class LoanSchedule {
   }
 
   public void setMonthlyPayment(Double monthlyPayment) {
-    this.monthlyPayment = monthlyPayment;
+    this.monthlyPayment = Double.valueOf(Math.round(monthlyPayment));
   }
 
   public Integer getRebate() {
@@ -40,7 +40,7 @@ public class LoanSchedule {
   }
 
   public void setInterestAmtPaid(Double interestAmtPaid) {
-    this.interestAmtPaid = interestAmtPaid;
+    this.interestAmtPaid = Double.valueOf(Math.round(interestAmtPaid));
   }
 
   public Double getAmtRepayPrincipal() {
@@ -48,7 +48,7 @@ public class LoanSchedule {
   }
 
   public void setAmtRepayPrincipal(Double amtRepayPrincipal) {
-    this.amtRepayPrincipal = amtRepayPrincipal;
+    this.amtRepayPrincipal = Double.valueOf(Math.round(amtRepayPrincipal));
   }
 
   public Double getEndingBalance() {
@@ -56,6 +56,6 @@ public class LoanSchedule {
   }
 
   public void setEndingBalance(Double endingBalance) {
-    this.endingBalance = endingBalance;
+    this.endingBalance = Double.valueOf(Math.round(endingBalance));
   }
 }

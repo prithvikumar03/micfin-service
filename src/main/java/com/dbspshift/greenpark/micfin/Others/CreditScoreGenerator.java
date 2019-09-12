@@ -30,6 +30,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.*;
@@ -47,6 +48,8 @@ public class CreditScoreGenerator {
 
     private static String ML_LAMBDA_URI = "https://5xsvu5qi2e.execute-api.ap-southeast-1.amazonaws.com/default/micfin-lambda";
     //private HashMap<Integer,String> inputParamHashMap = new HashMap<>();
+
+    private static DecimalFormat df2 = new DecimalFormat("#.#");
 
     @Autowired
     MicroEntrepreneurRepository microEntrepreneurRepository;
@@ -89,7 +92,8 @@ public class CreditScoreGenerator {
             double newCreditScore = Double.parseDouble(creditScore);
             if (!(newCreditScore + creditIncrDecr > 10) && !(newCreditScore + creditIncrDecr < 0)) {
                 newCreditScore = newCreditScore + creditIncrDecr;
-                byMicroEntrepreneurId.get().setCreditScore(String.valueOf(newCreditScore));
+                String stringCreditScore = df2.format(newCreditScore);
+                byMicroEntrepreneurId.get().setCreditScore(stringCreditScore);
             }
         }
         catch(Exception e){

@@ -3,9 +3,12 @@ package com.dbspshift.greenpark.micfin.beans;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+
 
 @Document(collection = "LoanInfo")
 public class LoanInfo {
@@ -173,7 +176,8 @@ public class LoanInfo {
     }
 
     public void setEmi(Double emi) {
-        this.emi = emi;
+
+        this.emi = Double.valueOf(Math.round((emi)));
     }
 
     public Double getLoanBalance() {
@@ -181,7 +185,7 @@ public class LoanInfo {
     }
 
     public void setLoanBalance(Double loanBalance) {
-        this.loanBalance = loanBalance;
+        this.loanBalance = Double.valueOf(Math.round(loanBalance));
     }
 
     public Double getTotalPrincipalPaid() {
@@ -189,7 +193,7 @@ public class LoanInfo {
     }
 
     public void setTotalPrincipalPaid(Double totalPrincipalPaid) {
-        this.totalPrincipalPaid = totalPrincipalPaid;
+        this.totalPrincipalPaid = Double.valueOf(Math.round(totalPrincipalPaid));
     }
 
     public Double getTotalInterestPaid() {
@@ -197,6 +201,6 @@ public class LoanInfo {
     }
 
     public void setTotalInterestPaid(Double totalInterestPaid) {
-        this.totalInterestPaid = totalInterestPaid;
+        this.totalInterestPaid = Double.valueOf(Math.round(totalInterestPaid));
     }
 }
