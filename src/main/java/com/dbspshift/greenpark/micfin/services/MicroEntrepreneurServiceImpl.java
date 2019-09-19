@@ -13,6 +13,8 @@ import java.util.Optional;
 import org.apache.logging.log4j.LogManager;
 import org.springframework.stereotype.Service;
 
+import static com.dbspshift.greenpark.micfin.Others.MicFinPropererties.ME_ID_BEG;
+
 @Service
 public class MicroEntrepreneurServiceImpl implements MicroEntrepreneurService {
 
@@ -21,7 +23,7 @@ public class MicroEntrepreneurServiceImpl implements MicroEntrepreneurService {
     @Autowired
     MicroEntrepreneurRepository microEntrepreneurRepository;
 
-    @Override
+    /*@Override
     public MicroEntrepreneur registerMicroEntrepreneur(MicroEntrepreneur microEntrepreneur) throws Exception {
         Optional<MicroEntrepreneur> byId = microEntrepreneurRepository.findByMicroEntrepreneurId(microEntrepreneur.getMicroEntrepreneurId());
         if(byId.isPresent()){
@@ -31,6 +33,39 @@ public class MicroEntrepreneurServiceImpl implements MicroEntrepreneurService {
             microEntrepreneur.setCreditScore("5.0");
             return microEntrepreneurRepository.save(microEntrepreneur);
         }
+    }*/
+
+    @Override
+    public MicroEntrepreneur registerMicroEntrepreneur(MicroEntrepreneur microEntrepreneur) throws Exception {
+        //Optional<MicroEntrepreneur> byId = microEntrepreneurRepository.findb(microEntrepreneur.getMicroEntrepreneurId());
+        boolean duplicateMicroEntrepreneur = isDuplicateMicroEntrepreneur(microEntrepreneur);
+        if(duplicateMicroEntrepreneur){
+            throw new MicroEntrepreneurNotFoundException("MicroEntrepreneur is already registered - [ID = "+microEntrepreneur.getMicroEntrepreneurId()+"  ]");
+        }
+        else {
+            microEntrepreneur.setCreditScore("5.0");
+            Optional<Integer> maxMicroEntrepreneurId = microEntrepreneurRepository.getMaxMicroEntrepreneurId();
+            String newMeId = "";
+            if(maxMicroEntrepreneurId.isPresent()){
+                Integer integer = maxMicroEntrepreneurId.get();
+                newMeId = ME_ID_BEG + String.valueOf(integer + 1);
+            }
+            else{
+                newMeId = ME_ID_BEG + "1";
+            }
+            microEntrepreneur.setMicroEntrepreneurId(newMeId);
+            return (microEntrepreneurRepository.save(microEntrepreneur));
+        }
+    }
+
+    public boolean isDuplicateMicroEntrepreneur(MicroEntrepreneur microEntrepreneur){
+        final Optional<MicroEntrepreneur> byMicroEntrepreneurFirstName = microEntrepreneurRepository.findByMicroEntrepreneurFirstName(microEntrepreneur.getFirstName());
+        final Optional<MicroEntrepreneur> byMicroEntrepreneurLastName = microEntrepreneurRepository.findByMicroEntrepreneurLastName(microEntrepreneur.getLastName());
+
+        if(byMicroEntrepreneurFirstName.isPresent() && byMicroEntrepreneurLastName.isPresent()){
+            return byMicroEntrepreneurFirstName.get().getMicroEntrepreneurId().equals(byMicroEntrepreneurLastName.get().getMicroEntrepreneurId());
+        }
+        return false;
     }
 
     @Override

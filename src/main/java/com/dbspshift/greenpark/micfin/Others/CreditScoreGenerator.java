@@ -5,39 +5,16 @@ import com.dbspshift.greenpark.micfin.beans.MicroEntrepreneur;
 import com.dbspshift.greenpark.micfin.beans.RepaymentInfo;
 import com.dbspshift.greenpark.micfin.repository.LoanInfoRepository;
 import com.dbspshift.greenpark.micfin.repository.MicroEntrepreneurRepository;
-import com.dbspshift.greenpark.micfin.repository.RepaymentInfoRepository;
 //import org.apache.commons.lang.time.DateUtils;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.reactive.function.BodyInserters;
-import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
-import springfox.documentation.spring.web.json.Json;
 
-import javax.net.ssl.HttpsURLConnection;
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.ProtocolException;
-import java.net.URL;
 import java.text.DecimalFormat;
-import java.time.LocalDate;
-import java.time.Period;
 import java.util.*;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
-
-import static org.springframework.http.HttpHeaders.USER_AGENT;
 
 @Component
 public class CreditScoreGenerator {
@@ -49,7 +26,7 @@ public class CreditScoreGenerator {
     private static String ML_LAMBDA_URI = "https://5xsvu5qi2e.execute-api.ap-southeast-1.amazonaws.com/default/micfin-lambda";
     //private HashMap<Integer,String> inputParamHashMap = new HashMap<>();
 
-    private static DecimalFormat df2 = new DecimalFormat("#.#");
+    private static DecimalFormat df2 = new DecimalFormat("0#.#0"); //so that 3.0 remains as 3.0 and not 3 AND 0.5 as 0.5 and not .5
 
     @Autowired
     MicroEntrepreneurRepository microEntrepreneurRepository;
@@ -64,21 +41,18 @@ public class CreditScoreGenerator {
         Optional<LoanInfo> loanInfo = loanInfoRepository.findByLoanId(loanId);
 
         try {
-        String creditScore = byMicroEntrepreneurId.get().getCreditScore();
-        if(creditScore==null){
-            creditScore="5.0";
-            byMicroEntrepreneurId.get().setCreditScore(creditScore);
-        }
+            String creditScore = byMicroEntrepreneurId.get().getCreditScore();
+            if(creditScore==null){
+                creditScore="5.0";
+                byMicroEntrepreneurId.get().setCreditScore(creditScore);
+            }
 
             HttpHeaders httpHeaders = new HttpHeaders();
             httpHeaders.set("Content-Type", "application/json");
 
             JSONObject json = new JSONObject();
             String jsonInputString = getInputParametersInJsonFormat(repaymentInfo, loanInfo.get(), byMicroEntrepreneurId.get());
-            //int[] arry = {1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8};
-            //json.put("values", arry);
 
-            //String temp = "{\"values\": [1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8]}";
             HttpEntity<String> httpEntity = new HttpEntity<String>(jsonInputString, httpHeaders);
 
             RestTemplate restTemplate = new RestTemplate();
@@ -87,14 +61,9 @@ public class CreditScoreGenerator {
             JSONObject jsonObj = new JSONObject(response);
             String balance = jsonObj.get("body").toString();
 
-            Double creditIncrDecr = jasonToCreditScore(balance);
+            Double creditIncrDecr = jasonToCreditScoreIncrDecr(balance);
+            byMicroEntrepreneurId.get().setCreditScore(calcCreditScore(creditScore,creditIncrDecr));
 
-            double newCreditScore = Double.parseDouble(creditScore);
-            if (!(newCreditScore + creditIncrDecr > 10) && !(newCreditScore + creditIncrDecr < 0)) {
-                newCreditScore = newCreditScore + creditIncrDecr;
-                String stringCreditScore = df2.format(newCreditScore);
-                byMicroEntrepreneurId.get().setCreditScore(stringCreditScore);
-            }
         }
         catch(Exception e){
 
@@ -102,7 +71,17 @@ public class CreditScoreGenerator {
         return byMicroEntrepreneurId.get();
     }
 
-    public Double jasonToCreditScore(String jsonRetValue){
+    public String calcCreditScore(String oldCreditScore,Double incrDecrValue){
+        double newCreditScore = Double.parseDouble(oldCreditScore);
+        if (!(newCreditScore + incrDecrValue > 10) && !(newCreditScore + incrDecrValue < 0)) {
+            newCreditScore = newCreditScore + incrDecrValue;
+            String stringCreditScore = df2.format(newCreditScore);
+
+        }
+        return String.valueOf(newCreditScore);
+    }
+
+    public Double jasonToCreditScoreIncrDecr(String jsonRetValue){
         double creditIncrDecr = 0.0;
         Double probablity = 0.0;
         try {

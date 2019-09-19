@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.Optional;
 
 @RunWith(SpringRunner.class)
-class MicroEntrepreneurServiceImplTest {
+public class MicroEntrepreneurServiceImplTest {
 
     @Configuration
     static class TestConfiguration {

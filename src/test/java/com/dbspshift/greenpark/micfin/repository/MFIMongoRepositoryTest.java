@@ -35,7 +35,7 @@ class MFIMongoRepositoryTest {
     void saveMFI() {
         MFI mfi = new MFI("Grameen Bank", "Grameen Bank - Bangladesh");
         repository.save(mfi);
-        assertEquals(1, repository.findByCompanyName("Grameen Bank").size());
+        assertEquals(true, repository.findByCompanyName("Grameen Bank"));
     }
 
     @Test

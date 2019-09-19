@@ -10,10 +10,13 @@ public interface CustomMFIRepository<T,Id> {
 
      List<MFI> findByNameStartingWith(String regexp);
 
+     public Optional<MFI> findByMfiId(String mfiId);
+
+     public Optional<Integer> getMaxMfiId();
+
+     public Optional<MFI> findByCompanyName(String companyName);
+
      //public MFI findByMicroEntrepreneurId(String loanId);
-
-     public Optional<MFI> findByMfiId(String loanId);
-
      //Enable this when reactive is enabled.
-//     Flux<MFI> findByNameStartingWith(String regexp);
+     //Flux<MFI> findByNameStartingWith(String regexp);
 }

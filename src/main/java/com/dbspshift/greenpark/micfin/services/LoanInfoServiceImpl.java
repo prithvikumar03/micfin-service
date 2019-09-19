@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+import static com.dbspshift.greenpark.micfin.Others.MicFinPropererties.LOAN_ID_BEG;
+
 @Service
 public class LoanInfoServiceImpl implements LoanInfoService{
 
@@ -19,7 +21,7 @@ public class LoanInfoServiceImpl implements LoanInfoService{
     @Autowired
     LoanCalculationsManager loanCalculationsManager;
 
-    @Override
+    /*@Override
     public LoanInfo registerLoanInfo(LoanInfo loanInfo) throws Exception {
         Optional<LoanInfo> byId = loanInfoRepository.findByLoanId(loanInfo.getLoanId());
         if(byId.isPresent()){
@@ -34,6 +36,29 @@ public class LoanInfoServiceImpl implements LoanInfoService{
             loanInfo.setLoanBalance(i);
             return loanInfoRepository.insert(loanInfo);
         }
+    }*/
+
+    @Override
+    public LoanInfo registerLoanInfo(LoanInfo loanInfo) throws Exception {
+
+        Optional<Integer> byMaxLoanId = loanInfoRepository.getMaxLoanId();
+        String newLoanId = "";
+        if(byMaxLoanId.isPresent()){
+            Integer integer = byMaxLoanId.get();
+            newLoanId = LOAN_ID_BEG + String.valueOf(integer + 1);
+        }
+        else{
+            newLoanId = LOAN_ID_BEG + "1";
+        }
+        loanInfo.setLoanId(newLoanId);
+        double emi = loanCalculationsManager.getEmi(loanInfo.getLoanAmount(), loanInfo.getInterestRate(), loanInfo.getTenure());
+        //loanCalculationsManager.getLoanSchedule(emi, loanInfo.getLoanAmount(), loanInfo.getInterestRate(), loanInfo.getListLoanSchedule());
+        loanCalculationsManager.getLoanSchedule(emi, loanInfo.getLoanAmount(), loanInfo.getInterestRate(),loanInfo.getDate(), loanInfo.getListLoanSchedule());
+        loanInfo.setEmi(emi);
+        double i = loanInfo.getLoanAmount();
+        loanInfo.setLoanBalance(i);
+        return loanInfoRepository.insert(loanInfo);
+        //}
     }
 
     @Override
@@ -102,5 +127,11 @@ public class LoanInfoServiceImpl implements LoanInfoService{
             return "failed";
         }
     }
-
 }
+
+//Optional<LoanInfo> byId = loanInfoRepository.findByLoanId(loanInfo.getLoanId());
+//if(byId.isPresent()){
+//throw new LoanInfoNotFoundException("LoanInfo is already present: Duplicate entry - [ID = "+loanInfo.getLoanId()+"  ]");
+//}
+//else {
+//loanInfo.setLoanId(loanInfo.getLoanId().toUpperCase());

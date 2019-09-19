@@ -17,10 +17,26 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.text.DecimalFormat;
 import java.util.Optional;
 
 @RunWith(SpringRunner.class)
 public class CreditScoreGeneratorTest {
+    @org.junit.jupiter.api.Test
+    void getCreditScore1() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void calcCreditScore() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void jasonToCreditScoreIncrDecr() {
+    }
+
+    @org.junit.jupiter.api.Test
+    void getInputParametersInJsonFormat1() {
+    }
 
     @Configuration
     static class TestConfiguration {
@@ -92,7 +108,9 @@ public class CreditScoreGeneratorTest {
 
     @Test
     public void sendPost() throws Exception {
-
+        DecimalFormat df2 = new DecimalFormat("#0.0#");
+        String format = df2.format(.1);
+        System.out.println(format);
     }
 
 

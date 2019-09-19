@@ -33,12 +33,10 @@ public class RepaymentInfoServiceImpl implements RepaymentInfoService {
 
     @Override
     public RepaymentInfo registerRepaymentInfo(RepaymentInfo repaymentInfo) throws Exception {
-        //List<RepaymentInfo> allRepaymentInfoByMicroEntrepreneurId = getAllRepaymentInfoByMicroEntrepreneurId(repaymentInfo.getMicroEntrepreneurId());
         ///*'LIMIT_BAL', 'SEX', 'EDUCATION', 'MARRIAGE', 'AGE', from MicroEntrepreneur
         //loanInfoRepository.f
 
         Optional<LoanInfo> optionalLoanInfo = loanInfoRepository.findByLoanId(repaymentInfo.getLoanId());
-        //Optional<MFI> byMfiId = mfiRepository.findByMfiId(repaymentInfo.getMfiId());
         Optional<MicroEntrepreneur> byMicroEntrepreneurId = microEntrepreneurRepository.findByMicroEntrepreneurId(repaymentInfo.getMicroEntrepreneurId());
 
         if(byMicroEntrepreneurId.isPresent()){
@@ -53,11 +51,9 @@ public class RepaymentInfoServiceImpl implements RepaymentInfoService {
         }
 
         if(optionalLoanInfo.isPresent()) {
-            //List<RepaymentInfo> repaymentInfoList = loanInfo.getRepaymentInfoList();
             LoanInfo loanInfo = optionalLoanInfo.get();
             repaymentInfo.setLoanAmount(loanInfo.getLoanAmount());
             loanInfo.addToRepaymentInfoList(repaymentInfo);
-            //RepaymentInfo save = repository.save(repaymentInfo);
             updateLoanInfoLegder(repaymentInfo,loanInfo);
             loanInfoRepository.save(loanInfo);
 
@@ -67,8 +63,6 @@ public class RepaymentInfoServiceImpl implements RepaymentInfoService {
             if (microEntrepreneur != null) {
                 microEntrepreneurRepository.save(microEntrepreneur);
             }
-
-
             return repaymentInfo;
         }
         else{

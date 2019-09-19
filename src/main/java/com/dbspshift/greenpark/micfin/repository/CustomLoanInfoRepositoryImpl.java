@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.query.Query;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Pattern;
 
 public class CustomLoanInfoRepositoryImpl implements CustomLoanInfoRepository<LoanInfo,String> {
 
@@ -60,5 +61,21 @@ public class CustomLoanInfoRepositoryImpl implements CustomLoanInfoRepository<Lo
         query.addCriteria(Criteria.where("mfiId").regex("^"+mfiId).and("microEntrepreneurId").regex("^"+microEntrepreneurId));
         List<LoanInfo> loanInfo = mongoTemplate.find(query,LoanInfo.class);
         return Optional.of(loanInfo);
+    }
+
+    @Override
+    public Optional<Integer> getMaxLoanId() {
+        String queryRegex = "^LN[0-9]{1,3}";
+        Pattern p = Pattern.compile("\\d+");
+
+        Query query = new Query();
+        query.addCriteria(Criteria.where("loanId").regex(queryRegex));
+
+        List<String> distinct = mongoTemplate.findDistinct(query, "loanId", "LoanInfo", String.class);
+        System.out.println(distinct);
+        Optional<Integer> maxId = distinct.stream().map(y -> p.matcher(y)).filter(t -> t.find())
+                .map(z -> Integer.parseInt(z.group())).max(Integer::compare);
+
+        return maxId;
     }
 }

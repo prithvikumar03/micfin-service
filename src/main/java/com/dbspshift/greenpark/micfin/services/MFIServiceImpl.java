@@ -9,13 +9,15 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+import static com.dbspshift.greenpark.micfin.Others.MicFinPropererties.MFI_ID_BEG;
+
 @Service
 public class MFIServiceImpl implements MFIService {
 
     @Autowired
     MFIRepository repository;
 
-    @Override
+    /*@Override
     public MFI registerMFI(MFI mfi) throws Exception {
         Optional<MFI> byMfiId = repository.findByMfiId(mfi.getMfiId());
         if(byMfiId.isPresent()){
@@ -24,6 +26,33 @@ public class MFIServiceImpl implements MFIService {
         else {
             return (repository.save(mfi));
         }
+    }*/
+
+    @Override
+    public MFI registerMFI(MFI mfi) throws Exception {
+        //Optional<MFI> byMfiId = repository.findByCompanyName(mfi.getCompanyName());
+        if(isDuplicateMfi(mfi)){
+            throw new MFINotFoundException("MFI is already registered - [ID = "+mfi.getMfiId()+"  ]");
+        }
+        else {
+            Optional<Integer> maxMfiId = repository.getMaxMfiId();
+            String newMfiId = "";
+            if(maxMfiId.isPresent()){
+                Integer integer = maxMfiId.get();
+                newMfiId = MFI_ID_BEG + String.valueOf(integer + 1);
+            }
+            else{
+                newMfiId = MFI_ID_BEG + "1";
+            }
+            mfi.setMfiId(newMfiId);
+            return (repository.save(mfi));
+        }
+    }
+
+    public boolean isDuplicateMfi(MFI mfi) throws Exception{
+        Optional<MFI> byMfiId = repository.findByCompanyName(mfi.getCompanyName());
+        return byMfiId.isPresent();
+
     }
 
     @Override

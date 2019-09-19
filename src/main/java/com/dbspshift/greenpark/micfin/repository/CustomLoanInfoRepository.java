@@ -17,4 +17,6 @@ public interface CustomLoanInfoRepository<T,Id> {
     public Optional<List<LoanSchedule>> getLoanSchedule(String loanId);
 
     public Optional<List<LoanInfo>> findByMfiIdMicroEntrepreneurId(String mfiId,String microEntrepreneurId);
+
+    public Optional<Integer> getMaxLoanId();
 }
