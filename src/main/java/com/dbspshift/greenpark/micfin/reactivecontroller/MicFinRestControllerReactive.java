@@ -1,4 +1,4 @@
-package com.dbspshift.greenpark.micfin.controllers;
+package com.dbspshift.greenpark.micfin.reactivecontroller;
 
 //import com.dbspshift.greenpark.micfin.repository.AddressRepository;
 
@@ -13,11 +13,8 @@ package com.dbspshift.greenpark.micfin.controllers;
 import com.dbspshift.greenpark.micfin.beans.MFI;
 import com.dbspshift.greenpark.micfin.beans.MicroEntrepreneur;
 import com.dbspshift.greenpark.micfin.repository.AddressRepository;
-import com.dbspshift.greenpark.micfin.repository.MFIReactiveRepository;
-import com.dbspshift.greenpark.micfin.services.MFIReactiveService;
-import com.dbspshift.greenpark.micfin.services.MFIService;
-import com.dbspshift.greenpark.micfin.services.MicroEntrepreneurReactiveService;
-import com.dbspshift.greenpark.micfin.services.MicroEntrepreneurService;
+import com.dbspshift.greenpark.micfin.reactiveservices.MFIReactiveService;
+import com.dbspshift.greenpark.micfin.reactiveservices.MicroEntrepreneurReactiveService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +25,6 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.Disposable;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
-import java.util.List;
 
 @Controller
 @RequestMapping("/micfinreactive/api/")

@@ -19,13 +19,13 @@ import java.util.Optional;
 @RunWith(SpringRunner.class)
 public class MFIServiceImplUnitTest {
 
-    @Configuration
+    /*@Configuration
     static class TestConfiguration {
         @Bean
         public MFIService getMFIService() {
             return new MFIServiceImpl();
         }
-    }
+    }*/
 
     MFI mfi;
 
@@ -38,23 +38,23 @@ public class MFIServiceImplUnitTest {
     @Before
     public void setUp() throws Exception {
         mfi = new MFI("Grameen Bank", "Grameen Bank - Bangladesh");
-        mfi.setId("123");
+        //mfi.setMfiId("123");
         Mockito.when(repository.save(mfi)).thenReturn(mfi);
-        Mockito.when(repository.findById("123")).thenReturn(Optional.of(mfi));
+        Mockito.when(repository.findByMfiId("MFI1")).thenReturn(Optional.of(mfi));
     }
 
     @Test
     public void givenNewMFIRegistration_thenReturnMFIId() throws Exception {
         //MFI mfi = new MFI("Grameen Bank", "Grameen Bank - Bangladesh");
         mfiService.registerMFI(mfi);
-        Assert.assertEquals("123", mfi.getId());
+        Assert.assertEquals("MFI1", mfi.getMfiId());
     }
 
     @Test
     public void whenValidMFIId_thenMFIShouldBeFound() throws Exception {
-        String mfiID = "123";
+        String mfiID = "MFI1";
         MFI mfi = mfiService.getMFIById(mfiID);
-        Assert.assertEquals(mfiID, mfi.getId());
+        Assert.assertEquals(mfiID, mfi.getMfiId());
     }
 
     @Test(expected = MFINotFoundException.class)
@@ -72,7 +72,7 @@ public class MFIServiceImplUnitTest {
 
     @Test
     public void deleteMFISuccess() throws Exception{
-        String s = mfiService.deleteMFI("123");
+        String s = mfiService.deleteMFI("MFI1");
         Assert.assertEquals(s,"success");
     }
 }

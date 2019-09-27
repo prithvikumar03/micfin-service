@@ -48,6 +48,19 @@ public class LoanInfo {
         this.interestRate = interestRate;
     }
 
+    public LoanInfo(String loanId, String mfiId, String mfiName, String microEntrepreneurId, Integer loanAmount, String productId, String productName, Integer tenure, Integer interestRate,Date date) {
+        this.loanId = loanId;
+        this.mfiId = mfiId;
+        this.mfiName = mfiName;
+        this.microEntrepreneurId = microEntrepreneurId;
+        this.loanAmount = loanAmount;
+        this.productId = productId;
+        this.productName = productName;
+        this.tenure = tenure;
+        this.interestRate = interestRate;
+        this.date=date;
+    }
+
     List<LoanSchedule> listLoanSchedule = new ArrayList<>();
 
     List<RepaymentInfo> repaymentInfoList = new ArrayList<>();

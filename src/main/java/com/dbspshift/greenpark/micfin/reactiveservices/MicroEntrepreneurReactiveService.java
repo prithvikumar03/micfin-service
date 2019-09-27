@@ -1,4 +1,4 @@
-package com.dbspshift.greenpark.micfin.services;
+package com.dbspshift.greenpark.micfin.reactiveservices;
 
 import com.dbspshift.greenpark.micfin.beans.MicroEntrepreneur;
 import reactor.core.publisher.Flux;

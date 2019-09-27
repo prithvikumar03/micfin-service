@@ -32,7 +32,7 @@ public class MFIServiceImpl implements MFIService {
     public MFI registerMFI(MFI mfi) throws Exception {
         //Optional<MFI> byMfiId = repository.findByCompanyName(mfi.getCompanyName());
         if(isDuplicateMfi(mfi)){
-            throw new MFINotFoundException("MFI is already registered - [ID = "+mfi.getMfiId()+"  ]");
+            throw new MFINotFoundException("MFI is already registered - [CompanyName = "+mfi.getCompanyName()+"  ]");
         }
         else {
             Optional<Integer> maxMfiId = repository.getMaxMfiId();

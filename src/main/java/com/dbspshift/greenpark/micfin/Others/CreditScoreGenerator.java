@@ -26,7 +26,7 @@ public class CreditScoreGenerator {
     private static String ML_LAMBDA_URI = "https://5xsvu5qi2e.execute-api.ap-southeast-1.amazonaws.com/default/micfin-lambda";
     //private HashMap<Integer,String> inputParamHashMap = new HashMap<>();
 
-    private static DecimalFormat df2 = new DecimalFormat("0#.#0"); //so that 3.0 remains as 3.0 and not 3 AND 0.5 as 0.5 and not .5
+    private static DecimalFormat df2 = new DecimalFormat("#.0#"); //so that 3.0 remains as 3.0 and not 3 AND 0.5 as 0.5 and not .5
 
     @Autowired
     MicroEntrepreneurRepository microEntrepreneurRepository;

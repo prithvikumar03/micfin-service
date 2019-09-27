@@ -117,13 +117,14 @@ public class BootStrap implements ApplicationRunner {
         }
     }
 
-    private void loadLoanInfos(){
+    private void loadLoanInfos() throws ParseException {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd HH:MM:SS");
         List<LoanInfo> listOfLoans = new ArrayList<>();
-        listOfLoans.add(new LoanInfo("L200","MFI1","OmGanesh Pte Ltd","ME101",20000,"P400","QuickCash",12,10));
-        listOfLoans.add(new LoanInfo("L201","MFI2","WikiViki","ME104",45000,"P400","QuickCash",24,12));
-        listOfLoans.add(new LoanInfo("L202","MFI1","OmGanesh Pte Ltd","ME101",28000,"P400","QuickCash",20,15));
-        listOfLoans.add(new LoanInfo("L203","MFI4","Nordic Wonders","ME102",80000,"P400","QuickCash",36,18));
-        listOfLoans.add(new LoanInfo("L204","MFI3","ThinVoice Limited","ME103",25000,"P400","QuickCash",12,5));
+        listOfLoans.add(new LoanInfo("L200","MFI1","OmGanesh Pte Ltd","ME101",20000,"P400","QuickCash",12,10, simpleDateFormat.parse("2019-09-07 08:46:25")));
+        listOfLoans.add(new LoanInfo("L201","MFI2","WikiViki","ME104",45000,"P400","QuickCash",24,12, simpleDateFormat.parse("2019-07-07 08:46:25")));
+        listOfLoans.add(new LoanInfo("L202","MFI1","OmGanesh Pte Ltd","ME101",28000,"P400","QuickCash",20,15, simpleDateFormat.parse("2019-08-09 08:46:25")));
+        listOfLoans.add(new LoanInfo("L203","MFI4","Nordic Wonders","ME102",80000,"P400","QuickCash",36,18, simpleDateFormat.parse("2019-06-13 08:46:25")));
+        listOfLoans.add(new LoanInfo("L204","MFI3","ThinVoice Limited","ME103",25000,"P400","QuickCash",12,5, simpleDateFormat.parse("2019-05-28 08:46:25")));
 
         for(LoanInfo loanInfo : listOfLoans) {
             try {

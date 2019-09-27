@@ -40,7 +40,7 @@ public class MicroEntrepreneurServiceImpl implements MicroEntrepreneurService {
         //Optional<MicroEntrepreneur> byId = microEntrepreneurRepository.findb(microEntrepreneur.getMicroEntrepreneurId());
         boolean duplicateMicroEntrepreneur = isDuplicateMicroEntrepreneur(microEntrepreneur);
         if(duplicateMicroEntrepreneur){
-            throw new MicroEntrepreneurNotFoundException("MicroEntrepreneur is already registered - [ID = "+microEntrepreneur.getMicroEntrepreneurId()+"  ]");
+            throw new MicroEntrepreneurNotFoundException("MicroEntrepreneur is already registered - [Name = "+microEntrepreneur.getFirstName()+"  ]");
         }
         else {
             microEntrepreneur.setCreditScore("5.0");
