@@ -49,7 +49,7 @@ public class MFIServiceReactiveImpl implements MFIReactiveService {
     @Override
     public Mono<MFI> getMFIById(String id) throws Exception {
         return Mono.just(id)
-                .flatMap(repository::findById)
+                .flatMap(repository::findByMfiId)
                 .switchIfEmpty(Mono.error(new MFINotFoundException("Could not find details for MFI - [ID = "+id+"  ]")));
 
     }

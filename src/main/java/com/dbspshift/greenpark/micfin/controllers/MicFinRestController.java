@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
-import java.util.Optional;
-
 /**
  * Created by gayathrig on 15/07/2019.
  */
