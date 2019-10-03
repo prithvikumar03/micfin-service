@@ -18,10 +18,10 @@ import java.util.*;
 
 @Component
 public class CreditScoreGenerator {
-
-    /*'LIMIT_BAL', 'SEX', 'EDUCATION', 'MARRIAGE', 'AGE', 'RS_1', 'RS_2',
+/*
+    *//*'LIMIT_BAL', 'SEX', 'EDUCATION', 'MARRIAGE', 'AGE', 'RS_1', 'RS_2',
         'RS_3', 'RS_4', 'RS_5', 'RS_6', 'PAY_AMT1', 'PAY_AMT2', 'PAY_AMT3',
-        'PAY_AMT4', 'PAY_AMT5', 'PAY_AMT6'*/
+        'PAY_AMT4', 'PAY_AMT5', 'PAY_AMT6'*//*
 
     private static String ML_LAMBDA_URI = "https://5xsvu5qi2e.execute-api.ap-southeast-1.amazonaws.com/default/micfin-lambda";
     //private HashMap<Integer,String> inputParamHashMap = new HashMap<>();
@@ -176,5 +176,5 @@ public class CreditScoreGenerator {
 
         }
         return jsonInput;
-    }
+    }*/
 }

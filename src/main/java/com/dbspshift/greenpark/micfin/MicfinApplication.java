@@ -1,7 +1,7 @@
 package com.dbspshift.greenpark.micfin;
 
 import com.dbspshift.greenpark.micfin.beans.Role;
-import com.dbspshift.greenpark.micfin.repository.RoleRepository;
+//import com.dbspshift.greenpark.micfin.repository.RoleRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,7 +18,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 @EnableMongoAuditing
 //@ComponentScan({"com.dbspshift.greenpark.micfin.proxy"})
-//@EnableReactiveMongoRepositories
+@EnableReactiveMongoRepositories
 //Swagger UI will be available at http://localhost:<portnumber>/swagger-ui.html
 public class MicfinApplication {
 
@@ -26,8 +26,8 @@ public class MicfinApplication {
         SpringApplication.run(MicfinApplication.class, args);
     }
 
-    @Bean
-    CommandLineRunner init(RoleRepository roleRepository) {
+    /*@Bean
+    CommandLineRunner                    init(RoleRepository roleRepository) {
 
         return args -> {
             Role adminRole = roleRepository.findByRole("ADMIN");
@@ -45,5 +45,5 @@ public class MicfinApplication {
             }
         };
 
-    }
+    }*/
 }

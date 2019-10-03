@@ -1,9 +1,10 @@
-package com.dbspshift.greenpark.micfin.services;
+package com.dbspshift.greenpark.micfin.reactiveservices;
 
 import com.dbspshift.greenpark.micfin.beans.Role;
 import com.dbspshift.greenpark.micfin.beans.User;
-import com.dbspshift.greenpark.micfin.repository.RoleRepository;
-import com.dbspshift.greenpark.micfin.repository.UserRepository;
+
+import com.dbspshift.greenpark.micfin.reactiverepo.RoleReactiveRepo;
+import com.dbspshift.greenpark.micfin.reactiverepo.UserReactiveRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -19,9 +20,9 @@ import java.util.*;
 public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserReactiveRepo userRepository;
     @Autowired
-    private RoleRepository roleRepository;
+    private RoleReactiveRepo roleRepository;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 

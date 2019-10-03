@@ -9,6 +9,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.Optional;
+import java.util.function.Consumer;
 
 import static com.dbspshift.greenpark.micfin.Others.MicFinPropererties.MFI_ID_BEG;
 
@@ -21,9 +22,18 @@ public class MFIServiceReactiveImpl implements MFIReactiveService {
     @Override
     public Mono<MFI> registerMFI(MFI mfi) throws Exception {
 
-        if(isDuplicateMfi(mfi)){
+        /*if(isDuplicateMfi(mfi)){
             throw new MFINotFoundException("MFI is already registered - [CompanyName = "+mfi.getCompanyName()+"  ]");
-        }
+        }*/
+
+
+        return repository.findByCompanyName(mfi.getCompanyName())
+                .switchIfEmpty(repository.save(mfi));
+
+       /* repository.findByCompanyName(mfi.getCompanyName()).subscribe(
+                successvalue -> new MFINotFoundException("MFI is already registered - [CompanyName = "+mfi.getCompanyName()+"  ]"),
+                error -> repository.save(mfi)
+        );*/
         /*else {
             Mono<Integer> maxMfiId = repository.getMaxMfiId();
             String newMfiId = "";
@@ -37,7 +47,8 @@ public class MFIServiceReactiveImpl implements MFIReactiveService {
             mfi.setMfiId(newMfiId);
             return (repository.save(mfi));
         }*/
-        return(repository.save(mfi));
+
+        //return(repository.save(mfi));
     }
 
     public boolean isDuplicateMfi(MFI mfi) throws Exception{

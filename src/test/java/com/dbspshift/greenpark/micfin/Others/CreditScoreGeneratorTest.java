@@ -97,13 +97,13 @@ public class CreditScoreGeneratorTest {
 
     @Test
     public void getCreditScore() throws Exception {
-        MicroEntrepreneur creditScore = creditScoreGenerator.getCreditScore(repaymentInfo);
-        System.out.println(creditScore);
+        /*MicroEntrepreneur creditScore = creditScoreGenerator.getCreditScore(repaymentInfo);
+        System.out.println(creditScore);*/
     }
 
     @Test
     public void getInputParametersInJsonFormat() {
-        creditScoreGenerator.getInputParametersInJsonFormat(repaymentInfo,loanInfo,microEntrepreneur);
+        //creditScoreGenerator.getInputParametersInJsonFormat(repaymentInfo,loanInfo,microEntrepreneur);
     }
 
     @Test

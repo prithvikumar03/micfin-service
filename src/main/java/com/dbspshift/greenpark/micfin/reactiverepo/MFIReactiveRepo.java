@@ -1,7 +1,7 @@
 package com.dbspshift.greenpark.micfin.reactiverepo;
 
 import com.dbspshift.greenpark.micfin.beans.MFI;
-import com.dbspshift.greenpark.micfin.repository.CustomMFIRepository;
+//import com.dbspshift.greenpark.micfin.repository.CustomMFIRepository;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;

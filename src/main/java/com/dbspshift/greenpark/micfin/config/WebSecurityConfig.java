@@ -6,7 +6,7 @@
 package com.dbspshift.greenpark.micfin.config;
 
 
-import com.dbspshift.greenpark.micfin.services.CustomUserDetailsService;
+import com.dbspshift.greenpark.micfin.reactiveservices.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

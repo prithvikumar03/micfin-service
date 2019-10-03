@@ -4,8 +4,9 @@ import com.dbspshift.greenpark.micfin.beans.LoanInfo;
 import com.dbspshift.greenpark.micfin.beans.LoanSchedule;
 import com.dbspshift.greenpark.micfin.beans.RepaymentInfo;
 import com.dbspshift.greenpark.micfin.reactiveservices.LoanInfoReactiveService;
-import com.dbspshift.greenpark.micfin.services.LoanInfoService;
-import com.dbspshift.greenpark.micfin.services.RepaymentInfoService;
+import com.dbspshift.greenpark.micfin.reactiveservices.RepaymentInfoReactiveService;
+//import com.dbspshift.greenpark.micfin.services.LoanInfoService;
+//import com.dbspshift.greenpark.micfin.services.RepaymentInfoService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,9 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
+import java.util.Random;
+import java.util.concurrent.Callable;
+import java.util.function.Supplier;
 
 @Controller
 @RequestMapping("/micfinreactive/transaction/")
@@ -28,7 +32,7 @@ public class TransactionControllerReactive {
 
     @Autowired
     public TransactionControllerReactive(
-            RepaymentInfoService repaymentInfoService,
+            RepaymentInfoReactiveService repaymentInfoService,
             LoanInfoReactiveService loanInfoService) {
         //this.repaymentInfoService = repaymentInfoService;
         this.loanInfoService = loanInfoService;

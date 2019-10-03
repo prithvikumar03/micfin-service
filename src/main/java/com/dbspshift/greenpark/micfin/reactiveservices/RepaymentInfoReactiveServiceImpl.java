@@ -6,20 +6,36 @@ import com.dbspshift.greenpark.micfin.beans.LoanInfo;
 import com.dbspshift.greenpark.micfin.beans.MicroEntrepreneur;
 import com.dbspshift.greenpark.micfin.beans.RepaymentInfo;
 import com.dbspshift.greenpark.micfin.exceptions.RepaymentInfoNotFound;
-import com.dbspshift.greenpark.micfin.repository.LoanInfoRepository;
+/*import com.dbspshift.greenpark.micfin.repository.LoanInfoRepository;
 import com.dbspshift.greenpark.micfin.repository.MFIRepository;
 import com.dbspshift.greenpark.micfin.repository.MicroEntrepreneurRepository;
-import com.dbspshift.greenpark.micfin.services.RepaymentInfoService;
+import com.dbspshift.greenpark.micfin.services.RepaymentInfoService;*/
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class RepaymentInfoReactiveServiceImpl implements RepaymentInfoService {
+public class RepaymentInfoReactiveServiceImpl implements RepaymentInfoReactiveService{
+    @Override
+    public Mono<RepaymentInfo> registerRepaymentInfo(RepaymentInfo repaymentInfo) throws Exception {
+        return null;
+    }
 
-    //RepaymentInfoRepository repository;
+    @Override
+    public Mono<RepaymentInfo> getRepaymentInfoById(String id) throws Exception {
+        return null;
+    }
+
+    @Override
+    public Flux<RepaymentInfo> getAllRepaymentInfoByMicroEntrepreneurId(String id) throws Exception {
+        return null;
+    }
+
+/*    //RepaymentInfoRepository repository;
     @Autowired
     LoanInfoRepository loanInfoRepository;
     @Autowired
@@ -39,8 +55,9 @@ public class RepaymentInfoReactiveServiceImpl implements RepaymentInfoService {
         Optional<LoanInfo> optionalLoanInfo = loanInfoRepository.findByLoanId(repaymentInfo.getLoanId());
         Optional<MicroEntrepreneur> byMicroEntrepreneurId = microEntrepreneurRepository.findByMicroEntrepreneurId(repaymentInfo.getMicroEntrepreneurId());
 
+        MicroEntrepreneur microEntrepreneur;
         if(byMicroEntrepreneurId.isPresent()){
-            MicroEntrepreneur microEntrepreneur = byMicroEntrepreneurId.get();
+            microEntrepreneur = byMicroEntrepreneurId.get();
             boolean equals = microEntrepreneur.getMfiId().toUpperCase().trim().equals(repaymentInfo.getMfiId().toUpperCase().trim());
             if(!equals){
                 throw new RepaymentInfoNotFound("MicroEntrepreneur has not registered with this MFI, LoanInfo - [ID = "+repaymentInfo.getMfiId()+"  ]");
@@ -59,7 +76,7 @@ public class RepaymentInfoReactiveServiceImpl implements RepaymentInfoService {
 
             //Require to get 6 months transaction from RepaymentInfo
             //6 months delayed info from RepaymentInfo to get credit score
-            MicroEntrepreneur microEntrepreneur = creditScoreGenerator.getCreditScore(repaymentInfo);
+            //MicroEntrepreneur microEntrepreneur = creditScoreGenerator.getCreditScore(repaymentInfo);
             if (microEntrepreneur != null) {
                 microEntrepreneurRepository.save(microEntrepreneur);
             }
@@ -95,10 +112,10 @@ public class RepaymentInfoReactiveServiceImpl implements RepaymentInfoService {
 
     @Override
     public RepaymentInfo getRepaymentInfoById(String id) throws Exception {
-       /* Optional<RepaymentInfo> byId = repository.findById(id);
+       *//* Optional<RepaymentInfo> byId = repository.findById(id);
         if(byId.isPresent())
             return byId.get();
-        else*/
+        else*//*
             return null;
     }
 
@@ -112,7 +129,7 @@ public class RepaymentInfoReactiveServiceImpl implements RepaymentInfoService {
         else{
             throw new RepaymentInfoNotFound("No loan exists for this microentrepreneur, LoanInfo - [ID = "+microEntrepreneurId+"  ]");
         }
-    }
+    }*/
 }
 
 //Predicate<RepaymentInfo> predFilterByMeId = rp -> rp.getMicroEntrepreneurId().equals(id);
