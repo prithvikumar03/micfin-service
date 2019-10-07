@@ -9,7 +9,7 @@ before_install:
 #sudo: required
 
 jdk:
-  - oraclejdk9
+  - oraclejdk8
 
 #script: mvn package -DskipTests
 services:
