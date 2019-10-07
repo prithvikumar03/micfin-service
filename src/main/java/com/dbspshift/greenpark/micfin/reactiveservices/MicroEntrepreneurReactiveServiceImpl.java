@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.Optional;
+
 @Service
 public class MicroEntrepreneurReactiveServiceImpl implements MicroEntrepreneurReactiveService {
 
@@ -20,7 +22,16 @@ public class MicroEntrepreneurReactiveServiceImpl implements MicroEntrepreneurRe
 
     @Override
     public Mono<MicroEntrepreneur> registerMicroEntrepreneur(MicroEntrepreneur microEntrepreneur) throws Exception {
-        return microEntrepreneurReactiveRepo.save(microEntrepreneur);
+        //return microEntrepreneurReactiveRepo.save(microEntrepreneur);
+
+        Optional<MicroEntrepreneur> byId = microEntrepreneurReactiveRepo.findByMicroEntrepreneurId(microEntrepreneur.getMicroEntrepreneurId()).blockOptional();
+        if(byId.isPresent()){
+            throw new MicroEntrepreneurNotFoundException("MicroEntrepreneur is already registered - [ID = "+microEntrepreneur.getMicroEntrepreneurId()+"  ]");
+        }
+        else {
+            microEntrepreneur.setCreditScore("5.0");
+            return microEntrepreneurReactiveRepo.save(microEntrepreneur);
+        }
     }
 
     @Override

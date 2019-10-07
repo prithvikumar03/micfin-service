@@ -59,14 +59,14 @@ public class RepaymentInfoReactiveServiceImpl implements RepaymentInfoReactiveSe
             repaymentInfo.setLoanAmount(loanInfo.getLoanAmount());
             loanInfo.addToRepaymentInfoList(repaymentInfo);
             updateLoanInfoLegder(repaymentInfo,loanInfo);
-            loanInfoRepository.save(loanInfo);
+            loanInfoRepository.save(loanInfo).block();
 
             //Require to get 6 months transaction from RepaymentInfo
             //6 months delayed info from RepaymentInfo to get credit score
             MicroEntrepreneur microEntrepreneurUpdatedCreditScore = creditScoreGenerator.getCreditScore(repaymentInfo);
             if (microEntrepreneurUpdatedCreditScore != null) {
                 System.out.println("NEW CREDIT SCORE" + microEntrepreneurUpdatedCreditScore.getCreditScore());
-                microEntrepreneurRepository.save(microEntrepreneurUpdatedCreditScore);
+                microEntrepreneurRepository.save(microEntrepreneurUpdatedCreditScore).block();
             }
             return Mono.just(repaymentInfo);
         }

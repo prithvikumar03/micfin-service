@@ -10,8 +10,6 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.util.List;
-import java.util.Optional;
 
 import static com.dbspshift.greenpark.micfin.Others.MicFinPropererties.LOAN_ID_BEG;
 
@@ -26,7 +24,7 @@ public class LoanInfoServiceReactiveImpl implements LoanInfoReactiveService{
     @Override
     public Mono<LoanInfo> registerLoanInfo(LoanInfo loanInfo) throws Exception {
 
-        Mono<Integer> byMaxLoanId = loanInfoRepository.getMaxLoanId();
+        /*Mono<Integer> byMaxLoanId = loanInfoRepository.getMaxLoanId();
         String newLoanId = "";
         if(byMaxLoanId.blockOptional().isPresent()){
             Integer integer = byMaxLoanId.block();
@@ -35,13 +33,13 @@ public class LoanInfoServiceReactiveImpl implements LoanInfoReactiveService{
         else{
             newLoanId = LOAN_ID_BEG + "1";
         }
-        loanInfo.setLoanId(newLoanId);
+        loanInfo.setLoanId(newLoanId);*/
         double emi = loanCalculationsManager.getEmi(loanInfo.getLoanAmount(), loanInfo.getInterestRate(), loanInfo.getTenure());
         loanCalculationsManager.getLoanSchedule(emi, loanInfo.getLoanAmount(), loanInfo.getInterestRate(),loanInfo.getDate(), loanInfo.getListLoanSchedule());
         loanInfo.setEmi(emi);
         double i = loanInfo.getLoanAmount();
         loanInfo.setLoanBalance(i);
-        return loanInfoRepository.insert(loanInfo);
+        return loanInfoRepository.save(loanInfo);
     }
 
     @Override
