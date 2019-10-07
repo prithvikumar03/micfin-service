@@ -105,7 +105,7 @@ public class MicFinRestControllerReactive {
     @GetMapping(path= "/micro-entrepreneur/{microEntId}")
     public @ResponseBody Mono<MicroEntrepreneur> getMicroEntrepreneur(@PathVariable String microEntId) throws Exception{
         log.debug("Request received in getMicroEntrepreneur" + microEntId);
-        return (microEntrepreneurReactiveService.getMicroEntrepreneurById(microEntId));
+        return (microEntrepreneurReactiveService.getMicroEntrepreneurByMicroEntrepreneurId(microEntId));
     }
 
     @PutMapping(path = "/mfi/micro-entrepreneur/{microEntId")

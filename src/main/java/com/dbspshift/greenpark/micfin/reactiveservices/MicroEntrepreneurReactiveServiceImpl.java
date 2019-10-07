@@ -24,21 +24,22 @@ public class MicroEntrepreneurReactiveServiceImpl implements MicroEntrepreneurRe
     }
 
     @Override
-    public Mono<MicroEntrepreneur> getMicroEntrepreneurById(String id) throws Exception {
-        return Mono.just(id)
-                .flatMap(microEntrepreneurReactiveRepo::findById)
-                .switchIfEmpty(Mono.error(new MicroEntrepreneurNotFoundException("Could not find details for MicroEntrepreneur  - [ID = "+id+"  ]")));
+    public Mono<MicroEntrepreneur> getMicroEntrepreneurByMicroEntrepreneurId(String microEntrepreneurId) throws Exception {
+        return Mono.just(microEntrepreneurId)
+                .flatMap(microEntrepreneurReactiveRepo::findByMicroEntrepreneurId)
+                .switchIfEmpty(Mono.error(new MicroEntrepreneurNotFoundException("Could not find details for MicroEntrepreneur  - [ID = "+microEntrepreneurId+"  ]")));
     }
 
     @Override
     public Flux<MicroEntrepreneur> getAllMicroEntrepreneursByMFIId(String mfiId) throws Exception {
-        return microEntrepreneurReactiveRepo.findAll();
+        return microEntrepreneurReactiveRepo.findAllMicroEntrepreneursByMFIId(mfiId);
     }
 
     @Override
     public Mono<MicroEntrepreneur> updateMicroEntrepreneur(MicroEntrepreneur microEntrepreneur) throws Exception {
-        Mono<MicroEntrepreneur> existingME = getMicroEntrepreneurById(microEntrepreneur.getId());
-        existingME.flatMap(microEntrepreneurReactiveRepo::save);
+        Mono<MicroEntrepreneur> existingME = getMicroEntrepreneurByMicroEntrepreneurId(microEntrepreneur.getMfiId());
+        existingME.flatMap(microEntrepreneurReactiveRepo::save)
+        .switchIfEmpty(Mono.error(new MicroEntrepreneurNotFoundException("Could not update details for MicroEntrepreneur  - [ID = "+microEntrepreneur.getLastName()+"  ]")));
         return existingME;
     }
 

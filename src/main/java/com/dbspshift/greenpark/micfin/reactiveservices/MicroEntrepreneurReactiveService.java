@@ -9,7 +9,7 @@ import java.util.List;
 public interface MicroEntrepreneurReactiveService {
     public Mono<MicroEntrepreneur> registerMicroEntrepreneur(MicroEntrepreneur microEntrepreneur) throws Exception;
 
-    public Mono<MicroEntrepreneur> getMicroEntrepreneurById(String id) throws Exception;
+    public Mono<MicroEntrepreneur> getMicroEntrepreneurByMicroEntrepreneurId(String MicroEntrepreneurId) throws Exception;
 
     public Flux<MicroEntrepreneur> getAllMicroEntrepreneursByMFIId(String id) throws Exception;
 

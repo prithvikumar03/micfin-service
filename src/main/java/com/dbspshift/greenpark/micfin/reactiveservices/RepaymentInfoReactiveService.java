@@ -10,7 +10,7 @@ public interface RepaymentInfoReactiveService {
 
     public Mono<RepaymentInfo> registerRepaymentInfo(RepaymentInfo repaymentInfo) throws Exception;
 
-    public Mono<RepaymentInfo> getRepaymentInfoById(String id) throws Exception;
+    public Flux<RepaymentInfo> getRepaymentInfoByLoanId(String loanId) throws Exception;
 
     public Flux<RepaymentInfo> getAllRepaymentInfoByMicroEntrepreneurId(String id) throws Exception;
 
