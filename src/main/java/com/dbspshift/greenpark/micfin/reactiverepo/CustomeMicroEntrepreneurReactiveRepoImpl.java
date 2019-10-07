@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.regex.Pattern;
 
-public class CustomeMicroEntrepreneurReactiveRepoImpl implements CustomeMicroEntrepreneurReactiveRepo<LoanInfo,String>  {
+public class CustomeMicroEntrepreneurReactiveRepoImpl implements CustomeMicroEntrepreneurReactiveRepo<MicroEntrepreneur,String>  {
 
     @Autowired
     ReactiveMongoTemplate mongoTemplate;

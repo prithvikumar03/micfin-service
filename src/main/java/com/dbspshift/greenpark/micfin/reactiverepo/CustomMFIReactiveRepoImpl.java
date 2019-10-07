@@ -1,7 +1,6 @@
 package com.dbspshift.greenpark.micfin.reactiverepo;
 
 import com.dbspshift.greenpark.micfin.beans.MFI;
-import com.dbspshift.greenpark.micfin.repository.CustomMFIRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.ReactiveMongoTemplate;

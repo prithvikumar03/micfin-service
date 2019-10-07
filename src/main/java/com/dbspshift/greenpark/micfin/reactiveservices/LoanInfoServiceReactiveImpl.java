@@ -5,8 +5,6 @@ import com.dbspshift.greenpark.micfin.beans.LoanInfo;
 import com.dbspshift.greenpark.micfin.beans.LoanSchedule;
 import com.dbspshift.greenpark.micfin.exceptions.LoanInfoNotFoundException;
 import com.dbspshift.greenpark.micfin.reactiverepo.LoanInfoReactiveRepo;
-import com.dbspshift.greenpark.micfin.repository.LoanInfoRepository;
-import com.dbspshift.greenpark.micfin.services.LoanInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;

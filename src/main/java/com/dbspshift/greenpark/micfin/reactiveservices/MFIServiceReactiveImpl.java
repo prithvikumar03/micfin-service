@@ -22,39 +22,56 @@ public class MFIServiceReactiveImpl implements MFIReactiveService {
     @Override
     public Mono<MFI> registerMFI(MFI mfi) throws Exception {
 
-        /*if(isDuplicateMfi(mfi)){
-            throw new MFINotFoundException("MFI is already registered - [CompanyName = "+mfi.getCompanyName()+"  ]");
-        }*/
 
-
-        return repository.findByCompanyName(mfi.getCompanyName())
-                .switchIfEmpty(repository.save(mfi));
-
-       /* repository.findByCompanyName(mfi.getCompanyName()).subscribe(
-                successvalue -> new MFINotFoundException("MFI is already registered - [CompanyName = "+mfi.getCompanyName()+"  ]"),
-                error -> repository.save(mfi)
-        );*/
-        /*else {
-            Mono<Integer> maxMfiId = repository.getMaxMfiId();
-            String newMfiId = "";
-            if(maxMfiId.sub()){
-                Integer integer = maxMfiId.get();
-                newMfiId = MFI_ID_BEG + String.valueOf(integer + 1);
+        return
+        Mono.just(mfi.getCompanyName())
+        .flatMap(repository::findByCompanyName).flatMap(tempmfi -> {
+            if (tempmfi.getCompanyName().length() > 0) {
+                return Mono.error(new MFINotFoundException("MFI is already registered - [CompanyName = " + mfi.getCompanyName() + "  ]"));
+            } else {
+                //Else part is required to make Mono.error return Mono of Mono<MFI> instead of Mono<Object>
+                return Mono.just(new MFI());
             }
-            else{
-                newMfiId = MFI_ID_BEG + "1";
-            }
-            mfi.setMfiId(newMfiId);
-            return (repository.save(mfi));
-        }*/
 
-        //return(repository.save(mfi));
+        })
+        .switchIfEmpty(
+            repository.getMaxMfiId()
+            .map(x -> getNextMFISequence(x))
+            .map(x ->
+                {
+                    mfi.setMfiId(x);
+                    return mfi;
+                }
+            )
+            .flatMap(repository::save)
+         );
+
     }
 
     public boolean isDuplicateMfi(MFI mfi) throws Exception{
         Mono<MFI> byMfiId = repository.findByCompanyName(mfi.getCompanyName());
         return byMfiId.blockOptional().isPresent();
 
+    }
+
+    public String getNextMFISequence(){
+        Optional<Integer> maxMfiId = repository.getMaxMfiId().blockOptional();
+        String newMfiId = "";
+        if(maxMfiId.isPresent()){
+            Integer integer = maxMfiId.get();
+            newMfiId = MFI_ID_BEG + String.valueOf(integer + 1);
+        }
+        else{
+            newMfiId = MFI_ID_BEG + "1";
+        }
+
+        return newMfiId;
+    }
+
+    public String getNextMFISequence(Integer integer){
+        String newMfiId = "";
+        newMfiId = MFI_ID_BEG + String.valueOf(integer + 1);
+        return newMfiId;
     }
 
     @Override
@@ -84,3 +101,47 @@ public class MFIServiceReactiveImpl implements MFIReactiveService {
 
 
 }
+
+
+/*Mono<Integer> maxMfiId = repository.getMaxMfiId();
+                Mono<String> newMfiId = maxMfiId.map(x -> getNextMFISequence(x));
+                Mono<MFI> mfiWithNewId = newMfiId.map(x -> {
+                            mfi.setMfiId(x);
+                            return mfi;
+                        }
+                );
+                Mono<MFI> returnMono = mfiWithNewId.flatMap(repository::save);
+                return returnMono;*/
+
+
+
+        /*return repository.findByCompanyName(mfi.getCompanyName())
+                .switchIfEmpty(repository.save(mfi));*/
+
+       /* repository.findByCompanyName(mfi.getCompanyName()).subscribe(
+                successvalue -> new MFINotFoundException("MFI is already registered - [CompanyName = "+mfi.getCompanyName()+"  ]"),
+                error -> repository.save(mfi)
+        );*/
+        /*else {
+            Mono<Integer> maxMfiId = repository.getMaxMfiId();
+            String newMfiId = "";
+            if(maxMfiId.sub()){
+                Integer integer = maxMfiId.get();
+                newMfiId = MFI_ID_BEG + String.valueOf(integer + 1);
+            }
+            else{
+                newMfiId = MFI_ID_BEG + "1";
+            }
+            mfi.setMfiId(newMfiId);
+            return (repository.save(mfi));
+        }*/
+
+//return(repository.save(mfi));
+
+
+        /*if(isDuplicateMfi(mfi)){
+            throw new MFINotFoundException("MFI is already registered - [CompanyName = "+mfi.getCompanyName()+"  ]");
+        }*/
+
+
+//String nextMFISequence = getNextMFISequence();

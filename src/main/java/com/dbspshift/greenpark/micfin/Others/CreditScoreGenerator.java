@@ -3,9 +3,9 @@ package com.dbspshift.greenpark.micfin.Others;
 import com.dbspshift.greenpark.micfin.beans.LoanInfo;
 import com.dbspshift.greenpark.micfin.beans.MicroEntrepreneur;
 import com.dbspshift.greenpark.micfin.beans.RepaymentInfo;
-import com.dbspshift.greenpark.micfin.repository.LoanInfoRepository;
-import com.dbspshift.greenpark.micfin.repository.MicroEntrepreneurRepository;
 //import org.apache.commons.lang.time.DateUtils;
+import com.dbspshift.greenpark.micfin.reactiverepo.LoanInfoReactiveRepo;
+import com.dbspshift.greenpark.micfin.reactiverepo.MicroEntrepreneurReactiveRepo;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -18,10 +18,9 @@ import java.util.*;
 
 @Component
 public class CreditScoreGenerator {
-/*
-    *//*'LIMIT_BAL', 'SEX', 'EDUCATION', 'MARRIAGE', 'AGE', 'RS_1', 'RS_2',
+/*    'LIMIT_BAL', 'SEX', 'EDUCATION', 'MARRIAGE', 'AGE', 'RS_1', 'RS_2',
         'RS_3', 'RS_4', 'RS_5', 'RS_6', 'PAY_AMT1', 'PAY_AMT2', 'PAY_AMT3',
-        'PAY_AMT4', 'PAY_AMT5', 'PAY_AMT6'*//*
+        'PAY_AMT4', 'PAY_AMT5', 'PAY_AMT6'*/
 
     private static String ML_LAMBDA_URI = "https://5xsvu5qi2e.execute-api.ap-southeast-1.amazonaws.com/default/micfin-lambda";
     //private HashMap<Integer,String> inputParamHashMap = new HashMap<>();
@@ -29,16 +28,16 @@ public class CreditScoreGenerator {
     private static DecimalFormat df2 = new DecimalFormat("#.0#"); //so that 3.0 remains as 3.0 and not 3 AND 0.5 as 0.5 and not .5
 
     @Autowired
-    MicroEntrepreneurRepository microEntrepreneurRepository;
+    MicroEntrepreneurReactiveRepo microEntrepreneurRepository;
     @Autowired
-    LoanInfoRepository loanInfoRepository;
+    LoanInfoReactiveRepo loanInfoRepository;
 
     public MicroEntrepreneur getCreditScore(RepaymentInfo repaymentInfo) throws Exception {
         String walletBalanceUrl = ML_LAMBDA_URI;
 
-        Optional<MicroEntrepreneur> byMicroEntrepreneurId = microEntrepreneurRepository.findByMicroEntrepreneurId(repaymentInfo.getMicroEntrepreneurId());
+        Optional<MicroEntrepreneur> byMicroEntrepreneurId = microEntrepreneurRepository.findByMicroEntrepreneurId(repaymentInfo.getMicroEntrepreneurId()).blockOptional();
         String loanId = repaymentInfo.getLoanId();
-        Optional<LoanInfo> loanInfo = loanInfoRepository.findByLoanId(loanId);
+        Optional<LoanInfo> loanInfo = loanInfoRepository.findByLoanId(loanId).blockOptional();
 
         try {
             String creditScore = byMicroEntrepreneurId.get().getCreditScore();
@@ -176,5 +175,5 @@ public class CreditScoreGenerator {
 
         }
         return jsonInput;
-    }*/
+    }
 }
