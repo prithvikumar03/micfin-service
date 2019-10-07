@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
 @DataMongoTest
 @RunWith(SpringRunner.class)
 public class CustomLoanInfoRepositoryImplTest {
-
+/*
     List<LoanInfo> listOfLoans = new ArrayList<>();
     @Autowired
     LoanInfoRepository loanInfoRepository;
@@ -52,5 +52,5 @@ public class CustomLoanInfoRepositoryImplTest {
         System.out.println(maxLoanId.isPresent()?maxLoanId.get():"");
         Integer expectedVal = 2;
         assertEquals(expectedVal,maxLoanId.get());
-    }
+    }*/
 }

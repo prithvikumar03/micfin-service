@@ -16,7 +16,7 @@ import java.util.Optional;
 @DataMongoTest
 @RunWith(SpringRunner.class)
 public class CustomeMicroEntrepreneurRepositoryImplTest {
-
+/*
     @Autowired
     MicroEntrepreneurRepository microEntrepreneurRepository;
 
@@ -49,6 +49,6 @@ public class CustomeMicroEntrepreneurRepositoryImplTest {
     public void getMaxMicroEntrepreneurId() {
         Optional<Integer> maxMicroEntrepreneurId = microEntrepreneurRepository.getMaxMicroEntrepreneurId();
         System.out.println(maxMicroEntrepreneurId.get());
-    }
+    }*/
 
 }

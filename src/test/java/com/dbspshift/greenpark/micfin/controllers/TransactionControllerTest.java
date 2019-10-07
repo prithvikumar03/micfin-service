@@ -1,8 +1,6 @@
 package com.dbspshift.greenpark.micfin.controllers;
 
 import com.dbspshift.greenpark.micfin.beans.LoanInfo;
-import com.dbspshift.greenpark.micfin.services.LoanInfoService;
-import com.dbspshift.greenpark.micfin.services.RepaymentInfoService;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -17,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class TransactionControllerTest {
 
-    TransactionController transactionController;
+  /*  TransactionController transactionController;
 
     @Mock
     LoanInfoService loanInfoService;
@@ -92,6 +90,6 @@ public class TransactionControllerTest {
 
     @Test
     public void getAllRepaymentInfoForMicroEntrepreneur() {
-    }
+    }*/
 
 }

@@ -1,13 +1,10 @@
 package com.dbspshift.greenpark.micfin.bootstrap;
 
 import com.dbspshift.greenpark.micfin.beans.*;
-import com.dbspshift.greenpark.micfin.repository.LoanInfoRepository;
-import com.dbspshift.greenpark.micfin.repository.MFIRepository;
-import com.dbspshift.greenpark.micfin.repository.MicroEntrepreneurRepository;
-import com.dbspshift.greenpark.micfin.services.LoanInfoService;
-import com.dbspshift.greenpark.micfin.services.MFIService;
-import com.dbspshift.greenpark.micfin.services.MicroEntrepreneurService;
-import com.dbspshift.greenpark.micfin.services.RepaymentInfoService;
+import com.dbspshift.greenpark.micfin.reactiveservices.LoanInfoReactiveService;
+import com.dbspshift.greenpark.micfin.reactiveservices.MFIReactiveService;
+import com.dbspshift.greenpark.micfin.reactiveservices.MicroEntrepreneurReactiveService;
+import com.dbspshift.greenpark.micfin.reactiveservices.RepaymentInfoReactiveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -21,27 +18,27 @@ import java.util.List;
 public class BootStrap implements ApplicationRunner {
 
     @Autowired
-    private MFIService mfiService;
+    private MFIReactiveService mfiService;
     @Autowired
-    private MicroEntrepreneurService microEntrepreneurService;
+    private MicroEntrepreneurReactiveService microEntrepreneurService;
     @Autowired
-    private LoanInfoService loanInfoService;
+    private LoanInfoReactiveService loanInfoService;
     @Autowired
-    private RepaymentInfoService repaymentInfoService;
+    private RepaymentInfoReactiveService repaymentInfoService;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        loadMFIs();
+        /*loadMFIs();
         loadMicroEntrepreneurs();
         loadLoanInfos();
-        loadRepayments();
+        loadRepayments();*/
     }
 
     private void loadMFIs(){
         List<MFI> listOfMFIs = new ArrayList<>();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         try {
-            listOfMFIs.add(new MFI("MFI1",
+            listOfMFIs.add(new MFI(
                     "OmGanesh Pte Ltd","Aditya Mohan",
                     new Address("1","78","Ashwathama Link","Indraprastha","Bharat","560001"),
                     "100000",
@@ -53,7 +50,7 @@ public class BootStrap implements ApplicationRunner {
                     "Bring Intellectual prowess to the masses"));
 
 
-            listOfMFIs.add(new MFI("MFI2",
+            listOfMFIs.add(new MFI(
                     "WikiViki","Vikram Belur",
                     new Address("2","87","Drona Drive","Indraprastha","Bharat","560002"),
                     "100000",
@@ -64,7 +61,7 @@ public class BootStrap implements ApplicationRunner {
                     false,
                     "Spread Wiki Knowledge"));
 
-            listOfMFIs.add(new MFI("MFI3",
+            listOfMFIs.add(new MFI(
                     "ThinVoice Limited","Siri Lakshmi",
                     new Address("3","47","Arjuna Road","Pataliputra","Bharat","580003"),
                     "4500000",
@@ -75,7 +72,7 @@ public class BootStrap implements ApplicationRunner {
                     false,
                     "My Voice My Choice"));
 
-            listOfMFIs.add(new MFI("MFI4",
+            listOfMFIs.add(new MFI(
                     "Nordic Wonders","Spatika Chandra",
                     new Address("4","18","Bhima Lane","Bendakaluru","Bharat","560004"),
                     "1800000",

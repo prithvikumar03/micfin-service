@@ -21,7 +21,7 @@ import static org.junit.Assert.*;
 @ExtendWith(SpringExtension.class)
 @Disabled
 class MFIMongoRepositoryTest {
-
+/*
     @Autowired
     private MFIRepository repository;
 
@@ -43,7 +43,7 @@ class MFIMongoRepositoryTest {
     void findByNameStartingWith() {
         List<MFI> result = repository.findByNameStartingWith("Saadhana");
         assertNull(result);
-    }
+    }*/
 
 
 }

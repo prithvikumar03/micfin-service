@@ -26,7 +26,7 @@ import java.util.function.Supplier;
 public class TransactionControllerReactive {
 
     private final Logger log = LogManager.getLogger(TransactionControllerReactive.class);
-    //private Repaym repaymentInfoService;
+    private RepaymentInfoReactiveService repaymentInfoService;
     private LoanInfoReactiveService loanInfoService;
     //private ProductService productService;
 
@@ -34,7 +34,7 @@ public class TransactionControllerReactive {
     public TransactionControllerReactive(
             RepaymentInfoReactiveService repaymentInfoService,
             LoanInfoReactiveService loanInfoService) {
-        //this.repaymentInfoService = repaymentInfoService;
+        this.repaymentInfoService = repaymentInfoService;
         this.loanInfoService = loanInfoService;
     }
 
@@ -83,9 +83,9 @@ public class TransactionControllerReactive {
 
     //-------------------------------------------REPAYMENT CALLS--------------------------------------------------
 
-    /*@RequestMapping(method = RequestMethod.POST, path="/repayment")
+    @RequestMapping(method = RequestMethod.POST, path="/repayment")
     public @ResponseBody
-    RepaymentInfo registerRepaymentInfo(@RequestBody RepaymentInfo repaymentInfo) throws Exception{
+    Mono<RepaymentInfo> registerRepaymentInfo(@RequestBody RepaymentInfo repaymentInfo) throws Exception{
         log.debug("Request received in registerTransaction");
         return repaymentInfoService.registerRepaymentInfo(repaymentInfo);
     }
@@ -93,9 +93,9 @@ public class TransactionControllerReactive {
     //all repayments done for a micro-entrepreneur
     @RequestMapping(method = RequestMethod.GET, path= "micro-entrepreneur/{microEntId}/repayments")
     public @ResponseBody
-    List<RepaymentInfo> getAllRepaymentInfoForMicroEntrepreneur(@PathVariable String microEntId) throws Exception{
+    Flux<RepaymentInfo> getAllRepaymentInfoForMicroEntrepreneur(@PathVariable String microEntId) throws Exception{
         log.debug("Request received in getTransaction");
         return repaymentInfoService.getAllRepaymentInfoByMicroEntrepreneurId(microEntId);
-    }*/
+    }
 
 }

@@ -54,6 +54,20 @@ public class MFI {
         this.reasonForApplication = reasonForApplication;
     }
 
+    public MFI(String companyName, String directorName, Address address, String netFundsOwned, String govtRegistrationNumber, Date registrationDate, boolean isOperating, boolean isBorrowedFromBanks, boolean isAnyCasePendingInCourt, String reasonForApplication) {
+
+        this.companyName = companyName;
+        this.directorName = directorName;
+        this.address = address;
+        this.netFundsOwned = netFundsOwned;
+        this.govtRegistrationNumber = govtRegistrationNumber;
+        this.registrationDate = registrationDate;
+        this.isOperating = isOperating;
+        this.isBorrowedFromBanks = isBorrowedFromBanks;
+        this.isAnyCasePendingInCourt = isAnyCasePendingInCourt;
+        this.reasonForApplication = reasonForApplication;
+    }
+
     public String getId() {
         return id;
     }

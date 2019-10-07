@@ -20,6 +20,7 @@ import java.util.Optional;
 @DataMongoTest
 @RunWith(SpringRunner.class)
 public class CustomMFIRepositoryImplTest {
+/*
 
     @Autowired
     MFIRepository mfiRepository;
@@ -101,5 +102,6 @@ public class CustomMFIRepositoryImplTest {
         Optional<Integer> maxMfiId = mfiRepository.getMaxMfiId();
         System.out.println(maxMfiId.get());
     }
+*/
 
 }

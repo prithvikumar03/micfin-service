@@ -3,8 +3,6 @@ package com.dbspshift.greenpark.micfin.Others;
 import com.dbspshift.greenpark.micfin.beans.LoanInfo;
 import com.dbspshift.greenpark.micfin.beans.MicroEntrepreneur;
 import com.dbspshift.greenpark.micfin.beans.RepaymentInfo;
-import com.dbspshift.greenpark.micfin.repository.LoanInfoRepository;
-import com.dbspshift.greenpark.micfin.repository.MicroEntrepreneurRepository;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -22,7 +20,7 @@ import java.util.Optional;
 
 @RunWith(SpringRunner.class)
 public class CreditScoreGeneratorTest {
-    @org.junit.jupiter.api.Test
+    /*@org.junit.jupiter.api.Test
     void getCreditScore1() {
     }
 
@@ -97,8 +95,8 @@ public class CreditScoreGeneratorTest {
 
     @Test
     public void getCreditScore() throws Exception {
-        /*MicroEntrepreneur creditScore = creditScoreGenerator.getCreditScore(repaymentInfo);
-        System.out.println(creditScore);*/
+        *//*MicroEntrepreneur creditScore = creditScoreGenerator.getCreditScore(repaymentInfo);
+        System.out.println(creditScore);*//*
     }
 
     @Test
@@ -111,7 +109,7 @@ public class CreditScoreGeneratorTest {
         DecimalFormat df2 = new DecimalFormat("#0.0#");
         String format = df2.format(.1);
         System.out.println(format);
-    }
+    }*/
 
 
 

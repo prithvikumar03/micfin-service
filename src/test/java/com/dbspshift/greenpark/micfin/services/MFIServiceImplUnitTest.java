@@ -2,7 +2,6 @@ package com.dbspshift.greenpark.micfin.services;
 
 import com.dbspshift.greenpark.micfin.beans.MFI;
 import com.dbspshift.greenpark.micfin.exceptions.MFINotFoundException;
-import com.dbspshift.greenpark.micfin.repository.MFIRepository;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,7 +26,7 @@ public class MFIServiceImplUnitTest {
         }
     }*/
 
-    MFI mfi;
+    /*MFI mfi;
 
     @Autowired
     MFIService mfiService;
@@ -74,5 +73,5 @@ public class MFIServiceImplUnitTest {
     public void deleteMFISuccess() throws Exception{
         String s = mfiService.deleteMFI("MFI1");
         Assert.assertEquals(s,"success");
-    }
+    }*/
 }
