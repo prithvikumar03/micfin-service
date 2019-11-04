@@ -7,4 +7,4 @@ WORKDIR /usr/src/micfin
 
 COPY . /usr/src/micfin/
 
-CMD ["mvn", "spring-boot:run"]
+CMD ["mvn", "-X","spring-boot:run"]
